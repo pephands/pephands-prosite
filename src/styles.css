@@ -88,3 +88,11 @@
 .container {
   max-width: 1200px !important;
 }
+
+/* Custom Hover Utilities */
+.hover-white { transition: color 0.2s ease-in-out; }
+.hover-white:hover { color: white !important; }
+
+.hover-grow { transition: transform 0.2s ease-in-out; }
+.hover-grow:hover { transform: scale(1.1); }
+

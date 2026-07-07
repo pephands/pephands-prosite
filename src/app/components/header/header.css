@@ -1,18 +1,97 @@
+/* Floating Island Header with Animated Gradient Border */
+.trendy-header-wrapper {
+  position: sticky;
+  top: 15px;
+  z-index: 1050;
+  padding: 0 15px;
+  pointer-events: none; /* Allow clicks to pass through the empty space around the island */
+}
+
+.trendy-header {
+  background: white !important;
+  border-radius: 50px;
+  pointer-events: auto; /* Re-enable clicks on the header itself */
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1250px;
+  padding: 4px 20px !important;
+  box-shadow: 0 15px 35px rgba(91, 26, 107, 0.12);
+  position: relative;
+}
+
+/* The Animated Gradient Glow Border */
+.trendy-header::before {
+  content: '';
+  position: absolute;
+  top: -2px; 
+  left: -2px; 
+  right: -2px; 
+  bottom: -2px;
+  z-index: -1;
+  border-radius: 52px;
+  background: linear-gradient(90deg, var(--pep-primary), var(--pep-magenta), var(--pep-gold), var(--pep-primary));
+  background-size: 300% 100%;
+  animation: gradientFlow 8s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 100% 0; }
+  100% { background-position: -50% 0; }
+}
+
 /* Compress navigation links to fit in one line */
 .mdc-button {
   font-size: 13px !important;
-  padding: 0 8px !important;
-  letter-spacing: 0.2px;
+  padding: 0 10px !important;
+  letter-spacing: 0.3px;
   min-width: auto !important;
   white-space: nowrap !important;
+  border-radius: 30px !important;
+  transition: all 0.25s ease-in-out !important;
+  height: 38px !important;
+}
+
+/* Fun pill hover effect for links */
+.mdc-button:hover {
+  background-color: var(--pep-primary) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(91, 26, 107, 0.2);
+}
+
+.mdc-button:hover .mat-icon {
+  color: white !important;
 }
 
 .mdc-button .mat-icon {
   margin-left: 2px !important;
   margin-right: 0 !important;
-  transform: scale(0.9);
+  transform: scale(0.85);
+  opacity: 0.8;
+  transition: color 0.2s ease;
 }
 
-.gap-3 {
-  gap: 0.5rem !important; /* Reduce the main gap between buttons */
+/* Trendy Donate Button */
+.btn-donate-trendy {
+  background: var(--pep-gold) !important;
+  border: none !important;
+  color: var(--pep-ink) !important;
+  box-shadow: 0 4px 15px rgba(232, 163, 61, 0.4) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
+  padding: 0 1.2rem !important;
+  border-radius: 50px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 14px !important;
+}
+
+.btn-donate-trendy:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(232, 163, 61, 0.6) !important;
+  background: #ffb84d !important;
 }
