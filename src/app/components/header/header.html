@@ -1,1 +1,124 @@
-<p>header works!</p>
+<header class="navbar navbar-expand-lg bg-transparent py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <!-- Left: Logo -->
+    <a class="navbar-brand m-0 p-0" href="/">
+      <img src="/logos/pephands-foundation.png" alt="Pephands Foundation" height="40"
+        class="d-inline-block align-text-top">
+    </a>
+
+    <!-- Right: Navigation & Donate Button -->
+    <div class="d-flex align-items-center gap-3">
+
+      <!-- About Us Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="aboutMenu" class="text-pep-ink fw-semibold">
+        About Us <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #aboutMenu="matMenu">
+        <button mat-menu-item>Our motto</button>
+        <button mat-menu-item>How we started</button>
+        <button mat-menu-item>Our founders and trustees</button>
+        <button mat-menu-item>Board members</button>
+        <button mat-menu-item>Advisory members</button>
+      </mat-menu>
+
+      <!-- Our Programs Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="programsMenu" class="text-pep-ink fw-semibold">
+        Our Programs <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #programsMenu="matMenu">
+        <button mat-menu-item>Super Mom</button>
+        <button mat-menu-item>Pepcares</button>
+        <button mat-menu-item>ICH Pephands Center</button>
+        <button mat-menu-item>Neonatal Kitchen</button>
+        <button mat-menu-item> Give in Kind</button>
+        <button mat-menu-item> Care fund</button>
+        <button mat-menu-item>IAM</button>
+      </mat-menu>
+
+      <!-- Celebrate By Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="celebrateMenu" class="text-pep-ink fw-semibold">
+        Celebrate by <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #celebrateMenu="matMenu">
+        <button mat-menu-item>Donating Food</button>
+        <button mat-menu-item>Feeding a Dog</button>
+        <button mat-menu-item>Sharing a Cake</button>
+        <button mat-menu-item>Feed a Children home</button>
+        <button mat-menu-item>Feed a Senior Home</button>
+        <button mat-menu-item>Giving Grocery for a Month</button>
+        <button mat-menu-item>Gifting a WheeelChair</button>
+        <button mat-menu-item>Giving a Biriyani</button>
+        <button mat-menu-item>Gifting a Toy</button>
+        <button mat-menu-item>Giving Weekly Grocery</button>
+        <button mat-menu-item>Adding Protein for Kids</button>
+        <button mat-menu-item>Providing a Study Kit</button>
+        <button mat-menu-item>Giving woman hygiene kit</button>
+        <button mat-menu-item>giving bedsheets</button>
+      </mat-menu>
+
+      <!-- Events Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="eventsMenu" class="text-pep-ink fw-semibold">
+        Events <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #eventsMenu="matMenu">
+        <button mat-menu-item>All Events</button>
+        <button mat-menu-item>Recent Events</button>
+        <button mat-menu-item>Upcoming Events</button>
+        <button mat-menu-item>Marathon 2026</button>
+      </mat-menu>
+
+      <!-- Our Footprints Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="footprintsMenu" class="text-pep-ink fw-semibold">
+        Our Footprints <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #footprintsMenu="matMenu">
+        <button mat-menu-item>Pephands Chronicles</button>
+        <button mat-menu-item>SDG Contributions</button>
+        <button mat-menu-item>Annual Reports</button>
+        <button mat-menu-item>Success Stories</button>
+      </mat-menu>
+
+      <!-- Join Now Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="joinMenu" class="text-pep-ink fw-semibold">
+        Join Now <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #joinMenu="matMenu">
+        <button mat-menu-item>as a Donor</button>
+        <button mat-menu-item>as a volunteer</button>
+        <button mat-menu-item>as a csr partner</button>
+        <button mat-menu-item>Careers</button>
+
+      </mat-menu>
+
+      <!-- Campaigns Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="campaignsMenu" class="text-pep-ink fw-semibold">
+        Campaigns <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #campaignsMenu="matMenu">
+        <button mat-menu-item>Education</button>
+        <button mat-menu-item>Medical</button>
+        <button mat-menu-item>Celebrate Your Special Day</button>
+        <button mat-menu-item>Feeding Strays</button>
+        <button mat-menu-item>Care Fund</button>
+        <button mat-menu-item>Give In Kind</button>
+      </mat-menu>
+
+      <!-- More Dropdown Menu -->
+      <button mat-button [matMenuTriggerFor]="moreMenu" class="text-pep-ink fw-semibold">
+        More <mat-icon iconPositionEnd>expand_more</mat-icon>
+      </button>
+      <mat-menu #moreMenu="matMenu">
+        <button mat-menu-item>Blog</button>
+        <button mat-menu-item>FAQs</button>
+        <button mat-menu-item>Contact</button>
+        <button mat-menu-item>CSR</button>
+      </mat-menu>
+
+      <!-- Donate Button -->
+      <button class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm text-nowrap">
+        Donate now
+      </button>
+    </div>
+  </div>
+</header>

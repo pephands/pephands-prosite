@@ -1,0 +1,18 @@
+/* Compress navigation links to fit in one line */
+.mdc-button {
+  font-size: 13px !important;
+  padding: 0 8px !important;
+  letter-spacing: 0.2px;
+  min-width: auto !important;
+  white-space: nowrap !important;
+}
+
+.mdc-button .mat-icon {
+  margin-left: 2px !important;
+  margin-right: 0 !important;
+  transform: scale(0.9);
+}
+
+.gap-3 {
+  gap: 0.5rem !important; /* Reduce the main gap between buttons */
+}

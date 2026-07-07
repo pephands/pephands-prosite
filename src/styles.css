@@ -1,2 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  /* Pephands Custom Colors */
+  --pep-bg: #fbf6f9;
+  --pep-primary: #5b1a6b;
+  --pep-ink: #260f2e;
+  --pep-gold: #e8a33d;
+  --pep-magenta: #a6266f;
+
+  /* Bootstrap Core Overrides (Making Bootstrap use our theme) */
+  --bs-body-bg: var(--pep-bg);
+  --bs-primary: var(--pep-primary);
+  --bs-primary-rgb: 91, 26, 107;
+  
+  --bs-secondary: var(--pep-ink);
+  --bs-secondary-rgb: 38, 15, 46;
+  
+  --bs-warning: var(--pep-gold);
+  --bs-warning-rgb: 232, 163, 61;
+  
+  --bs-info: var(--pep-magenta);
+  --bs-info-rgb: 166, 38, 111;
+  
+  --bs-dark: var(--pep-ink);
+  --bs-dark-rgb: 38, 15, 46;
+
+  /* Additional Link overrides */
+  --bs-link-color: var(--pep-primary);
+  --bs-link-hover-color: var(--pep-magenta);
+}
+
+/* Bootstrap Button Overrides */
+.btn-primary {
+  --bs-btn-bg: var(--pep-primary);
+  --bs-btn-border-color: var(--pep-primary);
+  --bs-btn-hover-bg: #4a1557;
+  --bs-btn-hover-border-color: #4a1557;
+  --bs-btn-active-bg: #4a1557;
+  --bs-btn-active-border-color: #4a1557;
+}
+
+.btn-secondary, .btn-dark {
+  --bs-btn-bg: var(--pep-ink);
+  --bs-btn-border-color: var(--pep-ink);
+  --bs-btn-hover-bg: #1a0a1f;
+  --bs-btn-hover-border-color: #1a0a1f;
+  --bs-btn-active-bg: #1a0a1f;
+  --bs-btn-active-border-color: #1a0a1f;
+}
+
+.btn-warning {
+  --bs-btn-bg: var(--pep-gold);
+  --bs-btn-border-color: var(--pep-gold);
+  --bs-btn-color: #000;
+  --bs-btn-hover-bg: #c98c34;
+  --bs-btn-hover-border-color: #c98c34;
+  --bs-btn-active-bg: #c98c34;
+  --bs-btn-active-border-color: #c98c34;
+}
+
+.btn-info {
+  --bs-btn-bg: var(--pep-magenta);
+  --bs-btn-border-color: var(--pep-magenta);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: #8a1f5c;
+  --bs-btn-hover-border-color: #8a1f5c;
+  --bs-btn-active-bg: #8a1f5c;
+  --bs-btn-active-border-color: #8a1f5c;
+}
+
+
+/* Custom Utility Classes for easy direct usage */
+.text-pep-primary { color: var(--pep-primary) !important; }
+.bg-pep-primary { background-color: var(--pep-primary) !important; color: white !important; }
+
+.text-pep-ink { color: var(--pep-ink) !important; }
+.bg-pep-ink { background-color: var(--pep-ink) !important; color: white !important; }
+
+.text-pep-gold { color: var(--pep-gold) !important; }
+.bg-pep-gold { background-color: var(--pep-gold) !important; color: var(--pep-ink) !important; }
+
+.text-pep-magenta { color: var(--pep-magenta) !important; }
+.bg-pep-magenta { background-color: var(--pep-magenta) !important; color: white !important; }
+
+/* Global Layout constraints */
+.container {
+  max-width: 1200px !important;
+}
