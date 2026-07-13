@@ -1,0 +1,41 @@
+<div class="blogs-page-header text-white text-center py-5 mb-5"
+  style="background: linear-gradient(135deg, var(--pep-primary), var(--pep-magenta));">
+  <div class="container py-4">
+    <h1 class="display-4 fw-bold">Our Blog</h1>
+    <p class="lead mb-0">Insights, stories, and impact from the Pephands Foundation.</p>
+  </div>
+</div>
+
+<div class="container mb-5 pb-5">
+  <div class="row g-4">
+    <div class="col-lg-4 col-md-6" *ngFor="let blog of blogs">
+      <app-blog-card [blog]="blog"></app-blog-card>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="text-center mt-5" *ngIf="isLoading">
+    <div class="spinner-border text-pep-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Traditional Pagination Controls -->
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-4 mt-5 pt-3" *ngIf="!isLoading && (hasNextPage || hasPrevPage)">
+    <button class="btn btn-outline-pep-primary rounded-pill px-3 px-md-4" 
+            (click)="prevPage()" 
+            [disabled]="!hasPrevPage">
+      <i class="bi bi-chevron-left me-1"></i> Previous
+    </button>
+    
+    <span class="text-muted fw-bold">
+      Page {{ currentPage }} of {{ totalPages }}
+    </span>
+    
+    <button class="btn btn-outline-pep-primary rounded-pill px-3 px-md-4" 
+            (click)="nextPage()" 
+            [disabled]="!hasNextPage">
+      Next <i class="bi bi-chevron-right ms-1"></i>
+    </button>
+  </div>
+</div>

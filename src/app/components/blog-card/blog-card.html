@@ -1,0 +1,39 @@
+<a [routerLink]="['/blogs', blog.url_desc]" class="interactive-blog-card">
+  <img [src]="blog.image" class="card-bg-img" [alt]="blog.title">
+  
+  <div class="card-overlay"></div>
+
+  <!-- Top layer: Tags and Date -->
+  <div class="card-header">
+    <div class="tags-container" *ngIf="blog.tags && blog.tags.length">
+      <span class="modern-tag">{{ blog.tags[0] }}</span>
+    </div>
+    
+    <div class="date-container">
+      <div class="date-glass">
+        <span class="day">{{ blog.date | date:'dd' }}</span>
+        <span class="month">{{ blog.date | date:'MMM' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom layer: Content that slides/animates -->
+  <div class="card-content">
+    <h3 class="modern-title">{{ blog.title }}</h3>
+    
+    <div class="hover-reveal">
+      <p class="modern-desc">{{ blog.meta_description }}</p>
+      
+      <div class="card-footer-info">
+        <div class="stats" *ngIf="blog.view_counts !== undefined">
+          <i class="bi bi-eye-fill me-1"></i> {{ blog.view_counts }} views
+        </div>
+        
+        <div class="action-btn">
+          <span>Read More</span>
+          <i class="bi bi-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

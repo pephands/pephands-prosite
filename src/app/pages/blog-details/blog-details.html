@@ -1,0 +1,79 @@
+<div class="blog-details-page bg-light" *ngIf="blog">
+  <!-- Modern Hero Section -->
+  <div class="blog-hero">
+    <div class="blog-hero-bg" [style.backgroundImage]="'url(' + blog.image + ')'"></div>
+    <div class="blog-hero-overlay"></div>
+    
+    <div class="container position-relative z-index-1">
+      <div class="row">
+        <div class="col-lg-10 col-xl-8">
+          <a routerLink="/blogs" class="btn btn-glass btn-sm rounded-pill mb-4 px-3">
+            <i class="bi bi-arrow-left me-1"></i> Back to Blogs
+          </a>
+          
+          <div class="d-flex flex-wrap gap-2 mb-3" *ngIf="blog.tags && blog.tags.length">
+            <span class="badge badge-glass" *ngFor="let tag of blog.tags">{{ tag }}</span>
+          </div>
+
+          <h1 class="display-4 fw-bold text-white mb-4 hero-title">{{ blog.title }}</h1>
+          
+          <div class="d-flex flex-wrap align-items-center gap-4 text-white-50 meta-info">
+            <span class="d-flex align-items-center"><i class="bi bi-calendar3 me-2"></i>{{ blog.date | date:'longDate' }}</span>
+            <span class="d-flex align-items-center" *ngIf="blog.view_counts !== undefined"><i class="bi bi-eye-fill me-2"></i>{{ blog.view_counts }} Views</span>
+            <span class="d-flex align-items-center"><i class="bi bi-person-circle me-2"></i>Pephands Foundation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content & Sidebar -->
+  <div class="container py-5 my-3">
+    <div class="row g-5">
+      
+      <!-- Main Article Content -->
+      <div class="col-lg-8">
+        <article class="blog-article-wrapper bg-white shadow-sm rounded-4 p-4 p-md-5">
+          <div class="blog-content" [innerHTML]="safeContent"></div>
+          
+          <!-- Share Section -->
+          <div class="mt-5 pt-4 border-top">
+            <h5 class="fw-bold mb-3 text-muted">Share this article</h5>
+            <div class="d-flex gap-2">
+              <button class="share-btn facebook"><i class="bi bi-facebook"></i></button>
+              <button class="share-btn twitter"><i class="bi bi-twitter-x"></i></button>
+              <button class="share-btn whatsapp"><i class="bi bi-whatsapp"></i></button>
+              <button class="share-btn linkedin"><i class="bi bi-linkedin"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <div class="col-lg-4">
+        <div class="sticky-sidebar">
+          
+          <!-- Vertical Ad Widget -->
+          <div class="sidebar-widget p-0 overflow-hidden rounded-4 shadow-sm bg-white" *ngIf="blog.vertical_ad && blog.vertical_ad.ad_image">
+            <a [href]="blog.vertical_ad.url" target="_blank" class="d-block position-relative ad-wrapper">
+              <img [src]="blog.vertical_ad.ad_image" class="w-100 h-100 object-fit-cover" [alt]="blog.vertical_ad.ad_name">
+              <div class="ad-overlay">
+                <span class="ad-badge">Sponsored</span>
+                <h4 class="text-white fw-bold mb-0">{{ blog.vertical_ad.ad_text }}</h4>
+              </div>
+            </a>
+          </div>
+
+          <!-- About Us Widget -->
+          <div class="sidebar-widget bg-white rounded-4 shadow-sm p-4 mt-4">
+            <h5 class="fw-bold mb-3 border-bottom pb-2">About Pephands</h5>
+            <p class="text-muted small mb-3">Pephands Foundation is dedicated to transforming lives through compassion, empowerment, and community action. Join us in making a difference.</p>
+            <a routerLink="/" class="btn btn-outline-pep-primary btn-sm rounded-pill w-100 fw-bold">Learn More</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
