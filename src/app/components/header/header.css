@@ -95,3 +95,77 @@
   box-shadow: 0 8px 20px rgba(232, 163, 61, 0.6) !important;
   background: #ffb84d !important;
 }
+
+/* Modern Dropdown Styling for Angular Material Menus */
+::ng-deep .modern-menu-panel {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 24px !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(91, 26, 107, 0.1), 0 5px 15px rgba(0,0,0,0.05) !important;
+  padding: 8px !important;
+  margin-top: 15px !important;
+  min-width: 200px !important;
+  max-width: 90vw !important;
+  animation: slideInFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+}
+
+@keyframes slideInFade {
+  0% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+::ng-deep .modern-menu-panel .mat-mdc-menu-item {
+  border-radius: 16px !important;
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--pep-ink) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding: 0 16px !important;
+  height: 44px !important;
+  line-height: 44px !important;
+  white-space: nowrap !important;
+}
+
+::ng-deep .modern-menu-panel .mat-mdc-menu-item:last-child {
+  margin-bottom: 0;
+}
+
+::ng-deep .modern-menu-panel .mat-mdc-menu-item:hover {
+  background-color: var(--pep-primary) !important;
+  color: white !important;
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(91, 26, 107, 0.15);
+}
+
+::ng-deep .modern-menu-panel .mat-mdc-menu-item .mdc-list-item__primary-text {
+  transition: color 0.25s ease;
+}
+
+::ng-deep .modern-menu-panel .mat-mdc-menu-item:hover .mdc-list-item__primary-text {
+  color: white !important;
+}
+
+/* Two-column layout if more than 4 items are present */
+::ng-deep .modern-menu-panel .mat-mdc-menu-content:has(.mat-mdc-menu-item:nth-child(5)),
+::ng-deep .modern-menu-panel .mat-mdc-menu-content > div:has(> .mat-mdc-menu-item:nth-child(5)) {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 16px;
+}
+
+/* For grid layout, we remove margin bottom and use row gap if needed */
+::ng-deep .modern-menu-panel .mat-mdc-menu-content:has(.mat-mdc-menu-item:nth-child(5)),
+::ng-deep .modern-menu-panel .mat-mdc-menu-content > div:has(> .mat-mdc-menu-item:nth-child(5)) {
+  row-gap: 4px;
+}
+
+::ng-deep .modern-menu-panel .mat-mdc-menu-content:has(.mat-mdc-menu-item:nth-child(5)) .mat-mdc-menu-item,
+::ng-deep .modern-menu-panel .mat-mdc-menu-content > div:has(> .mat-mdc-menu-item:nth-child(5)) .mat-mdc-menu-item {
+  margin-bottom: 0 !important;
+  width: auto !important;
+}
+
