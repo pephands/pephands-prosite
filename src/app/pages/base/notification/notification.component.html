@@ -1,0 +1,22 @@
+<ng-container>
+  <div role="alert" [ngClass]="classes">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-2 d-flex justify-content-center align-items-center">
+        <button
+          type="button"
+          class="close d-flex justify-content-center align-items-center"
+          *ngIf="dismissible"
+          (click)="dismiss()"
+        >
+          <mat-icon [mat-dialog-close]="true">close</mat-icon>
+        </button>
+      </div>
+      <div class="col-10">
+        <!-- <i *ngIf="icon" [ngClass]="'notification-icon fa fa-' + icon"></i> -->
+        <span *ngIf="message" class="notification-line">{{ message }}</span>
+
+        <!-- <p *ngIf="text" class="notification-text">{{ text }}</p> -->
+      </div>
+    </div>
+  </div>
+</ng-container>

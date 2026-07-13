@@ -1,0 +1,30 @@
+.card-alert {
+  .card-alert-text {
+    color: #4a4a4a;
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .card-alert-button {
+    display: block;
+    font-weight: 400;
+    margin: auto;
+    margin-bottom: 10px;
+    min-width: 90px;
+    width: 60%;
+  }
+}
+
+.failure-notification-wrapper {
+  color: red;
+}
+
+.success-notification-wrapper {
+  color: green;
+}
+
+::ng-deep .mat-mdc-snack-bar-handset .mdc-snackbar__surface {
+  width: 100%;
+  background-color: transparent;
+}

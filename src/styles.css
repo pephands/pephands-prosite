@@ -98,3 +98,30 @@
 
 /* Ensure all routerLinks have a pointer cursor */
 a[routerLink] { cursor: pointer !important; }
+
+/* Global Social Buttons */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  color: var(--pep-ink);
+  font-size: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.social-btn.facebook:hover { background-color: #1877F2; }
+.social-btn.twitter:hover { background-color: #000000; }
+.social-btn.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-btn.youtube:hover { background-color: #FF0000; }
+.social-btn.linkedin:hover { background-color: #0A66C2; }

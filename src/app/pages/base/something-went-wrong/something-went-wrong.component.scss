@@ -1,0 +1,31 @@
+.something-went-wrong {
+  max-width: 300px;
+  min-width: 200px;
+
+  .alert-modal-title {
+    color: #4a154b;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .alert-modal-text {
+    color: black;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .alert-modal-icon {
+    display: block;
+    font-size: 100px;
+    text-align: center;
+    color: #4a4a4a;
+  }
+
+  .alert-modal-buttons {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}

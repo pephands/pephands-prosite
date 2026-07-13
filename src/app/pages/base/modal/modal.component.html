@@ -1,0 +1,70 @@
+<div class="alert-modal p-4">
+  <div >
+    <span
+      *ngIf="icon"
+      [ngClass]="
+        'alert-modal-icon alert-modal-icon-' + iconColor + ' fa fa-' + icon
+      "
+    ></span>
+    <h4 class="alert-modal-title">{{ title }}</h4>
+    <p class="alert-modal-text"   style="white-space: pre-line">{{ text }}</p>
+  </div>
+  <div *ngIf="input">
+    <input class="alert-modal-input form-control" [(ngModel)]="inputData" />
+    <div class="alert-modal-buttons" *ngIf="input">
+      <button
+        mat-raised-button
+        type="button"
+        class="btn alert-modal-button alert-modal-button-success"
+        [mat-dialog-close]="inputData"
+      >
+        CONFIRM
+      </button>
+      <button
+        mat-stroked-button
+        type="button"
+        class="btn alert-modal-button alert-modal-button-failure"
+        [mat-dialog-close]="false"
+      >
+        CANCEL
+      </button>
+    </div>
+  </div>
+  <div
+    class="d-flex text-center justify-content-center align-items-center"
+    *ngIf="!input && options"
+  >
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      class="btn alert-modal-button alert-modal-button-success mx-2"
+      [mat-dialog-close]="true"
+    >
+      YES
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      type="button"
+      class="btn alert-modal-button alert-modal-button-failure  mx-2 "
+      [mat-dialog-close]="false"
+    >
+      NO
+    </button>
+  </div>
+  <div
+    class="d-flex text-center justify-content-center align-items-center "
+    *ngIf="!input && !options && button"
+  >
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      class="btn"
+      [mat-dialog-close]="false"
+    >
+      {{ button }}
+    </button>
+  </div>
+</div>
