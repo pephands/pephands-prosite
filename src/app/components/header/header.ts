@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material.module';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [MaterialModule],
+  imports: [MaterialModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

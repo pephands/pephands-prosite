@@ -125,7 +125,7 @@
         </button>
         <mat-menu #moreMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(moreTrigger)" (mouseleave)="closeMenu(moreTrigger)">
-            <button mat-menu-item routerLink="/blogs">Blog</button>
+            <a mat-menu-item routerLink="/blogs" style="cursor: pointer;">Blog</a>
             <button mat-menu-item>FAQs</button>
             <button mat-menu-item>Contact</button>
             <button mat-menu-item>CSR</button>

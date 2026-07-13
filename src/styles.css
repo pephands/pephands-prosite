@@ -96,3 +96,5 @@
 .hover-grow { transition: transform 0.2s ease-in-out; }
 .hover-grow:hover { transform: scale(1.1); }
 
+/* Ensure all routerLinks have a pointer cursor */
+a[routerLink] { cursor: pointer !important; }
