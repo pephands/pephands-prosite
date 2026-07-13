@@ -1,0 +1,77 @@
+.faq-page-header {
+  background: var(--pep-ink, #111111);
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-page-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(91, 26, 107, 0.4) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+
+/* Category Sidebar */
+.faq-category-btn {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: #fff;
+  color: var(--pep-ink);
+}
+
+.faq-category-btn:hover {
+  background-color: var(--pep-bg);
+}
+
+.faq-category-btn.active-category {
+  background-color: var(--pep-primary) !important;
+  color: #fff !important;
+}
+
+.faq-category-btn.active-category i {
+  color: #fff !important;
+}
+
+.faq-category-btn.active-category .transition-arrow {
+  transform: translateX(5px);
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* Custom Accordion Styling */
+.custom-accordion .accordion-item:last-child {
+  border-bottom: none !important;
+}
+
+.custom-accordion .accordion-button {
+  background-color: #fff;
+  box-shadow: none !important;
+  font-size: 1.05rem;
+  transition: all 0.2s ease;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+  background-color: var(--pep-bg);
+  color: var(--pep-primary);
+}
+
+.custom-accordion .accordion-button::after {
+  background-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.custom-accordion .accordion-body {
+  font-size: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Animations */
+.fade-in-section {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

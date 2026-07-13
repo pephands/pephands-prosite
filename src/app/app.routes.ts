@@ -7,6 +7,7 @@ import { TermsAndConditions } from './pages/terms/terms';
 import { RefundPolicy } from './pages/refund/refund';
 import { CookiesPolicy } from './pages/cookies/cookies';
 import { LegalPage } from './pages/legal/legal';
+import { Faqs } from './pages/faqs/faqs';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'terms-and-conditions', component: TermsAndConditions, title: 'Terms and Conditions - Pephands Foundation' },
   { path: 'refund-policy', component: RefundPolicy, title: 'Refund Policy - Pephands Foundation' },
   { path: 'cookies-policy', component: CookiesPolicy, title: 'Cookies Policy - Pephands Foundation' },
-  { path: 'legal', component: LegalPage, title: 'Legal Information - Pephands Foundation' }
+  { path: 'legal', component: LegalPage, title: 'Legal Information - Pephands Foundation' },
+  { path: 'faqs', component: Faqs, title: 'FAQs - Pephands Foundation' }
 ];
