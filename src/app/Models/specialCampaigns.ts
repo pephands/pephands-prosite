@@ -10,6 +10,7 @@ export class SpecialCampaigns {
   public content!: string;
   public urlDesc!: string;
   public minCount!: number;
+  public fieldName!: string;
   // public campaign_images!: string;
 
   deserializer(input: any) {
@@ -25,6 +26,7 @@ export class SpecialCampaigns {
     // this.campaign_images = input.campaign_images;
     this.urlDesc = input.url_desc;
     this.minCount = input.minimum_count;
+    this.fieldName = input.field_name;
 
     return this;
   }

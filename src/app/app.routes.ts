@@ -10,6 +10,7 @@ import { LegalPage } from './pages/legal/legal';
 import { Faqs } from './pages/faqs/faqs';
 import { Contact } from './pages/contact/contact';
 import { Volunteer } from './pages/volunteer/volunteer';
+import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: 'legal', component: LegalPage, title: 'Legal Information - Pephands Foundation' },
   { path: 'faqs', component: Faqs, title: 'FAQs - Pephands Foundation' },
   { path: 'contact-us', component: Contact, title: 'Contact Us - Pephands Foundation' },
-  { path: 'volunteer', component: Volunteer, title: 'Volunteer - Pephands Foundation' }
+  { path: 'volunteer', component: Volunteer, title: 'Volunteer - Pephands Foundation' },
+  { path: '**', component: NotFound, title: 'Page Not Found - Pephands Foundation' }
 ];

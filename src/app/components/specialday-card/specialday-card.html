@@ -1,0 +1,40 @@
+<div class="pep-campaign-card position-relative overflow-hidden" *ngIf="campaign">
+  <!-- Full Background Image -->
+  <img
+    [src]="campaign.displayImage"
+    [alt]="campaign.title"
+    class="card-bg-image position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+  />
+
+  <!-- Dark Gradient Overlay for the entire card (subtle) and heavier at the bottom -->
+  <div class="card-gradient-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+
+  <!-- Top Right Share Button -->
+  <button
+    class="share-btn position-absolute border-0 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+  >
+    <!-- Using Bootstrap share icon, colored green as in the screenshot -->
+    <i class="bi bi-reply-fill text-success fs-5" style="transform: scaleX(-1)"></i>
+  </button>
+
+  <!-- Bottom Content -->
+  <div
+    class="bottom-content position-absolute bottom-0 start-0 w-100 p-3 p-lg-4 d-flex flex-column justify-content-end"
+  >
+    <!-- Title & Price Row -->
+    <div class="d-flex align-items-center justify-content-between">
+      <h4 class="bottom-title text-white fw-bold mb-0 text-truncate pe-3">{{ campaign.title }}</h4>
+      <span class="bottom-price fw-bold mb-0">₹{{ campaign.amount }}</span>
+    </div>
+
+    <!-- Hidden Donate Button (Revealed on Hover) -->
+    <div class="donate-btn-wrapper">
+      <a
+        [routerLink]="['/donate', campaign.urlDesc]"
+        class="btn w-100 fw-bold py-2 text-white text-uppercase tracking-wider rounded-3"
+      >
+        Donate Now
+      </a>
+    </div>
+  </div>
+</div>

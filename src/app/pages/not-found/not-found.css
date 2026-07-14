@@ -1,0 +1,90 @@
+.not-found-section {
+  background: var(--pep-bg, #fcfcfc);
+  /* Match the min-height of the main wrapper to prevent white gaps */
+  min-height: calc(100vh - 350px); 
+  padding: 80px 0;
+}
+
+.error-code {
+  font-size: 12rem;
+  line-height: 1;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  letter-spacing: -5px;
+}
+
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 8rem;
+  }
+}
+
+/* Background Blobs for a premium glassmorphic/modern feel */
+.blob {
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.4;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--pep-gold, #ffb800);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--pep-primary, #5b1a6b);
+  bottom: -20%;
+  right: -10%;
+  animation-delay: -4s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* Custom Buttons */
+.btn-pep-primary {
+  background-color: var(--pep-primary, #5b1a6b);
+  border-color: var(--pep-primary, #5b1a6b);
+}
+
+.btn-pep-primary:hover {
+  background-color: var(--pep-ink, #260f2e);
+  border-color: var(--pep-ink, #260f2e);
+}
+
+.btn-outline-pep-primary {
+  color: var(--pep-primary, #5b1a6b);
+  border-color: var(--pep-primary, #5b1a6b);
+}
+
+.btn-outline-pep-primary:hover {
+  background-color: var(--pep-primary, #5b1a6b);
+  color: white;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
