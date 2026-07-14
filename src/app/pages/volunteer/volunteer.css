@@ -1,0 +1,92 @@
+/* Volunteer Page Styles */
+.volunteer-page-container {
+  padding-top: 100px; /* Accounts for fixed header */
+  overflow-x: hidden;
+}
+
+/* Orbit Testimonial Layout */
+.orbit-slot {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  top: 50%;
+  left: 500px; /* Fixed pivot point far to the right */
+  margin-top: -35px;
+  margin-left: -35px;
+}
+
+/* 
+  By using a huge 450px radius around a fixed pivot, 
+  we create a beautiful, shallow circular arc that exactly matches the design! 
+*/
+.slot-active {
+  opacity: 1;
+  visibility: visible;
+  transform: rotate(0deg) translateX(-450px) rotate(0deg);
+  z-index: 5;
+}
+
+.slot-prev-1 {
+  opacity: 1;
+  visibility: visible;
+  transform: rotate(-22deg) translateX(-450px) rotate(22deg);
+  z-index: 4;
+}
+
+.slot-prev-2 {
+  opacity: 0;
+  visibility: hidden;
+  transform: rotate(-44deg) translateX(-450px) rotate(44deg);
+  z-index: 3;
+}
+
+.slot-next-1 {
+  opacity: 1;
+  visibility: visible;
+  transform: rotate(22deg) translateX(-450px) rotate(-22deg);
+  z-index: 4;
+}
+
+.slot-next-2 {
+  opacity: 0;
+  visibility: hidden;
+  transform: rotate(44deg) translateX(-450px) rotate(-44deg);
+  z-index: 3;
+}
+
+.slot-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: rotate(0deg) translateX(0px) rotate(0deg);
+  z-index: 1;
+}
+
+.orbit-glow {
+  box-shadow: 0 0 25px rgba(166, 38, 111, 0.4);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.tracking-wider {
+  letter-spacing: 0.1em;
+}
+.tracking-tight {
+  letter-spacing: -0.02em;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991.98px) {
+  .slot-active { left: 50%; transform: translate(-50%, -50%); }
+  .slot-prev-1 { top: 50%; left: 20%; transform: translate(-50%, -50%) scale(0.85); }
+  .slot-next-1 { top: 50%; left: 80%; transform: translate(-50%, -50%) scale(0.85); }
+  .slot-prev-2, .slot-next-2 { opacity: 0; visibility: hidden; }
+  
+  .orbit-arc { display: none; } /* Hide vertical arc on mobile */
+}

@@ -94,7 +94,7 @@
         <mat-menu #joinMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(joinTrigger)" (mouseleave)="closeMenu(joinTrigger)">
             <button mat-menu-item>as a Donor</button>
-            <button mat-menu-item>as a volunteer</button>
+            <a mat-menu-item routerLink="/volunteer" style="cursor: pointer;">as a volunteer</a>
             <button mat-menu-item>as a csr partner</button>
             <button mat-menu-item>Careers</button>
           </div>

@@ -1,0 +1,247 @@
+<div class="volunteer-page-container">
+  
+  <!-- SECTION 1: HERO & SDG -->
+  <section class="volunteer-hero-section position-relative">
+    <div class="container position-relative z-index-2">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-5">
+        <ol class="breadcrumb pephands-breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Volunteer</li>
+        </ol>
+      </nav>
+
+      <!-- Pephands Heading -->
+      <div class="text-center heading-box mb-5">
+        <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small">Join Our Mission</span>
+        <h1 class="display-3 fw-bold text-pep-ink mb-3 tracking-tight">Volunteering</h1>
+        <div class="accent-line mx-auto bg-pep-primary rounded-pill" style="width: 60px; height: 4px;"></div>
+        <p class="lead text-muted mt-3 font-monospace">Building Hope, Creating Change</p>
+      </div>
+
+      <!-- Combined Grid Layout -->
+      <div class="row g-5 align-items-stretch mb-5">
+        <!-- Left side: Introduction Text -->
+        <div class="col-lg-7 col-12 d-flex flex-column justify-content-center">
+          <div class="intro-content-wrapper pe-lg-4">
+            <p class="fs-5 text-secondary mb-4 lh-lg">
+              Welcome to Pephands, where we believe in the power of collective action to create positive change. Our
+              mission is to uplift communities and make a meaningful impact in the lives of those in need. We are a
+              non-profit organization based in Chennai, with a vision to expand our reach across India.
+            </p>
+            <p class="text-muted lh-lg">
+              Pephands engages with volunteers primarily through partnerships with volunteer programs across India. If you
+              hold an undergraduate degree, possess significant work experience, and are interested in volunteering
+              opportunities nationwide, you may be eligible to join Pephands. Our organization collaborates with various
+              volunteer programs to recruit and place volunteers in assignments that support our mission. We do not
+              directly recruit volunteers; instead, we encourage individuals to explore opportunities through these
+              programs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right side: SDG Callout Card -->
+        <div class="col-lg-5 col-12 d-flex align-items-stretch">
+          <div class="sdg-merged-card p-5 rounded-4 shadow-lg text-white w-100 position-relative overflow-hidden d-flex flex-column justify-content-between"
+               style="background: linear-gradient(135deg, var(--pep-primary), var(--pep-magenta));">
+            <!-- Decorative circle -->
+            <div class="position-absolute top-0 end-0 bg-white rounded-circle opacity-10 translate-middle-y" style="width: 200px; height: 200px; margin-right: -50px;"></div>
+            
+            <div class="position-relative z-index-2">
+              <i class="bi bi-quote fs-1 text-white-50 opacity-50 mb-3 d-block"></i>
+              <p class="fs-5 lh-lg mb-4 fw-medium">
+                At Pephands, our volunteers not only assist in implementing our programs but also play a vital role in
+                advancing the 2030 Agenda for Sustainable Development and achieving the Sustainable Development Goals
+                (SDGs). By joining us as a volunteer, you become an agent of positive change.
+              </p>
+            </div>
+
+            <div class="position-relative z-index-2 mt-4 pt-4 border-top border-light border-opacity-25 text-center">
+              <a routerLink="/sdg-goals" class="btn btn-light rounded-pill px-5 py-3 fw-bold text-pep-primary hover-lift">
+                <i class="bi bi-globe-americas me-2"></i>Explore SDG Goals
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA: Scroll to Form -->
+      <div class="text-center mt-5 mb-5 pb-4">
+        <button class="btn btn-outline-pep-ink rounded-pill px-5 py-3 fw-bold hover-lift d-inline-flex align-items-center gap-3" (click)="scrollToForm()">
+          Volunteer Now <i class="bi bi-arrow-down-circle-fill fs-4 text-pep-primary"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: WHY VOLUNTEER -->
+  <section class="volunteer-why-section bg-pep-bg py-5">
+    <div class="container py-5">
+      <div class="text-center heading-box mb-5 pb-4">
+        <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small">Our Benefits</span>
+        <h2 class="display-5 fw-bold text-pep-ink mb-3">Why Volunteer with Pephands?</h2>
+        <div class="accent-line mx-auto bg-pep-primary rounded-pill" style="width: 60px; height: 4px;"></div>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        
+        <!-- Left Column -->
+        <div class="col-lg-6 col-12 d-flex flex-column gap-4">
+          <!-- Banner Image -->
+          <div class="benefits-banner-img-wrapper rounded-4 overflow-hidden shadow-lg h-50">
+            <img src="/volunteer/volunteer-banner.jpg" class="img-fluid w-100 h-100 object-fit-cover"
+              alt="Volunteering with Pephands" />
+          </div>
+
+          <!-- Card 5 -->
+          <div class="benefit-capsule bg-pep-magenta text-white rounded-4 shadow d-flex align-items-center p-4 hover-lift h-50">
+            <div class="capsule-text flex-grow-1 pe-4">
+              <h4 class="fw-bold mb-2">Be Part of Something Bigger</h4>
+              <p class="mb-0 text-white-50 lh-lg">By volunteering with Pephands, you become part of something bigger than yourself.</p>
+            </div>
+            <div class="icon-wrapper bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 64px; height: 64px;">
+              <i class="bi bi-globe2 fs-3"></i>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="benefit-capsule bg-pep-primary text-white rounded-4 shadow d-flex align-items-center p-4 hover-lift h-50">
+            <div class="capsule-text flex-grow-1 pe-4">
+              <h4 class="fw-bold mb-2">Gain Experience</h4>
+              <p class="mb-0 text-white-50 lh-lg">Volunteering with Pephands offers valuable opportunities for personal and professional growth.</p>
+            </div>
+            <div class="icon-wrapper bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 64px; height: 64px;">
+              <i class="bi bi-graph-up-arrow fs-3"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-lg-6 col-12 d-flex flex-column gap-4">
+          <!-- Card 2 -->
+          <div class="benefit-capsule bg-white text-pep-ink rounded-4 shadow-sm border border-light d-flex align-items-center p-4 hover-lift h-100">
+            <div class="icon-wrapper bg-pep-bg rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-4" style="width: 64px; height: 64px;">
+              <i class="bi bi-people-fill fs-3 text-pep-primary"></i>
+            </div>
+            <div class="capsule-text flex-grow-1">
+              <h4 class="fw-bold mb-2">Join a Community</h4>
+              <p class="mb-0 text-secondary lh-lg">When you volunteer with Pephands, you become part of a supportive and inclusive community of like-minded individuals who are passionate about creating positive change.</p>
+            </div>
+          </div>
+
+          <!-- Card 1 -->
+          <div class="benefit-capsule bg-white text-pep-ink rounded-4 shadow-sm border border-light d-flex align-items-center p-4 hover-lift h-100">
+            <div class="icon-wrapper bg-pep-bg rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-4" style="width: 64px; height: 64px;">
+              <i class="bi bi-heart-pulse-fill fs-3 text-pep-magenta"></i>
+            </div>
+            <div class="capsule-text flex-grow-1">
+              <h4 class="fw-bold mb-2">Make a Difference</h4>
+              <p class="mb-0 text-secondary lh-lg">By volunteering with Pephands, you have the opportunity to directly impact the lives of individuals and communities in need.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="benefit-capsule bg-white text-pep-ink rounded-4 shadow-sm border border-light d-flex align-items-center p-4 hover-lift h-100">
+            <div class="icon-wrapper bg-pep-bg rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-4" style="width: 64px; height: 64px;">
+              <i class="bi bi-calendar-event-fill fs-3 text-pep-gold"></i>
+            </div>
+            <div class="capsule-text flex-grow-1">
+              <h4 class="fw-bold mb-2">Flexible Opportunities</h4>
+              <p class="mb-0 text-secondary lh-lg">We offer a variety of flexible volunteer opportunities, including both short-term and long-term commitments, as well as remote and on-site options.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: VOLUNTEER TESTIMONIALS (Orbit Layout) -->
+  <section class="testimonial-section position-relative py-5 overflow-hidden">
+    <!-- Glowing background elements -->
+    <div class="position-absolute top-50 start-0 translate-middle-y rounded-circle" style="width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(166,38,111,0.05) 0%, rgba(255,255,255,0) 70%); z-index: -1;"></div>
+    
+    <div class="container py-5">
+      <div class="text-center heading-box mb-5 pb-4">
+        <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small">Volunteer Feedback</span>
+        <h2 class="display-5 fw-bold text-pep-ink mb-3">What Our Volunteers Say</h2>
+        <div class="accent-line mx-auto bg-pep-primary rounded-pill" style="width: 60px; height: 4px;"></div>
+      </div>
+
+      <div class="row align-items-stretch mt-5">
+        <!-- Left Side: Arc with Avatars -->
+        <div class="col-lg-5 col-12 d-flex justify-content-center justify-content-lg-start py-4 position-relative" style="min-height: 500px;">
+          <div class="orbit-container w-100 h-100 position-relative d-flex align-items-center" style="max-width: 400px; margin: 0 auto; overflow: visible;">
+            
+            <!-- CSS Circular Track for shallow arc (huge radius, only left border visible) -->
+            <div class="orbit-track position-absolute" style="top: 50%; left: 500px; width: 900px; height: 900px; border-radius: 50%; border: none; border-left: 1.5px solid rgba(156, 39, 176, 0.15); transform: translate(-50%, -50%); pointer-events: none;"></div>
+
+            <!-- Dynamic Orbit slots -->
+            <div *ngFor="let item of testimonials; let i = index" 
+                 class="orbit-slot position-absolute d-flex align-items-center gap-3 cursor-pointer" 
+                 [ngClass]="getSlotClass(i)"
+                 (click)="selectTestimonial(i)">
+              
+              <div class="avatar-circle rounded-circle overflow-hidden shadow-sm border border-3 flex-shrink-0"
+                   [ngClass]="i === activeIndex ? 'border-pep-magenta orbit-glow' : 'border-white opacity-75'"
+                   [ngStyle]="{'width': i === activeIndex ? '70px' : '50px', 'height': i === activeIndex ? '70px' : '50px', 'transition': 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'}">
+                <img [src]="item.image || '/volunteer/volunteer awards.jpg'" [alt]="item.name" class="w-100 h-100 object-fit-cover">
+              </div>
+              
+              <div class="slot-info transition-all" [ngStyle]="{'opacity': i === activeIndex ? '1' : '0.6', 'transform': i === activeIndex ? 'translateX(5px)' : 'translateX(0)'}">
+                <h6 class="slot-name fw-bold mb-0 text-pep-ink" [ngClass]="{'fs-5': i === activeIndex}">{{ item.name }}</h6>
+                <div class="slot-rating small text-muted mt-1 fw-medium" style="font-size: 0.8rem;">
+                  <i class="bi bi-star-fill text-warning"></i> 4.9 <span class="fw-normal">on Pephands</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Testimonial Message -->
+        <div class="col-lg-7 col-12 ps-lg-5 mt-5 mt-lg-0 d-flex flex-column justify-content-center">
+          <div class="testimonial-content-wrapper position-relative" 
+               style="transition: opacity 0.4s ease, transform 0.4s ease;"
+               [style.opacity]="isFading ? '0' : '1'"
+               [style.transform]="isFading ? 'translateY(15px)' : 'translateY(0)'">
+            
+            <!-- Large decorative quote mark matching image -->
+            <div class="position-absolute text-pep-primary opacity-10" style="font-size: 8rem; top: -60px; left: -20px; font-family: Georgia, serif; z-index: 0; line-height: 1;">“</div>
+            
+            <div class="position-relative z-index-2 pt-4">
+              <p class="fs-4 text-pep-ink mb-5" style="font-family: Georgia, serif; font-style: italic; line-height: 1.8;">
+                {{ getActiveTestimonial().message }}
+              </p>
+
+              <div class="d-flex flex-column mt-5 pt-3">
+                <h5 class="fw-bold text-pep-ink mb-2">{{ getActiveTestimonial().name }}</h5>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="text-pep-magenta fw-bold text-uppercase tracking-wider" style="font-size: 0.75rem;">Verified Volunteer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: VOLUNTEER REGISTRATION FORM -->
+  <section id="volunteer-form-section" class="volunteer-form-section py-5 bg-pep-bg border-top border-light border-opacity-50">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-11 col-lg-8">
+          <app-volunteer-form></app-volunteer-form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

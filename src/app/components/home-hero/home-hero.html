@@ -1,0 +1,74 @@
+<div class="hero-wrapper position-relative overflow-hidden">
+  <!-- Slide Container -->
+  <div
+    *ngFor="let banner of banners; let i = index"
+    class="hero-slide position-absolute top-0 start-0 w-100 h-100"
+    [class.active]="i === currentIndex"
+  >
+    <!-- Inner Theme Wrapper -->
+    <div class="w-100 h-100 d-flex align-items-center w-100" [ngClass]="banner.themeClass">
+      <!-- Background Ambient Glow -->
+      <div class="ambient-glow glow-1"></div>
+      <div class="ambient-glow glow-2"></div>
+
+      <div class="container position-relative z-index-2">
+        <div class="row align-items-center g-5">
+          <!-- Left: Content (Catch phrase, Description, CTAs) -->
+          <div class="col-lg-6 hero-content-col">
+            <div class="content-reveal-wrapper">
+              <h1 class="hero-title display-3 fw-bold mb-3 tracking-tight">
+                {{ banner.title }}
+                <span class="highlight-text d-block">{{ banner.highlight }}</span>
+              </h1>
+              <p class="hero-description lead mb-5 pe-lg-4 text-muted">
+                {{ banner.description }}
+              </p>
+
+              <div class="d-flex flex-wrap gap-3 hero-ctas">
+                <button
+                  class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg hover-lift d-flex align-items-center"
+                >
+                  {{ banner.primaryCtaText }} <i class="bi bi-arrow-right ms-2 fs-5"></i>
+                </button>
+                <button
+                  class="btn btn-outline-secondary btn-lg rounded-pill px-5 py-3 fw-bold hover-lift bg-white"
+                >
+                  {{ banner.secondaryCtaText }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Dynamic Masked Image -->
+          <div class="col-lg-6 hero-image-col text-center position-relative">
+            <div class="image-reveal-wrapper d-flex justify-content-center">
+              <div class="masked-image-container" [ngClass]="'mask-' + banner.maskType">
+                <!-- Fallback background in case image fails to load -->
+                <div class="image-overlay-bg"></div>
+                <!-- The actual rectangular image that gets masked by CSS -->
+                <img
+                  [src]="banner.imageUrl"
+                  alt="Campaign Graphic"
+                  class="img-fluid object-fit-cover w-100 h-100"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slider Controls (Dots) -->
+  <div class="hero-controls position-absolute bottom-0 start-50 translate-middle-x pb-4 z-3">
+    <div class="d-flex gap-2">
+      <button
+        *ngFor="let banner of banners; let i = index"
+        class="slide-dot rounded-pill border-0 transition-all"
+        [class.active]="i === currentIndex"
+        (click)="setSlide(i)"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
+      ></button>
+    </div>
+  </div>
+</div>
