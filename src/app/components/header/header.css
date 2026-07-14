@@ -1,6 +1,6 @@
-/* Floating Island Header with Animated Gradient Border */
 .trendy-header-wrapper {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 15px;
   z-index: 1050;
   padding: 0 15px;
