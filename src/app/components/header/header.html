@@ -48,12 +48,13 @@
         </button>
         <mat-menu #programsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(programsTrigger)" (mouseleave)="closeMenu(programsTrigger)">
-            <button mat-menu-item>Super Mom</button>
-            <button mat-menu-item>Pepcares</button>
-            <button mat-menu-item>ICH Pephands Center</button>
-            <button mat-menu-item>Neonatal Kitchen</button>
-            <button mat-menu-item>Give in Kind</button>
-            <button mat-menu-item>IAM</button>
+            <button mat-menu-item routerLink="/super-mom">Super Mom</button>
+            <button mat-menu-item routerLink="/palliative">Pepcares</button>
+            <button mat-menu-item routerLink="/pepcares/ich-center">ICH Pephands Center</button>
+            <button mat-menu-item routerLink="/neonatal">Neonatal Kitchen</button>
+            <button mat-menu-item routerLink="/give-in-kind">Give in Kind</button>
+            <button mat-menu-item>Care fund</button>
+            <button mat-menu-item routerLink="/iam">IAM</button>
           </div>
         </mat-menu>
 

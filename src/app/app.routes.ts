@@ -19,6 +19,14 @@ import { PephandsChronicles } from './pages/pephands-chronicles/pephands-chronic
 import { SdgContributions } from './pages/sdg-contributions/sdg-contributions';
 import { AnnualReports } from './pages/annual-reports/annual-reports';
 import { SuccessStories } from './pages/success-stories/success-stories';
+import { SuperMom } from './pages/super-mom/super-mom';
+import { DonateMilk } from './pages/donate-milk/donate-milk';
+import { GetMilk } from './pages/get-milk/get-milk';
+import { Pepcares } from './pages/pepcares/pepcares';
+import { IchCenter } from './pages/ich-center/ich-center';
+import { NeonatalKitchen } from './pages/neonatal-kitchen/neonatal-kitchen';
+import { GiveinKind } from './pages/givein-kind/givein-kind';
+import { IamEvent } from './pages/iam-event/iam-event';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -40,5 +48,13 @@ export const routes: Routes = [
   { path: 'sdg-goals', component: SdgContributions, title: 'SDG Contributions - Pephands Foundation' },
   { path: 'annual-reports', component: AnnualReports, title: 'Annual Reports - Pephands Foundation' },
   { path: 'success-stories', component: SuccessStories, title: 'Success Stories - Pephands Foundation' },
+  { path: 'super-mom', component: SuperMom, title: 'Super Mom - Pephands Foundation' },
+  { path: 'super-mom/donate', component: DonateMilk, title: 'Donate Milk - Pephands Foundation' },
+  { path: 'super-mom/get-milk', component: GetMilk, title: 'Get Milk - Pephands Foundation' },
+  { path: 'palliative', component: Pepcares, title: 'Pepcares - Pephands Foundation' },
+  { path: 'pepcares/ich-center', component: IchCenter, title: 'ICH Center - Pephands Foundation' },
+  { path: 'neonatal', component: NeonatalKitchen, title: 'Neonatal Kitchen - Pephands Foundation' },
+  { path: 'give-in-kind', component: GiveinKind, title: 'Give in Kind - Pephands Foundation' },
+  { path: 'iam', component: IamEvent, title: 'IAM - Pephands Foundation' },
   { path: '**', component: NotFound, title: 'Page Not Found - Pephands Foundation' }
 ];
