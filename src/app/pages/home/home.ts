@@ -6,10 +6,11 @@ import { HomeAboutComponent } from '../../components/home-about/home-about';
 import { HomeSpecialday } from '../../components/home-specialday/home-specialday';
 import { HomeSdg } from '../../components/home-sdg/home-sdg';
 import { HomePartners } from '../../components/home-partners/home-partners';
+import { HomeRecentevents } from '../../components/home-recentevents/home-recentevents';
 
 @Component({
   selector: 'app-home',
-  imports: [MaterialModule, HomeBlog, HomeHero, HomeAboutComponent, HomeSpecialday, HomeSdg, HomePartners],
+  imports: [MaterialModule, HomeBlog, HomeHero, HomeAboutComponent, HomeSpecialday, HomeSdg, HomeRecentevents, HomePartners],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

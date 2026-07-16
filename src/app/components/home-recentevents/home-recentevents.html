@@ -1,0 +1,42 @@
+<section class="pephands-section py-5 bg-pep-bg position-relative">
+  <div class="container py-lg-5">
+    <div class="d-flex justify-content-between align-items-end mb-5 pb-2">
+      <div class="heading-box text-start">
+        <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small">Our Impact</span>
+        <h2 class="display-5 fw-bold text-pep-ink mb-3 tracking-tight">Our Recent Events</h2>
+        <div class="accent-line bg-pep-primary rounded-pill" style="width: 60px; height: 4px"></div>
+        <p class="lead text-muted mt-3 mb-0">What we did recently</p>
+      </div>
+
+      <!-- Slider Navigation Controls -->
+      <div class="d-none d-md-flex gap-2">
+        <button class="slider-btn" (click)="scrollSlider(-1)">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="slider-btn" (click)="scrollSlider(1)">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center py-5">
+      <div class="spinner-border text-pep-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Events Slider -->
+    <div
+      *ngIf="!isLoading && recentEvents?.length"
+      class="recent-events-slider-track"
+      #sliderTrack
+      (mouseenter)="pauseAutoScroll()"
+      (mouseleave)="startAutoScroll()"
+    >
+      <div class="recent-event-slide" *ngFor="let recent of recentEvents; let i = index">
+        <app-recent-card [recentEvent]="recent" [index]="i"></app-recent-card>
+      </div>
+    </div>
+  </div>
+</section>

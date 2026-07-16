@@ -1,0 +1,57 @@
+.recent-events-slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  gap: 24px;
+  padding: 10px 0 40px;
+}
+
+.recent-events-slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.recent-event-slide {
+  flex: 0 0 calc(33.333% - 16px);
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .recent-event-slide {
+    flex: 0 0 calc(50% - 12px);
+  }
+}
+
+@media (max-width: 767px) {
+  .recent-event-slide {
+    flex: 0 0 100%;
+  }
+}
+
+/* Base slider buttons styling similar to the rest of the app */
+.slider-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pep-primary);
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slider-btn:hover {
+  background: var(--pep-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(91, 26, 107, 0.2);
+}

@@ -1,0 +1,51 @@
+<div class="recent-event-card-wrapper" *ngIf="recentEvent" [routerLink]="['/recent-events', recentEvent.url_desc]">
+  <div class="card-inner">
+    <!-- Image Header with Cross-fade -->
+    <div class="card-img-header position-relative overflow-hidden">
+      <img 
+        *ngFor="let img of recentEvent.recent_images; let i = index" 
+        [src]="img" 
+        class="event-img" 
+        [class.active]="i === currentImageIndex"
+        [class.previous]="i === previousImageIndex"
+        [alt]="recentEvent.title" />
+      
+      <!-- Glassmorphism Date Badge -->
+      <div class="date-badge glass-badge position-absolute top-0 end-0 m-3 d-flex flex-column align-items-center justify-content-center text-center">
+        <span class="day fw-bold">{{ recentEvent.event_date | date: 'dd' }}</span>
+        <span class="month text-uppercase small">{{ recentEvent.event_date | date: 'MMM' }}</span>
+      </div>
+
+      <!-- Modern Dot Indicators -->
+      <div class="swipe-indicators position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex gap-1" *ngIf="recentEvent.recent_images?.length > 1">
+        <span 
+          *ngFor="let img of recentEvent.recent_images; let idx = index" 
+          class="indicator-dot rounded-pill" 
+          [class.active]="idx === currentImageIndex">
+        </span>
+      </div>
+    </div>
+
+    <!-- Card Body Content -->
+    <div class="card-body-content d-flex flex-column bg-white p-4">
+      <div class="venue-tag mb-2 d-flex align-items-center text-pep-primary fw-semibold small tracking-wide">
+        <i class="bi bi-geo-alt-fill me-1"></i>
+        {{ recentEvent.venue ? (recentEvent.venue.length > 35 ? recentEvent.venue.substring(0, 35) + '...' : recentEvent.venue) : 'Various Locations' }}
+      </div>
+      
+      <h4 class="event-title text-pep-ink fw-bold mb-3 line-clamp-2">
+        {{ recentEvent.title }}
+      </h4>
+      
+      <p class="event-story text-muted small line-clamp-3 mb-4" [innerHTML]="recentEvent.recent_story"></p>
+      
+      <!-- Custom Action Area -->
+      <div class="mt-auto d-flex align-items-center justify-content-between read-more-wrapper">
+        <span class="read-more-text text-uppercase fw-bold text-pep-primary tracking-wider">Read Full Story</span>
+        <div class="arrow-circle bg-pep-primary text-white d-flex align-items-center justify-content-center rounded-circle transition-all">
+          <i class="bi bi-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
