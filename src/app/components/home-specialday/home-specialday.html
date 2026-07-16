@@ -36,6 +36,8 @@
       *ngIf="!isLoading && specialCampaigns.length > 0"
       class="specialday-slider-track"
       #sliderTrack
+      (mouseenter)="pauseAutoScroll()"
+      (mouseleave)="startAutoScroll()"
     >
       <div class="specialday-slide" *ngFor="let campaign of specialCampaigns">
         <app-specialday-card [campaign]="campaign"></app-specialday-card>

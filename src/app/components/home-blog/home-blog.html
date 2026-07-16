@@ -20,7 +20,7 @@
     </div>
 
     <!-- The Slider Track -->
-    <div class="blog-slider-track" #sliderTrack>
+    <div class="blog-slider-track" #sliderTrack (mouseenter)="pauseAutoScroll()" (mouseleave)="startAutoScroll()">
       <div class="blog-slide" *ngFor="let blog of blogs | slice:0:9">
         <app-blog-card [blog]="blog"></app-blog-card>
       </div>

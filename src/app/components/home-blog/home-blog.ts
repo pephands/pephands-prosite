@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material.module';
 import { FetchBlogsService } from '../../Providers/blogs.service';
@@ -13,14 +13,39 @@ import { BlogCard } from '../blog-card/blog-card';
   templateUrl: './home-blog.html',
   styleUrl: './home-blog.css'
 })
-export class HomeBlog implements OnInit {
+export class HomeBlog implements OnInit, OnDestroy {
   blogs: Blog[] = [];
+  autoScrollInterval: any;
   @ViewChild('sliderTrack') sliderTrack!: ElementRef;
 
-  constructor(private blogService: FetchBlogsService, private cdr: ChangeDetectorRef) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private blogService: FetchBlogsService, 
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
     this.getBlogList();
+  }
+
+  ngOnDestroy(): void {
+    this.pauseAutoScroll();
+  }
+
+  pauseAutoScroll(): void {
+    if (this.autoScrollInterval) {
+      clearInterval(this.autoScrollInterval);
+      this.autoScrollInterval = null;
+    }
+  }
+
+  startAutoScroll(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.pauseAutoScroll();
+      this.autoScrollInterval = setInterval(() => {
+        this.scrollSlider(1);
+      }, 3000);
+    }
   }
 
   getBlogList() {
@@ -40,6 +65,9 @@ export class HomeBlog implements OnInit {
           });
         }
         this.cdr.detectChanges();
+        setTimeout(() => {
+          this.startAutoScroll();
+        }, 100);
       },
       error: (err) => {
         console.error('API Error:', err);
@@ -57,7 +85,15 @@ export class HomeBlog implements OnInit {
       const slideCount = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3);
       const scrollAmount = track.clientWidth / slideCount;
       
-      track.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+      if (direction === 1 && Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth) {
+        // At the end, jump back to start smoothly
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (direction === -1 && track.scrollLeft === 0) {
+        // At the beginning, jump to end smoothly
+        track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+      }
     }
   }
 }

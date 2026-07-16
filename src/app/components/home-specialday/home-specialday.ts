@@ -1,4 +1,4 @@
-import { Component, PLATFORM_ID, Inject, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, PLATFORM_ID, Inject, ViewChild, ElementRef, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { SpecialCampaigns } from '../../Models/specialCampaigns';
 import { FetchSpecialCampaignsListService } from '../../Providers/special-campaigns-list.service';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
@@ -10,10 +10,11 @@ import { SpecialdayCard } from '../specialday-card/specialday-card';
   templateUrl: './home-specialday.html',
   styleUrl: './home-specialday.css',
 })
-export class HomeSpecialday {
+export class HomeSpecialday implements OnDestroy {
   isLoading: boolean = true;
   specialCampaigns: SpecialCampaigns[] = [];
   shakeCardIndex: number | null = null;
+  autoScrollInterval: any;
   @ViewChild('sliderTrack') sliderTrack!: ElementRef;
 
   constructor(
@@ -29,6 +30,26 @@ export class HomeSpecialday {
     this.getSpecialCampaignList();
   }
 
+  ngOnDestroy(): void {
+    this.pauseAutoScroll();
+  }
+
+  pauseAutoScroll(): void {
+    if (this.autoScrollInterval) {
+      clearInterval(this.autoScrollInterval);
+      this.autoScrollInterval = null;
+    }
+  }
+
+  startAutoScroll(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.pauseAutoScroll();
+      this.autoScrollInterval = setInterval(() => {
+        this.scrollSlider(1);
+      }, 3000);
+    }
+  }
+
   getSpecialCampaignList() {
     this.campaignsListService.getData().subscribe({
       next: (response: any) => {
@@ -42,6 +63,7 @@ export class HomeSpecialday {
         setTimeout(() => {
           this.isLoading = false;
           this.cdr.detectChanges();
+          this.startAutoScroll();
         }, 100);
       },
       error: (err) => {
