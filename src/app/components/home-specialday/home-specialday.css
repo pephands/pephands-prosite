@@ -5,6 +5,7 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  align-items: stretch; /* Stretch cards vertically */
   
   /* Bleed area for hover shadows */
   padding-top: 20px;
@@ -32,6 +33,8 @@
   flex: 0 0 calc(25% - 18px); /* 4 items on desktop */
   scroll-snap-align: start;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Tablet: 2 items */
@@ -44,7 +47,12 @@
 /* Mobile: 1 item */
 @media (max-width: 767px) {
   .specialday-slide {
-    flex: 0 0 100%;
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+  }
+  
+  .specialday-slider-track {
+    scroll-padding: 0 20px;
   }
 }
 

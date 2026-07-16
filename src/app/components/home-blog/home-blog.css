@@ -5,6 +5,7 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  align-items: stretch; /* Stretch cards vertically */
   
   /* Create a large invisible bleed area for massive hover shadows */
   padding-top: 40px;
@@ -32,6 +33,8 @@
   flex: 0 0 calc(33.333% - 16px);
   scroll-snap-align: start;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Desktop: 3 items (already handled by 33.333% above) */
@@ -46,7 +49,12 @@
 /* Mobile: 1 item */
 @media (max-width: 767px) {
   .blog-slide {
-    flex: 0 0 100%;
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+  }
+  
+  .blog-slider-track {
+    scroll-padding: 0 20px;
   }
 }
 

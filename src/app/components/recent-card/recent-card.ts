@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { MaterialModule } from '../../material.module';
 import { FoundationEvent } from '../../Models/event';
 
@@ -10,7 +11,7 @@ import { FoundationEvent } from '../../Models/event';
   templateUrl: './recent-card.html',
   styleUrl: './recent-card.css',
 })
-export class RecentCard {
+export class RecentCard implements OnInit, OnDestroy {
   @Input()
   recentEvent!: FoundationEvent;
 
@@ -19,10 +20,17 @@ export class RecentCard {
 
   currentImageIndex = 0;
   previousImageIndex = -1; // -1 means no previous image initially
+  safeStory: SafeHtml | undefined;
+  
   private intervalId: any;
   private timeoutId: any;
 
+  constructor(private sanitizer: DomSanitizer) {}
+
   ngOnInit() {
+    if (this.recentEvent?.recent_story) {
+      this.safeStory = this.sanitizer.bypassSecurityTrustHtml(this.recentEvent.recent_story);
+    }
     this.startAutoSwipe();
   }
 

@@ -7,6 +7,7 @@
   scrollbar-width: none;
   gap: 24px;
   padding: 10px 0 40px;
+  align-items: stretch; /* Ensure slides stretch vertically */
 }
 
 .recent-events-slider-track::-webkit-scrollbar {
@@ -17,7 +18,7 @@
   flex: 0 0 calc(33.333% - 16px);
   scroll-snap-align: start;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 @media (max-width: 991px) {
@@ -28,7 +29,12 @@
 
 @media (max-width: 767px) {
   .recent-event-slide {
-    flex: 0 0 100%;
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+  }
+  
+  .recent-events-slider-track {
+    scroll-padding: 0 20px;
   }
 }
 

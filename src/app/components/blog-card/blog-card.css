@@ -1,8 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
 .interactive-blog-card {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   width: 100%;
-  height: 300px; /* Adapted for landscape images */
+  min-height: 300px; /* Adapted for landscape images */
   border-radius: 20px;
   overflow: hidden;
   text-decoration: none;

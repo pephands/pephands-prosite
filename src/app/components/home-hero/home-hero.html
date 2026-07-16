@@ -12,26 +12,26 @@
       <div class="ambient-glow glow-2"></div>
 
       <div class="container position-relative z-index-2">
-        <div class="row align-items-center g-5">
+        <div class="row align-items-center justify-content-center g-4 g-lg-5 flex-column-reverse flex-lg-row">
           <!-- Left: Content (Catch phrase, Description, CTAs) -->
-          <div class="col-lg-6 hero-content-col">
+          <div class="col-12 col-lg-6 hero-content-col">
             <div class="content-reveal-wrapper">
-              <h1 class="hero-title display-3 fw-bold mb-3 tracking-tight">
+              <h1 class="hero-title fw-bold tracking-tight">
                 {{ banner.title }}
                 <span class="highlight-text d-block">{{ banner.highlight }}</span>
               </h1>
-              <p class="hero-description lead mb-5 pe-lg-4 text-muted">
+              <p class="hero-description lead pe-lg-4 text-muted">
                 {{ banner.description }}
               </p>
 
-              <div class="d-flex flex-wrap gap-3 hero-ctas">
+              <div class="d-flex flex-wrap hero-ctas">
                 <button
-                  class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg hover-lift d-flex align-items-center"
+                  class="btn btn-primary rounded-pill fw-bold shadow-lg hover-lift d-flex align-items-center justify-content-center cta-primary"
                 >
-                  {{ banner.primaryCtaText }} <i class="bi bi-arrow-right ms-2 fs-5"></i>
+                  {{ banner.primaryCtaText }} <i class="bi bi-arrow-right ms-2"></i>
                 </button>
                 <button
-                  class="btn btn-outline-secondary btn-lg rounded-pill px-5 py-3 fw-bold hover-lift bg-white"
+                  class="btn btn-outline-secondary rounded-pill fw-bold hover-lift bg-white cta-secondary"
                 >
                   {{ banner.secondaryCtaText }}
                 </button>
@@ -40,7 +40,7 @@
           </div>
 
           <!-- Right: Dynamic Masked Image -->
-          <div class="col-lg-6 hero-image-col text-center position-relative">
+          <div class="col-12 col-lg-6 hero-image-col text-center position-relative">
             <div class="image-reveal-wrapper d-flex justify-content-center">
               <div class="masked-image-container" [ngClass]="'mask-' + banner.maskType">
                 <!-- Fallback background in case image fails to load -->

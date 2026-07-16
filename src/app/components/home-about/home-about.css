@@ -126,14 +126,33 @@
 
 @media (max-width: 768px) {
   .about-section {
-  padding: 60px 0;
-}
+    padding: 60px 0;
+  }
 
   .impact-grid {
     grid-template-columns: 1fr;
-    .grid-item {
-      min-height: 350px;
-      
-    }
+    border-radius: 16px; /* slightly smaller radius on mobile */
+  }
+
+  .impact-grid .grid-item {
+    min-height: auto; /* Let content dictate height */
+  }
+
+  .impact-grid .grid-item.image-item {
+    min-height: 250px; /* Cap image height on mobile so it doesn't dominate */
+    max-height: 300px;
+  }
+
+  .impact-grid .grid-item.text-item {
+    padding: 40px 30px; /* Reduced padding for mobile */
+  }
+  
+  .impact-grid .grid-item.text-item .grid-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .impact-grid .grid-item.text-item .desc {
+    margin-bottom: 10px;
   }
 }

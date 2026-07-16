@@ -138,20 +138,38 @@
   background-color: var(--pep-primary);
 }
 
+/* --- Desktop CTAs Default --- */
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--pep-ink);
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  margin-bottom: 3rem;
+}
+
+.hero-ctas {
+  gap: 1rem;
+}
+
+.cta-primary,
+.cta-secondary {
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 991.98px) {
   .hero-wrapper {
-    height: auto;
-    padding-top: 120px;
-    padding-bottom: 60px;
+    height: 100dvh; /* Full screen on mobile */
+    min-height: 850px; /* Ensure enough room if 100dvh is too small */
+    padding-top: 80px; /* Accounts for fixed header */
+    padding-bottom: 20px;
   }
-  .hero-slide {
-    position: relative !important; /* Stack them in DOM for height calc */
-    height: auto !important;
-  }
-  .hero-slide:not(.active) {
-    display: none !important; /* Hide non-active in DOM so they don't take space */
-  }
+  
+  /* We DO NOT change .hero-slide to relative, so absolute cross-fading keeps working perfectly */
   
   .hero-content-col {
     padding-left: calc(var(--bs-gutter-x) * .5);
@@ -159,16 +177,30 @@
   }
   
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
   }
   
   .hero-ctas {
     justify-content: center;
+    gap: 12px;
   }
   
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+  }
+
   .masked-image-container {
-    max-width: 300px;
-    margin: 0 auto 30px;
+    max-width: 320px;
+    margin: 0 auto 0; /* Removing bottom margin since g-4 gap handles it */
   }
   
   .hero-controls {

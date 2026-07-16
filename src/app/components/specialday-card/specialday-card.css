@@ -1,7 +1,16 @@
 /* Exact Replication of the User's Screenshot Design */
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
 
 .pep-campaign-card {
-  height: 420px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   border-radius: 20px;
   box-shadow: none;
   border: 1px solid rgba(0, 0, 0, 0.08);

@@ -169,3 +169,144 @@
   width: auto !important;
 }
 
+
+/* Unique Full-Screen Circular Menu */
+.pep-fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: linear-gradient(135deg, rgba(38, 15, 46, 0.98), rgba(91, 26, 107, 0.98));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 9999;
+  /* Start as a tiny invisible circle in the top right */
+  clip-path: circle(0px at calc(100% - 40px) 40px);
+  transition: clip-path 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.pep-fullscreen-menu.is-open {
+  /* Expand to cover the entire screen */
+  clip-path: circle(150% at calc(100% - 40px) 40px);
+}
+
+.fullscreen-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: transparent;
+}
+
+/* Custom Animated Close Button */
+.custom-close-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-close-btn:active {
+  transform: scale(0.9);
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.cross-line {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+}
+
+.cross-line.line-1 { transform: rotate(45deg); }
+.cross-line.line-2 { transform: rotate(-45deg); }
+
+/* Transparent Accordion Overrides */
+.unique-mobile-accordion .mat-expansion-panel {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0 !important;
+}
+
+.unique-mobile-accordion .mat-expansion-panel-header {
+  padding: 15px 0 !important;
+  height: auto !important;
+}
+
+.unique-mobile-accordion .mat-expansion-indicator::after {
+  color: white !important;
+}
+
+::ng-deep .unique-mobile-accordion .mat-expansion-panel-header-title {
+  color: white;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+
+.mega-menu-title {
+  color: white;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+
+/* Links */
+.mega-menu-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding-left: 10px;
+  position: relative;
+}
+
+.mega-menu-links a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: var(--pep-gold);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mega-menu-links a:active,
+.mega-menu-links a:hover {
+  color: white;
+  padding-left: 20px;
+}
+
+.mega-menu-links a:hover::before,
+.mega-menu-links a:active::before {
+  opacity: 1;
+}
+
+/* Staggered Content Animation */
+.menu-stagger-container {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0s;
+}
+
+.pep-fullscreen-menu.is-open .menu-stagger-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
