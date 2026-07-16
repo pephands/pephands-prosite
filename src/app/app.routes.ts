@@ -27,6 +27,15 @@ import { IchCenter } from './pages/ich-center/ich-center';
 import { NeonatalKitchen } from './pages/neonatal-kitchen/neonatal-kitchen';
 import { GiveinKind } from './pages/givein-kind/givein-kind';
 import { IamEvent } from './pages/iam-event/iam-event';
+import { AllEvents } from './pages/all-events/all-events';
+import { RecentEvents } from './pages/recent-events/recent-events';
+import { UpcomingEvents } from './pages/upcoming-events/upcoming-events';
+import { Marathon2026 } from './pages/marathon-2026/marathon-2026';
+import { EducationCampaigns } from './pages/education-campaigns/education-campaigns';
+import { MedicalCampaigns } from './pages/medical-campaigns/medical-campaigns';
+import { StrayFood } from './pages/stray-food/stray-food';
+import { CareFund } from './pages/care-fund/care-fund';
+import { SpecialdayAll } from './pages/specialday-all/specialday-all';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -56,5 +65,14 @@ export const routes: Routes = [
   { path: 'neonatal', component: NeonatalKitchen, title: 'Neonatal Kitchen - Pephands Foundation' },
   { path: 'give-in-kind', component: GiveinKind, title: 'Give in Kind - Pephands Foundation' },
   { path: 'iam', component: IamEvent, title: 'IAM - Pephands Foundation' },
+  { path: 'events', component: AllEvents, title: 'All Events - Pephands Foundation' },
+  { path: 'event/recent', component: RecentEvents, title: 'Recent Events - Pephands Foundation' },
+  { path: 'events/upcoming', component: UpcomingEvents, title: 'Upcoming Events - Pephands Foundation' },
+  { path: 'run-for-life-marathon', component: Marathon2026, title: 'Marathon 2026 - Pephands Foundation' },
+  { path: 'donate/education', component: EducationCampaigns, title: 'Education Campaigns - Pephands Foundation' },
+  { path: 'donate/medical', component: MedicalCampaigns, title: 'Medical Campaigns - Pephands Foundation' },
+  { path: 'donate/paws-and-plates', component: StrayFood, title: 'Feeding Strays - Pephands Foundation' },
+  { path: 'care-fund', component: CareFund, title: 'Care Fund - Pephands Foundation' },
+  { path: 'donate/celebrate-special-day', component: SpecialdayAll, title: 'Celebrate Your Special Day - Pephands Foundation' },
   { path: '**', component: NotFound, title: 'Page Not Found - Pephands Foundation' }
 ];

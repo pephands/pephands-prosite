@@ -144,12 +144,12 @@
         </button>
         <mat-menu #campaignsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(campaignsTrigger)" (mouseleave)="closeMenu(campaignsTrigger)">
-            <button mat-menu-item>Education</button>
-            <button mat-menu-item>Medical</button>
-            <button mat-menu-item>Celebrate Your Special Day</button>
-            <button mat-menu-item>Feeding Strays</button>
-            <button mat-menu-item>Care Fund</button>
-            <button mat-menu-item>Give In Kind</button>
+            <button mat-menu-item routerLink="/donate/education">Education</button>
+            <button mat-menu-item routerLink="/donate/medical">Medical</button>
+            <button mat-menu-item routerLink="/donate/celebrate-special-day">Celebrate Your Special Day</button>
+            <button mat-menu-item routerLink="/donate/paws-and-plates">Feeding Strays</button>
+            <button mat-menu-item routerLink="/care-fund">Care Fund</button>
+            <button mat-menu-item routerLink="/give-in-kind">Give In Kind</button>
           </div>
         </mat-menu>
 
@@ -186,10 +186,10 @@
         </button>
         <mat-menu #eventsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(eventsTrigger)" (mouseleave)="closeMenu(eventsTrigger)">
-            <button mat-menu-item>All Events</button>
-            <button mat-menu-item>Recent Events</button>
-            <button mat-menu-item>Upcoming Events</button>
-            <button mat-menu-item>Marathon 2026</button>
+            <button mat-menu-item routerLink="/events">All Events</button>
+            <button mat-menu-item routerLink="/event/recent">Recent Events</button>
+            <button mat-menu-item routerLink="/events/upcoming">Upcoming Events</button>
+            <button mat-menu-item routerLink="/run-for-life-marathon">Marathon 2026</button>
           </div>
         </mat-menu>
 
