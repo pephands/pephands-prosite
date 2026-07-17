@@ -55,4 +55,60 @@ export class SeoService {
     this.renderer.setAttribute(link, 'href', href!);
     this.renderer.appendChild(head, link);
   }
+
+  updateMetaTags(meta: { title?: string; description?: string; image?: string; keywords?: string; url?: string }): void {
+    const origin = isPlatformBrowser(this.platformId) ? this.doc.location.origin : 'https://pephands.org';
+    const currentUrl = meta.url || (isPlatformBrowser(this.platformId) ? this.doc.location.href : 'https://pephands.org');
+
+    // Make image absolute if needed
+    let imageUrl = meta.image || '';
+    if (imageUrl && !imageUrl.startsWith('http')) {
+      imageUrl = origin + (imageUrl.startsWith('/') ? '' : '/') + imageUrl;
+    }
+
+    const metaTags = [
+      { name: 'description', content: meta.description },
+      { name: 'keywords', content: meta.keywords },
+      { name: 'image', content: imageUrl },
+      // Open Graph
+      { property: 'og:title', content: meta.title },
+      { property: 'og:description', content: meta.description },
+      { property: 'og:image', content: imageUrl },
+      { property: 'og:url', content: currentUrl },
+      { property: 'og:type', content: 'website' },
+      // Twitter
+      { name: 'twitter:card', content: imageUrl ? 'summary_large_image' : 'summary' },
+      { name: 'twitter:title', content: meta.title },
+      { name: 'twitter:description', content: meta.description },
+      { name: 'twitter:image', content: imageUrl }
+    ];
+
+    metaTags.forEach(tag => {
+      if (tag.content) {
+        this.updateTagInHead({
+          name: tag.name,
+          property: tag.property,
+          content: tag.content
+        });
+      }
+    });
+  }
+
+  private updateTagInHead(tag: { name?: string; property?: string; content: string }): void {
+    const head = this.doc.head;
+    if (!head) return;
+
+    const selector = tag.name ? `meta[name="${tag.name}"]` : `meta[property="${tag.property}"]`;
+    let element = this.doc.querySelector(selector);
+    
+    if (element) {
+      this.renderer.setAttribute(element, 'content', tag.content);
+    } else {
+      element = this.renderer.createElement('meta');
+      if (tag.name) this.renderer.setAttribute(element, 'name', tag.name);
+      if (tag.property) this.renderer.setAttribute(element, 'property', tag.property);
+      this.renderer.setAttribute(element, 'content', tag.content);
+      this.renderer.appendChild(head, element);
+    }
+  }
 }

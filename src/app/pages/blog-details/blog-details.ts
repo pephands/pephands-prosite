@@ -5,6 +5,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { FetchBlogsService, BlogsEditService } from '../../Providers/blogs.service';
 import { Blog } from '../../Models/blog';
+import { SeoService } from '../../Providers/seo.service';
 
 @Component({
   selector: 'app-blog-details',
@@ -28,7 +29,8 @@ export class BlogDetails implements OnInit {
     private titleService: Title,
     private metaService: Meta,
     private sanitizer: DomSanitizer,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private seoService: SeoService
   ) { }
 
   ngOnInit(): void {
@@ -63,14 +65,13 @@ export class BlogDetails implements OnInit {
   private updateSEO(blog: Blog) {
     this.titleService.setTitle(blog.meta_title ? blog.meta_title : `${blog.title} - Pephands Foundation`);
 
-    // Update Meta tags
-    this.metaService.updateTag({ name: 'description', content: blog.meta_description });
-    this.metaService.updateTag({ name: 'keywords', content: blog.seo_keywords });
-
-    // Open Graph
-    this.metaService.updateTag({ property: 'og:title', content: blog.meta_title });
-    this.metaService.updateTag({ property: 'og:description', content: blog.meta_description });
-    this.metaService.updateTag({ property: 'og:image', content: blog.image });
-    this.metaService.updateTag({ property: 'og:type', content: 'article' });
+    // Use our centralized SeoService to automatically handle absolute URL conversion,
+    // Open Graph tags, Twitter cards, and standard meta tags simultaneously!
+    this.seoService.updateMetaTags({
+      title: blog.meta_title || `${blog.title} - Pephands Foundation`,
+      description: blog.meta_description,
+      image: blog.image,
+      keywords: blog.seo_keywords,
+    });
   }
 }

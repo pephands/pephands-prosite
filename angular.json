@@ -28,7 +28,7 @@
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
-              "allowedHosts": []
+              "allowedHosts": ["*.web.app", "*.firebaseapp.com", "*.a.run.app", "pephands.org", "pephands.com"]
             },
             "ssr": {
               "entry": "src/server.ts"

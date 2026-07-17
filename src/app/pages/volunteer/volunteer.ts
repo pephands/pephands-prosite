@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VolunteerForm } from '../../components/volunteer-form/volunteer-form';
+import { SeoService } from '../../Providers/seo.service';
+
 @Component({
   selector: 'app-volunteer',
   standalone: true,
@@ -49,9 +51,15 @@ export class Volunteer implements OnInit, OnDestroy {
   constructor(
     private zone: NgZone,
     private cdr: ChangeDetectorRef,
+    private seoService: SeoService
   ) {}
 
   ngOnInit() {
+    this.seoService.updateMetaTags({
+      title: 'Volunteer - Pephands Foundation',
+      description: 'Join Pephands Foundation as a volunteer and make a meaningful impact in the lives of those in need.',
+      image: '/volunteer/volunteer-banner.jpg'
+    });
     this.startRotation();
   }
 
