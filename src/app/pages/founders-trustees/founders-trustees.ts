@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface Founder {
   name: string;
@@ -18,9 +18,18 @@ interface Founder {
   styleUrl: './founders-trustees.scss',
 })
 export class FoundersTrustees implements OnInit {
-  constructor(private meta: Meta) {}
+  constructor(private meta: Meta, private title: Title) {}
 
   ngOnInit(): void {
+    const pageTitle = 'Our Founders and Trustees - Pephands Foundation';
+    const pageDesc = 'Meet the visionary leaders of Pephands Foundation. Discover the team driving innovation, sustainable growth, and our core missions.';
+
+    this.title.setTitle(pageTitle);
+    this.meta.updateTag({ name: 'description', content: pageDesc });
+    this.meta.updateTag({ property: 'og:title', content: pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: pageDesc });
+    this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
+    this.meta.updateTag({ name: 'twitter:description', content: pageDesc });
     this.meta.updateTag({ property: 'og:image', content: 'https://pephands-prosite.web.app/team/kishar.jpeg' });
     this.meta.updateTag({ name: 'twitter:image', content: 'https://pephands-prosite.web.app/team/kishar.jpeg' });
   }
