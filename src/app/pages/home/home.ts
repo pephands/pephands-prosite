@@ -9,10 +9,11 @@ import { HomeSdg } from '../../components/home-sdg/home-sdg';
 import { HomeRecentevents } from '../../components/home-recentevents/home-recentevents';
 import { HomeEducation } from '../../components/home-education/home-education';
 import { HomePartners } from '../../components/home-partners/home-partners';
+import { HomeCarefund } from '../../components/home-carefund/home-carefund';
 
 @Component({
   selector: 'app-home',
-  imports: [MaterialModule, HomeBlog, HomeHero, HomeAboutComponent, HomeSpecialday, HomeMedical, HomeSdg, HomeRecentevents, HomeEducation, HomePartners],
+  imports: [MaterialModule, HomeBlog, HomeHero, HomeAboutComponent, HomeSpecialday, HomeMedical, HomeSdg, HomeCarefund, HomeRecentevents, HomeEducation, HomePartners],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
