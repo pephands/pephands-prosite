@@ -14,6 +14,7 @@ import { HomeGiveinkind } from '../../components/home-giveinkind/home-giveinkind
 import { HomeProgrammes } from '../../components/home-programmes/home-programmes';
 import { HomeCounts } from '../../components/home-counts/home-counts';
 import { HomeActions } from '../../components/home-actions/home-actions';
+import { VolunteerAd } from '../../components/volunteer-ad/volunteer-ad';
 
 @Component({
   selector: 'app-home',
@@ -33,6 +34,7 @@ import { HomeActions } from '../../components/home-actions/home-actions';
     HomeGiveinkind,
     HomeProgrammes,
     HomeActions,
+    VolunteerAd,
   ],
   templateUrl: './home.html',
   styleUrl: './home.css',

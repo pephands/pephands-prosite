@@ -1,0 +1,91 @@
+.page-header-section {
+  padding-top: 120px; /* Offset for fixed header */
+  min-height: 100vh;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+.team-card {
+  background: transparent;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-image-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
+  background: white;
+  border: 3px solid white;
+  flex-shrink: 0;
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-image {
+  transform: scale(1.08);
+}
+
+.team-info {
+  background: linear-gradient(135deg, var(--pep-primary), var(--pep-magenta));
+  border-radius: 24px;
+  color: white;
+  margin-left: -30px; /* Overlap image with text block */
+  z-index: 1;
+  box-shadow: 0 10px 25px rgba(91, 26, 107, 0.15);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 45px !important; /* Make room for the overlapping image */
+}
+
+.role-text {
+  color: var(--pep-gold);
+  letter-spacing: 1px;
+}
+
+.name-text {
+  letter-spacing: -0.3px;
+}
+
+.desc-text {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+/* Mobile adjustments */
+@media (max-width: 575px) {
+  .team-image-wrapper {
+    margin-bottom: -30px; /* Overlap vertically instead of horizontally */
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .team-info {
+    margin-left: 0;
+    padding-left: 20px !important;
+    padding-top: 45px !important; /* Space for the vertical overlap */
+    text-align: center;
+    width: 100%;
+  }
+}

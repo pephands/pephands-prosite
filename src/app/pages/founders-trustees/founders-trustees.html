@@ -1,1 +1,39 @@
-<p>founders-trustees works!</p>
+<section class="pephands-section page-header-section bg-pep-bg position-relative">
+  <div class="container py-5 mt-4">
+    <div class="text-center mb-5 pb-2">
+      <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small">Founders & Trustees</span>
+      <h1 class="display-4 fw-bold text-pep-ink mb-3 tracking-tight">Our Visionary Leaders</h1>
+      <div class="accent-line bg-pep-primary rounded-pill mx-auto" style="width: 80px; height: 4px"></div>
+    </div>
+
+    <div class="row justify-content-center g-5">
+      <div class="col-12 col-lg-10" *ngFor="let leader of founders">
+        <div class="leader-card d-flex flex-column flex-md-row align-items-center">
+          <div class="leader-image-wrapper">
+            <img [src]="leader.image" [alt]="leader.name" class="img-fluid leader-image" />
+          </div>
+          <div class="leader-info flex-grow-1 p-4 p-md-5">
+            <h4 class="role-text text-uppercase fw-bold mb-1">{{ leader.role }}</h4>
+            <h2 class="name-text fw-bold mb-3">{{ leader.name }}</h2>
+            <p class="desc-text mb-4 fw-medium text-pep-gold">{{ leader.desc }}</p>
+            <div class="brief-text border-top border-light pt-4 mt-2">
+              <p class="mb-0 text-light opacity-75 lh-lg">{{ leader.brief }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meet the Team CTA -->
+    <div class="cta-section text-center mt-5 pt-5 pb-3">
+      <div class="border-top border-2 pt-5 mx-auto" style="max-width: 700px; border-color: rgba(91, 26, 107, 0.1) !important;">
+        <h3 class="fw-bold text-pep-ink mb-3">Meet the Rest of Our Team</h3>
+        <p class="text-muted mb-4 lh-lg">
+          Our visionary leaders are supported by an incredible team of dedicated professionals who work tirelessly to bring our mission to life.
+        </p>
+        <a routerLink="/our-team" class="btn btn-pep-primary btn-lg rounded-pill px-5 shadow-sm text-white border-0" style="background: linear-gradient(135deg, var(--pep-primary), var(--pep-magenta));">View Full Team</a>
+      </div>
+    </div>
+
+  </div>
+</section>

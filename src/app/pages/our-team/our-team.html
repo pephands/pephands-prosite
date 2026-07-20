@@ -1,1 +1,107 @@
-<p>our-team works!</p>
+<section class="pephands-section page-header-section bg-pep-bg position-relative">
+  <div class="container py-5 mt-4">
+    <div class="text-center mb-5 pb-4">
+      <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small">Organizational Structure</span>
+      <h1 class="display-4 fw-bold text-pep-ink mb-3 tracking-tight">Meet Our Team</h1>
+      <div class="accent-line bg-pep-primary rounded-pill mx-auto mb-4" style="width: 80px; height: 4px"></div>
+      <p class="lead text-muted max-w-700 mx-auto mb-4">
+        Collaboration in Diversity, Innovation for the Future.
+      </p>
+      <p class="text-muted max-w-700 mx-auto lh-lg">
+        Our organization is driven by a passionate and diverse group of individuals united by a single vision: to create lasting social impact. From our visionary directors and strategic leadership down to our dedicated project managers and field executives, every single person on our team brings unique expertise, deep empathy, and unwavering commitment to the communities we serve. It is their tireless collaboration and ground-level execution that turns our goals into reality.
+      </p>
+    </div>
+
+    <!-- Tier 1: Directors -->
+    <div class="row justify-content-center g-4 mb-5 pb-3">
+      <div class="col-12 col-md-6 col-lg-5" *ngFor="let member of getTier(1)">
+        <div class="team-card d-flex flex-column flex-sm-row align-items-center">
+          <div class="team-image-wrapper">
+            <img [src]="member.image" [alt]="member.name" class="img-fluid team-image" />
+          </div>
+          <div class="team-info flex-grow-1 p-4">
+            <h5 class="role-text text-uppercase fw-bold mb-1">{{ member.role }}</h5>
+            <h4 class="name-text fw-bold mb-2">{{ member.name }}</h4>
+            <p class="desc-text mb-0 small">{{ member.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: CEO & Advisor -->
+    <div class="row justify-content-center g-4 mb-5 pb-3">
+      <div class="col-12 col-md-6 col-lg-5" *ngFor="let member of getTier(2)">
+        <div class="team-card d-flex flex-column flex-sm-row align-items-center">
+          <div class="team-image-wrapper">
+            <img [src]="member.image" [alt]="member.name" class="img-fluid team-image" />
+          </div>
+          <div class="team-info flex-grow-1 p-4">
+            <h5 class="role-text text-uppercase fw-bold mb-1">{{ member.role }}</h5>
+            <h4 class="name-text fw-bold mb-2">{{ member.name }}</h4>
+            <p class="desc-text mb-0 small">{{ member.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 3: CAO, RDM, PM -->
+    <div class="row justify-content-center g-4 mb-5 pb-3">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let member of getTier(3)">
+        <div class="team-card d-flex flex-column flex-sm-row align-items-center">
+          <div class="team-image-wrapper">
+            <img [src]="member.image" [alt]="member.name" class="img-fluid team-image" />
+          </div>
+          <div class="team-info flex-grow-1 p-3">
+            <h6 class="role-text text-uppercase fw-bold mb-1">{{ member.role }}</h6>
+            <h5 class="name-text fw-bold mb-2">{{ member.name }}</h5>
+            <p class="desc-text mb-0 small">{{ member.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 4: Head SW, PM, PRM -->
+    <div class="row justify-content-center g-4 mb-5 pb-3">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let member of getTier(4)">
+        <div class="team-card d-flex flex-column flex-sm-row align-items-center">
+          <div class="team-image-wrapper">
+            <img [src]="member.image" [alt]="member.name" class="img-fluid team-image" />
+          </div>
+          <div class="team-info flex-grow-1 p-3">
+            <h6 class="role-text text-uppercase fw-bold mb-1">{{ member.role }}</h6>
+            <h5 class="name-text fw-bold mb-2">{{ member.name }}</h5>
+            <p class="desc-text mb-0 small">{{ member.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 5: Field Staff -->
+    <div class="row justify-content-center g-4">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let member of getTier(5)">
+        <div class="team-card d-flex flex-column flex-sm-row align-items-center">
+          <div class="team-image-wrapper">
+            <img [src]="member.image" [alt]="member.name" class="img-fluid team-image" />
+          </div>
+          <div class="team-info flex-grow-1 p-3">
+            <h6 class="role-text text-uppercase fw-bold mb-1">{{ member.role }}</h6>
+            <h5 class="name-text fw-bold mb-2">{{ member.name }}</h5>
+            <p class="desc-text mb-0 small">{{ member.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join Our Team CTA -->
+    <div class="cta-section text-center mt-5 pt-5 pb-3">
+      <div class="border-top border-2 pt-5 max-w-700 mx-auto" style="border-color: rgba(91, 26, 107, 0.1) !important;">
+        <h3 class="fw-bold text-pep-ink mb-3">Join Our Mission</h3>
+        <p class="text-muted mb-4 lh-lg">
+          Are you passionate about making a real difference in the world? Pephands Foundation is always looking for dedicated individuals to join our growing team.
+        </p>
+        <a routerLink="/careers" class="btn btn-pep-primary btn-lg rounded-pill px-5 shadow-sm text-white border-0" style="background: linear-gradient(135deg, var(--pep-primary), var(--pep-magenta));">Explore Careers</a>
+      </div>
+    </div>
+
+  </div>
+</section>
