@@ -1,0 +1,141 @@
+.give-kind-section {
+  padding: 100px 0;
+  background-color: var(--pep-bg);
+  overflow: hidden;
+}
+
+.content-box {
+  padding-right: 2rem;
+}
+
+
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.donation-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.item-tag {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  color: var(--pep-primary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.item-tag i {
+  color: var(--pep-gold);
+}
+
+.item-tag:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--pep-primary);
+  color: #fff;
+}
+
+.btn-donate {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 35px;
+  background-color: var(--pep-primary);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-donate:hover {
+  background-color: var(--pep-magenta);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(166, 38, 111, 0.2);
+}
+
+.transition-icon {
+  transition: transform 0.3s ease;
+}
+
+.btn-donate:hover .transition-icon {
+  transform: translateX(5px);
+}
+
+.image-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: 30px;
+  left: -20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 25px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
+  color: var(--pep-ink);
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-badge i {
+  font-size: 1.2rem;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 991px) {
+  .give-kind-section {
+    padding: 60px 0;
+  }
+  .content-box {
+    padding-right: 0;
+  }
+  .donation-items {
+    justify-content: center;
+  }
+  .description {
+    text-align: center;
+  }
+  .content-box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .floating-badge {
+    left: 20px;
+  }
+}

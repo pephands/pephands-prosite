@@ -1,0 +1,65 @@
+<div class="pephands-section programmes-section">
+
+  <div class="container">
+    <!-- Heading -->
+    <div class="heading-box text-start mb-5">
+      <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small d-block mb-2">Our Initiatives</span>
+      <h2 class="display-5 fw-bold text-pep-ink mb-3 tracking-tight">Our Latest Programmes</h2>
+      <div class="accent-line bg-pep-primary rounded-pill" style="width: 60px; height: 4px"></div>
+      <p class="lead text-muted mt-3 mb-0">Enlighting The Needy Lives</p>
+    </div>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-wrapper mx-auto">
+      <div class="row g-0">
+
+        <!-- LEFT: Vertical Sidebar Tabs -->
+        <div class="col-lg-4 sidebar-col">
+          <div class="sidebar-tabs">
+            <button *ngFor="let program of programmes; let i = index" class="sidebar-btn" [class.active]="activeTab === i"
+              (click)="activeTab = i">
+              <img [src]="program.image" [alt]="program.title" class="sidebar-logo" />
+              <div class="sidebar-text">
+                <span class="sidebar-name">{{ program.title }}</span>
+                <span class="sidebar-sub">{{ program.subtitle }}</span>
+              </div>
+              <span class="sidebar-arrow">›</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT: Content Area -->
+        <div class="col-lg-8 content-col">
+          <div class="content-area">
+            <ng-container *ngFor="let program of programmes; let i = index">
+            <div class="content-panel w-100" *ngIf="activeTab === i">
+
+              <!-- Logo + Title Header -->
+              <div class="panel-header">
+                <div class="panel-titles">
+                  <h3 class="panel-name">{{ program.title }}</h3>
+                  <p class="panel-subtitle">{{ program.subtitle }}</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="panel-divider"></div>
+
+              <!-- Description -->
+              <p class="panel-desc">{{ program.content }}</p>
+
+              <!-- CTA -->
+              <a [routerLink]="[program.url]" class="panel-btn">
+                Know More <span class="ms-2">→</span>
+              </a>
+
+            </div>
+          </ng-container>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
