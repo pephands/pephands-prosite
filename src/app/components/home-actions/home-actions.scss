@@ -1,0 +1,255 @@
+$brand-purple: #4a154b;
+$brand-accent: #9c27b0;
+$white: #ffffff;
+$radius: 40px;
+
+.action-experience {
+  padding: 100px 0; // Reduced from 80px
+  background-color:#F8F1FF;
+}
+
+.video-container-wrapper {
+  padding: 0 5%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  min-height: 550px; // Further reduced from 550px
+  border-radius: 24px; // Slightly tighter radius
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba($brand-purple, 0.2);
+  background: #000;
+
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    min-height: auto; 
+    border-radius: 20px;
+  }
+}
+
+.image-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  @media (max-width: 991px) {
+    position: relative;
+    height: 350px;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out, transform 8s linear; // Smooth transition
+    transform: scale(1.1); // Subtle zoom effect
+
+    &.active {
+      opacity: 0.85; // Matches previous video opacity
+      transform: scale(1);
+    }
+  }
+}
+
+.glass-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  // background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (max-width: 991px) {
+    position: relative;
+    background: $brand-purple;
+    inset: auto;
+    margin-top: -1px; // Ensure perfect overlap
+  }
+}
+
+.glass-content-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  color: $white;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  // Shimmer effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.05) 50%, transparent 55%);
+    animation: shimmer 10s infinite linear;
+    pointer-events: none;
+  }
+
+  .action-title {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .accent-line {
+    width: 30px;
+    height: 2px;
+    background: $brand-accent;
+    border-radius: 2px;
+    margin-top: 4px;
+  }
+
+  .description {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    opacity: 0.9;
+    max-width: 1000px;
+    font-weight: 400;
+    margin-bottom: 0 !important; // Remove margin
+     &.truncated {
+      display: -webkit-box;
+      -webkit-line-clamp: 2; // Show only 2 lines
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      @media (max-width: 991px) {
+        display: block;
+        -webkit-line-clamp: initial;
+        overflow: visible;
+      }
+    }
+  }
+
+  .more-btn {
+    background: none;
+    border: none;
+    color: #ffffff; // Lighter lilac color for better visibility on dark glass
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 2px 0;
+    cursor: pointer;
+    display: block; // Keep it on its own line but tight
+    margin-top: -2px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 991px) {
+      display: none !important;
+    }
+  }
+}
+
+.impact-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px; // Minimum padding
+  display: none; // Hidden on desktop initially
+
+  &.expanded-content {
+    display: flex; // Shown on desktop when expanded
+  }
+
+  @media (max-width: 991px) {
+    display: flex !important; // ALWAYS shown on mobile
+  }
+}
+
+.impact-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .impact-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: linear-gradient(135deg, rgba($brand-accent, 0.3), rgba($brand-accent, 0.1));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      filter: drop-shadow(0 0 5px rgba($brand-accent, 0.5));
+    }
+  }
+
+  &:hover .impact-icon {
+    background: $brand-accent;
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .impact-text {
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: $white;
+    }
+    p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      opacity: 0.7;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 991px) {
+    margin-bottom: 20px;
+  }
+}
+
+.know-more-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 32px;
+  background: $white;
+  color: $brand-purple;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: $brand-accent;
+    color: $white;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba($brand-accent, 0.4);
+    text-decoration: none;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

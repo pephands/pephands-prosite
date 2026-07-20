@@ -1,0 +1,103 @@
+<section class="action-experience pephands-section">
+  <!-- Section Title -->
+  <div class="container">
+    <div class="text-start heading-box mb-5">
+      <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small d-block mb-2">In Action</span>
+      <h2 class="display-5 fw-bold text-pep-ink mb-3 tracking-tight">Pephands in action</h2>
+      <div class="accent-line bg-pep-primary rounded-pill" style="width: 60px; height: 4px"></div>
+      <p class="lead text-pep-primary mt-3 mb-0">Every Step We Had During Emergencies</p>
+    </div>
+  </div>
+
+  <div class="video-container-wrapper">
+    <div class="video-container">
+      <!-- Image Slideshow Background -->
+      <div class="image-slideshow">
+        <div *ngFor="let img of images; let i = index" class="slide" [class.active]="i === currentImageIndex"
+          [style.backgroundImage]="'url(' + img + ')'"></div>
+      </div>
+
+      <!-- Glass Overlay -->
+      <div class="glass-overlay">
+        <div class="glass-content-box p-3 p-md-4">
+          <div class="container-fluid p-0">
+            <div class="row">
+              <div class="col-12">
+                <!-- Main Header -->
+                <div
+                  class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-1">
+                  <div>
+                    <h2 class="action-title mb-1">Michaung Flood - Dec, 2023</h2>
+                    <div class="accent-line"></div>
+                  </div>
+                  <!-- Desktop Button -->
+                  <div class="mt-2 mb-2 mt-md-0 d-none d-md-block">
+                    <a [routerLink]="['/michaung-flood-relief']" class="know-more-btn">
+                      Explore Full Story
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <div class="description-wrapper">
+                  <p class="description mb-1" [class.truncated]="!isExpanded">
+                    In response to the devastating impact of Cyclone Michaung in Chennai, our Flood Relief Program
+                    swiftly mobilized to aid those affected. We delivered essential supplies, including food, water, and
+                    blankets, to communities stranded by floodwaters.
+                  </p>
+                  <button class="more-btn" (click)="toggleExpansion()">
+                    {{ isExpanded ? 'Read Less' : 'more...' }}
+                  </button>
+                </div>
+
+                <!-- Mobile Button (Shown below description) -->
+                <div class="mt-3 mb-4 d-block d-md-none">
+                  <a [routerLink]="['/michaung-flood-relief']" class="know-more-btn">
+                    Explore Full Story
+                  </a>
+                </div>
+
+                <!-- Impact Highlights -->
+                <div class="row impact-row" [class.expanded-content]="isExpanded">
+                  <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="impact-item">
+                      <div class="impact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2.5">
+                          <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                      </div>
+                      <div class="impact-text">
+                        <h3>Immediate Action</h3>
+                        <p>Our team wasted no time in providing assistance to those in need, ensuring no one was left
+                          behind.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="impact-item">
+                      <div class="impact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2.5">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                      </div>
+                      <div class="impact-text">
+                        <h3>Community Support</h3>
+                        <p>Through collaborative efforts with local organizations, we reached thousands across Chennai,
+                          offering vital aid during this challenging time.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

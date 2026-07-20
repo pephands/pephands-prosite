@@ -13,6 +13,7 @@ import { HomeCarefund } from '../../components/home-carefund/home-carefund';
 import { HomeGiveinkind } from '../../components/home-giveinkind/home-giveinkind';
 import { HomeProgrammes } from '../../components/home-programmes/home-programmes';
 import { HomeCounts } from '../../components/home-counts/home-counts';
+import { HomeActions } from '../../components/home-actions/home-actions';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +32,7 @@ import { HomeCounts } from '../../components/home-counts/home-counts';
     HomePartners,
     HomeGiveinkind,
     HomeProgrammes,
+    HomeActions,
   ],
   templateUrl: './home.html',
   styleUrl: './home.css',
