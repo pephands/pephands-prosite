@@ -3,31 +3,55 @@
     <div class="w-100 d-flex justify-content-between align-items-center p-2">
       <!-- Left: Logo -->
       <a class="navbar-brand m-0 p-0 ps-3" routerLink="/">
-        <img src="/logos/pephands-foundation.png" alt="Pephands Foundation" height="36" class="d-inline-block align-text-top" />
+        <img
+          src="/logos/pephands-foundation.png"
+          alt="Pephands Foundation"
+          height="36"
+          class="d-inline-block align-text-top"
+        />
       </a>
 
       <!-- Hamburger Button (Mobile Only) -->
-      <button class="btn d-lg-none text-pep-ink border-0 me-2 shadow-none" (click)="toggleMobileMenu()">
+      <button
+        class="btn d-lg-none text-pep-ink border-0 me-2 shadow-none"
+        (click)="toggleMobileMenu()"
+      >
         <mat-icon>menu</mat-icon>
       </button>
 
       <!-- Right: Navigation & Donate Button (Desktop Only) -->
       <div class="d-none d-lg-flex align-items-center gap-1 pe-2">
         <!-- About Us Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="aboutMenu" #aboutTrigger="matMenuTrigger" (mouseenter)="openMenu(aboutTrigger)" (mouseleave)="closeMenu(aboutTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="aboutMenu"
+          #aboutTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(aboutTrigger)"
+          (mouseleave)="closeMenu(aboutTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           About Us <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #aboutMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(aboutTrigger)" (mouseleave)="closeMenu(aboutTrigger)">
             <button mat-menu-item routerLink="/our-motto">Our motto</button>
             <button mat-menu-item routerLink="/about-us">How we started</button>
-            <button mat-menu-item routerLink="/our-founders-and-trustees">Our founders and trustees</button>
+            <button mat-menu-item routerLink="/our-founders-and-trustees">
+              Our founders and trustees
+            </button>
             <button mat-menu-item routerLink="/our-team">Our Team</button>
           </div>
         </mat-menu>
 
         <!-- Our Programs Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="programsMenu" #programsTrigger="matMenuTrigger" (mouseenter)="openMenu(programsTrigger)" (mouseleave)="closeMenu(programsTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="programsMenu"
+          #programsTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(programsTrigger)"
+          (mouseleave)="closeMenu(programsTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           Our Programs <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #programsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
@@ -43,7 +67,14 @@
         </mat-menu>
 
         <!-- Celebrate By Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="celebrateMenu" #celebrateTrigger="matMenuTrigger" (mouseenter)="openMenu(celebrateTrigger)" (mouseleave)="closeMenu(celebrateTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="celebrateMenu"
+          #celebrateTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(celebrateTrigger)"
+          (mouseleave)="closeMenu(celebrateTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           Celebrate by <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #celebrateMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
@@ -66,11 +97,21 @@
         </mat-menu>
 
         <!-- Our Footprints Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="footprintsMenu" #footprintsTrigger="matMenuTrigger" (mouseenter)="openMenu(footprintsTrigger)" (mouseleave)="closeMenu(footprintsTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="footprintsMenu"
+          #footprintsTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(footprintsTrigger)"
+          (mouseleave)="closeMenu(footprintsTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           Our Footprints <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #footprintsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
-          <div (mouseenter)="openMenu(footprintsTrigger)" (mouseleave)="closeMenu(footprintsTrigger)">
+          <div
+            (mouseenter)="openMenu(footprintsTrigger)"
+            (mouseleave)="closeMenu(footprintsTrigger)"
+          >
             <button mat-menu-item routerLink="/pephands-chronicles">Pephands Chronicles</button>
             <button mat-menu-item routerLink="/sdg-goals">SDG Contributions</button>
             <button mat-menu-item routerLink="/annual-reports">Annual Reports</button>
@@ -79,7 +120,14 @@
         </mat-menu>
 
         <!-- Join Now Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="joinMenu" #joinTrigger="matMenuTrigger" (mouseenter)="openMenu(joinTrigger)" (mouseleave)="closeMenu(joinTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="joinMenu"
+          #joinTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(joinTrigger)"
+          (mouseleave)="closeMenu(joinTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           Join Now <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #joinMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
@@ -92,14 +140,23 @@
         </mat-menu>
 
         <!-- Campaigns Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="campaignsMenu" #campaignsTrigger="matMenuTrigger" (mouseenter)="openMenu(campaignsTrigger)" (mouseleave)="closeMenu(campaignsTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="campaignsMenu"
+          #campaignsTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(campaignsTrigger)"
+          (mouseleave)="closeMenu(campaignsTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           Campaigns <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #campaignsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(campaignsTrigger)" (mouseleave)="closeMenu(campaignsTrigger)">
-            <button mat-menu-item routerLink="/donate/education">Education</button>
-            <button mat-menu-item routerLink="/donate/medical">Medical</button>
-            <button mat-menu-item routerLink="/donate/celebrate-special-day">Celebrate Your Special Day</button>
+            <button mat-menu-item routerLink="/causes/education">Education</button>
+            <button mat-menu-item routerLink="/causes/medical">Medical</button>
+            <button mat-menu-item routerLink="/donate/celebrate-special-day">
+              Celebrate Your Special Day
+            </button>
             <button mat-menu-item routerLink="/donate/paws-and-plates">Feeding Strays</button>
             <button mat-menu-item routerLink="/care-fund">Care Fund</button>
             <button mat-menu-item routerLink="/give-in-kind">Give In Kind</button>
@@ -107,7 +164,14 @@
         </mat-menu>
 
         <!-- More Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="moreMenu" #moreTrigger="matMenuTrigger" (mouseenter)="openMenu(moreTrigger)" (mouseleave)="closeMenu(moreTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="moreMenu"
+          #moreTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(moreTrigger)"
+          (mouseleave)="closeMenu(moreTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           More <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #moreMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
@@ -120,7 +184,14 @@
         </mat-menu>
 
         <!-- Events Dropdown Menu -->
-        <button mat-button [matMenuTriggerFor]="eventsMenu" #eventsTrigger="matMenuTrigger" (mouseenter)="openMenu(eventsTrigger)" (mouseleave)="closeMenu(eventsTrigger)" class="text-pep-ink fw-semibold">
+        <button
+          mat-button
+          [matMenuTriggerFor]="eventsMenu"
+          #eventsTrigger="matMenuTrigger"
+          (mouseenter)="openMenu(eventsTrigger)"
+          (mouseleave)="closeMenu(eventsTrigger)"
+          class="text-pep-ink fw-semibold"
+        >
           Events <mat-icon iconPositionEnd>expand_more</mat-icon>
         </button>
         <mat-menu #eventsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
@@ -144,14 +215,17 @@
       <div class="bg-white rounded-pill px-3 py-2 shadow-sm d-flex align-items-center">
         <img src="/logos/pephands-foundation.png" alt="Pephands Foundation" height="28" />
       </div>
-      
+
       <!-- Custom Animated Close Button -->
-      <button class="custom-close-btn border-0 bg-transparent shadow-none" (click)="closeMobileMenu()">
+      <button
+        class="custom-close-btn border-0 bg-transparent shadow-none"
+        (click)="closeMobileMenu()"
+      >
         <div class="cross-line line-1"></div>
         <div class="cross-line line-2"></div>
       </button>
     </div>
-    
+
     <div class="fullscreen-body px-4 pb-5">
       <div class="menu-stagger-container">
         <mat-accordion class="unique-mobile-accordion">
@@ -162,7 +236,9 @@
             <div class="d-flex flex-column gap-4 py-3 mega-menu-links">
               <a routerLink="/our-motto" (click)="closeMobileMenu()">Our motto</a>
               <a routerLink="/about-us" (click)="closeMobileMenu()">How we started</a>
-              <a routerLink="/our-founders-and-trustees" (click)="closeMobileMenu()">Our founders and trustees</a>
+              <a routerLink="/our-founders-and-trustees" (click)="closeMobileMenu()"
+                >Our founders and trustees</a
+              >
               <a routerLink="/our-team" (click)="closeMobileMenu()">Our Team</a>
             </div>
           </mat-expansion-panel>
@@ -174,7 +250,9 @@
             <div class="d-flex flex-column gap-4 py-3 mega-menu-links">
               <a routerLink="/super-mom" (click)="closeMobileMenu()">Super Mom</a>
               <a routerLink="/palliative" (click)="closeMobileMenu()">Pepcares</a>
-              <a routerLink="/pepcares/ich-center" (click)="closeMobileMenu()">ICH Pephands Center</a>
+              <a routerLink="/pepcares/ich-center" (click)="closeMobileMenu()"
+                >ICH Pephands Center</a
+              >
               <a routerLink="/neonatal" (click)="closeMobileMenu()">Neonatal Kitchen</a>
               <a routerLink="/give-in-kind" (click)="closeMobileMenu()">Give in Kind</a>
               <a (click)="closeMobileMenu()">Care fund</a>
@@ -209,7 +287,9 @@
               <mat-panel-title class="mega-menu-title">Our Footprints</mat-panel-title>
             </mat-expansion-panel-header>
             <div class="d-flex flex-column gap-4 py-3 mega-menu-links">
-              <a routerLink="/pephands-chronicles" (click)="closeMobileMenu()">Pephands Chronicles</a>
+              <a routerLink="/pephands-chronicles" (click)="closeMobileMenu()"
+                >Pephands Chronicles</a
+              >
               <a routerLink="/sdg-goals" (click)="closeMobileMenu()">SDG Contributions</a>
               <a routerLink="/annual-reports" (click)="closeMobileMenu()">Annual Reports</a>
               <a routerLink="/success-stories" (click)="closeMobileMenu()">Success Stories</a>
@@ -233,9 +313,11 @@
               <mat-panel-title class="mega-menu-title">Campaigns</mat-panel-title>
             </mat-expansion-panel-header>
             <div class="d-flex flex-column gap-4 py-3 mega-menu-links">
-              <a routerLink="/donate/education" (click)="closeMobileMenu()">Education</a>
-              <a routerLink="/donate/medical" (click)="closeMobileMenu()">Medical</a>
-              <a routerLink="/donate/celebrate-special-day" (click)="closeMobileMenu()">Celebrate Your Special Day</a>
+              <a routerLink="/causes/education" (click)="closeMobileMenu()">Education</a>
+              <a routerLink="/causes/medical" (click)="closeMobileMenu()">Medical</a>
+              <a routerLink="/donate/celebrate-special-day" (click)="closeMobileMenu()"
+                >Celebrate Your Special Day</a
+              >
               <a routerLink="/donate/paws-and-plates" (click)="closeMobileMenu()">Feeding Strays</a>
               <a routerLink="/care-fund" (click)="closeMobileMenu()">Care Fund</a>
               <a routerLink="/give-in-kind" (click)="closeMobileMenu()">Give In Kind</a>
@@ -266,9 +348,12 @@
             </div>
           </mat-expansion-panel>
         </mat-accordion>
-        
+
         <div class="mt-5 pb-5">
-          <button class="btn btn-donate-trendy w-100 fw-bold py-3 fs-5 shadow-lg" style="border-radius: 100px;">
+          <button
+            class="btn btn-donate-trendy w-100 fw-bold py-3 fs-5 shadow-lg"
+            style="border-radius: 100px"
+          >
             Make a Donation
           </button>
         </div>
