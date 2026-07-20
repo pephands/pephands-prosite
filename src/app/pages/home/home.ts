@@ -12,10 +12,26 @@ import { HomePartners } from '../../components/home-partners/home-partners';
 import { HomeCarefund } from '../../components/home-carefund/home-carefund';
 import { HomeGiveinkind } from '../../components/home-giveinkind/home-giveinkind';
 import { HomeProgrammes } from '../../components/home-programmes/home-programmes';
+import { HomeCounts } from '../../components/home-counts/home-counts';
 
 @Component({
   selector: 'app-home',
-  imports: [MaterialModule, HomeBlog, HomeHero, HomeAboutComponent, HomeSpecialday, HomeMedical, HomeSdg, HomeCarefund, HomeRecentevents, HomeEducation, HomePartners, HomeGiveinkind, HomeProgrammes],
+  imports: [
+    MaterialModule,
+    HomeCounts,
+    HomeBlog,
+    HomeHero,
+    HomeAboutComponent,
+    HomeSpecialday,
+    HomeMedical,
+    HomeSdg,
+    HomeCarefund,
+    HomeRecentevents,
+    HomeEducation,
+    HomePartners,
+    HomeGiveinkind,
+    HomeProgrammes,
+  ],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

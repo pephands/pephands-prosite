@@ -1,0 +1,39 @@
+<div class="impact-stats-section" *ngIf="counts">
+  <div class="container">
+    <div class="text-center heading-box mb-5">
+      <span class="topic-label text-white fw-bold text-uppercase small d-block mb-2">Impact Stats</span>
+      <h2 class="main-title fw-bold text-white mb-3 tracking-tight">Pephands Effect in Numbers</h2>
+      <div class="accent-line mx-auto bg-white rounded-pill" style="width: 60px; height: 4px"></div>
+      <p class="lead text-white mt-3 mb-0" style="opacity: 0.8;">Hunger. Education. Animal Welfare.</p>
+    </div>
+
+    <!-- Modern Glassmorphism Grid -->
+    <div class="impact-grid" *ngIf="!isLoading && !errorMessage">
+      <div class="impact-card" *ngFor="let count of counts">
+        
+        <!-- Top Image Banner -->
+        <div class="img-wrapper">
+          <img [src]="count.image" [alt]="count.title" class="impact-img" />
+        </div>
+        
+        <!-- Bottom Stats Content -->
+        <div class="card-content">
+          <div class="counts-number">{{ count.counts }}+</div>
+          <h3 class="counts-title">{{ count.title }}</h3>
+          <p class="counts-subtitle">{{ count.sub_title }}</p>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="container text-center py-5" *ngIf="isLoading">
+  <div class="spinner-border text-pep-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="container text-center py-5 text-danger" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
