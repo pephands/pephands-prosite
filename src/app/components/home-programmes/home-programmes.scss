@@ -5,7 +5,7 @@ $ph-text: #444;
 $ph-accent: #9c27b0;
 
 .programmes-section {
-  background: linear-gradient(160deg, #fdf8ff 0%, #f3eaff 100%);
+  background: var(--pep-bg);
   padding: 100px 40px !important;
   width: 100%;
   box-sizing: border-box;

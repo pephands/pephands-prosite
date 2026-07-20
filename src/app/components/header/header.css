@@ -187,6 +187,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  pointer-events: auto;
 }
 
 .pep-fullscreen-menu.is-open {
@@ -250,14 +251,14 @@
 
 ::ng-deep .unique-mobile-accordion .mat-expansion-panel-header-title {
   color: white;
-  font-size: 1.8rem !important;
+  font-size: 1.3rem !important;
   font-weight: 700 !important;
   letter-spacing: -0.5px;
 }
 
 .mega-menu-title {
   color: white;
-  font-size: 1.8rem !important;
+  font-size: 1.3rem !important;
   font-weight: 700 !important;
   letter-spacing: -0.5px;
 }
@@ -265,7 +266,7 @@
 /* Links */
 .mega-menu-links a {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.15rem;
+  font-size: 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
   padding-left: 10px;

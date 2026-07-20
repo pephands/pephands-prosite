@@ -5,7 +5,11 @@ $radius: 40px;
 
 .action-experience {
   padding: 100px 0; // Reduced from 80px
-  background-color:#F8F1FF;
+  background-color: var(--pep-bg, #fbf6f9);
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
 }
 
 .video-container-wrapper {

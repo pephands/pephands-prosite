@@ -6,7 +6,11 @@ $brand-accent: #9c27b0;
 .contained-glass-volunteer {
   font-family: 'Outfit', 'Poppins', sans-serif;
   padding: 100px 0;
-  background-color: white;
+  background-color: var(--pep-bg, #fbf6f9);
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
 }
 
 .vessel-container {
