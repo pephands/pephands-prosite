@@ -1,0 +1,431 @@
+/*  Brand Colors & Variables */
+$brand-primary: #9c27b0;
+$brand-dark: #330b35;
+$text-main: rgba(11, 30, 54, 0.85);
+$text-muted: #64748b;
+$bg-light: #f8fafc;
+$success: #10b981;
+
+.causes-detail-page {
+  background-color: #faf7fa;
+  min-height: 100vh;
+  font-family: 'Outfit', 'Poppins', sans-serif;
+}
+
+// Global slick overrides
+:host ::ng-deep {
+  .slick-slider {
+    margin-bottom: 0;
+  }
+
+  .slick-dots {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      margin: 0 4px;
+      width: auto;
+      height: auto;
+
+      button {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: rgba(152, 41, 155, 0.5);
+        padding: 0;
+        transition: all 0.3s ease;
+        border: none;
+
+        &:before {
+          display: none;
+        }
+      }
+
+      &.slick-active button {
+        width: 24px;
+        background-color: #98299B;
+      }
+    }
+  }
+}
+
+// Immersive Left Column
+.immersive-left-column {
+  padding-right: 2rem;
+
+  @media (max-width: 991px) {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+  }
+}
+
+// Carousel Images
+.immersive-carousel-container {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+
+  .immersive-image-card {
+    position: relative;
+    width: 100%;
+
+
+    .story-carousel-img {
+      width: 100%;
+      aspect-ratio: 4 / 2.5;
+      object-fit: cover;
+    }
+
+    .carousel-overlay-gradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+      pointer-events: none;
+    }
+  }
+}
+
+ /* Tab Design (Clean Minimal Style) */
+.sleek-tabs-wrapper {
+  position: sticky;
+  top: 70px;
+  z-index: 1020;
+  background-color: #faf7fa; /* Same as page bg */
+  padding: 10px 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  .sleek-tabs {
+    display: flex;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-shadow: none;
+
+    .nav-item {
+      flex: 1;
+
+      .nav-link {
+        color: $text-muted;
+        font-weight: 600;
+        font-size: 1.05rem;
+        padding: 12px 20px;
+        border-radius: 0;
+        transition: all 0.2s ease;
+        border: none;
+        background: transparent;
+        border-bottom: 3px solid transparent;
+        text-align: center;
+        width: 100%;
+        display: block;
+        margin-bottom: -2px; // Overlap bottom border
+
+        @media (max-width: 768px) {
+          padding: 12px 10px;
+          font-size: 0.95rem;
+        }
+
+        &:hover {
+          color: $brand-primary;
+          background: transparent;
+        }
+
+        &.active {
+          color: $brand-primary;
+          background: transparent;
+          border-bottom-color: transparent;
+          box-shadow: none;
+          transform: none;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20%;
+            width: 60%;
+            height: 3px;
+            background-color: $brand-primary;
+            border-radius: 4px 4px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Content Area
+.immersive-content-area {
+  padding-top: 1rem;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+
+  .animate-fade {
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .dynamic-story.premium-typography {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(11, 30, 54, 0.9);
+
+    ::ng-deep img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+  }
+
+  // Trust Banner (Sleek Horizontal)
+  .trust-banner {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.1) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+
+    .trust-banner-inner {
+      gap: 1.5rem !important;
+    }
+
+    .trust-icon i {
+      font-size: 3rem;
+      color: $success;
+      text-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .trust-content {
+      h4 {
+        color: #064e3b;
+        font-size: 1.25rem;
+      }
+
+      li {
+        font-size: 0.95rem;
+        color: #047857;
+
+        i {
+          font-size: 1.1rem !important;
+        }
+      }
+    }
+  }
+}
+
+// Documents Slider
+.immersive-document-container {
+  .document-immersive-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 400px;
+    background: #000;
+
+    @media (max-width: 768px) {
+      height: 300px;
+    }
+
+    .doc-hover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 30px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .doc-view-btn {
+        background: #fff;
+        color: $brand-dark;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: $brand-primary;
+          color: #fff;
+        }
+      }
+    }
+
+    &:hover .doc-hover-overlay {
+      opacity: 1;
+
+      .doc-view-btn {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Right Sidebar Support Card
+.sidebar-sticky {
+  top: 90px;
+}
+
+.premium-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+
+
+// Mobile Modals & Footer
+.mobile-sticky-footer {
+  z-index: 1040 !important;
+}
+
+.mobile-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: flex-end;
+
+  .mobile-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  .mobile-modal-content {
+    position: relative;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 2, 37, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 2, 37, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 2, 37, 0);
+  }
+}
+
+.donate-btn-pulse {
+  animation: pulseGlow 2s infinite;
+}
+
+// Document Lightbox
+.document-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+  }
+
+  .lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1061;
+
+    .lightbox-img {
+      max-height: 85vh;
+      object-fit: contain;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .close-lightbox-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      z-index: 1062;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+
+      @media (max-width: 768px) {
+        top: 15px;
+        right: 15px;
+      }
+    }
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}

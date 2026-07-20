@@ -36,6 +36,7 @@ import { MedicalCampaigns } from './pages/medical-campaigns/medical-campaigns';
 import { StrayFood } from './pages/stray-food/stray-food';
 import { CareFund } from './pages/care-fund/care-fund';
 import { SpecialdayAll } from './pages/specialday-all/specialday-all';
+import { CampaignDetail } from './pages/campaign-detail/campaign-detail';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -74,5 +75,6 @@ export const routes: Routes = [
   { path: 'donate/paws-and-plates', component: StrayFood, title: 'Feeding Strays - Pephands Foundation' },
   { path: 'care-fund', component: CareFund, title: 'Care Fund - Pephands Foundation' },
   { path: 'donate/celebrate-special-day', component: SpecialdayAll, title: 'Celebrate Your Special Day - Pephands Foundation' },
+  { path: 'causes/:campaignUrl', component: CampaignDetail, title: 'Campaign Details - Pephands Foundation' },
   { path: '**', component: NotFound, title: 'Page Not Found - Pephands Foundation' }
 ];

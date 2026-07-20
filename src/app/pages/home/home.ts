@@ -4,13 +4,15 @@ import { HomeBlog } from '../../components/home-blog/home-blog';
 import { HomeHero } from '../../components/home-hero/home-hero';
 import { HomeAboutComponent } from '../../components/home-about/home-about';
 import { HomeSpecialday } from '../../components/home-specialday/home-specialday';
+import { HomeMedical } from '../../components/home-medical/home-medical';
 import { HomeSdg } from '../../components/home-sdg/home-sdg';
-import { HomePartners } from '../../components/home-partners/home-partners';
 import { HomeRecentevents } from '../../components/home-recentevents/home-recentevents';
+import { HomeEducation } from '../../components/home-education/home-education';
+import { HomePartners } from '../../components/home-partners/home-partners';
 
 @Component({
   selector: 'app-home',
-  imports: [MaterialModule, HomeBlog, HomeHero, HomeAboutComponent, HomeSpecialday, HomeSdg, HomeRecentevents, HomePartners],
+  imports: [MaterialModule, HomeBlog, HomeHero, HomeAboutComponent, HomeSpecialday, HomeMedical, HomeSdg, HomeRecentevents, HomeEducation, HomePartners],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

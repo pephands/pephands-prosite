@@ -1,0 +1,100 @@
+.premium-card-wrapper {
+  background-color: #381a42; /* Deep purple background */
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  height: 100%;
+}
+
+.premium-card-wrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.premium-badge-green {
+  background-color: #17c97a;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+}
+
+.premium-image-container {
+  height: 180px; /* Reduced to avoid elongation */
+}
+
+.premium-img {
+  transition: transform 0.6s ease;
+}
+
+.premium-card-wrapper:hover .premium-img {
+  transform: scale(1.03);
+}
+
+.hover-glow:hover {
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.premium-text-gold {
+  color: #f7d54b;
+}
+
+/* Custom Thin Progress Line */
+.premium-progress-line {
+  height: 2px;
+  background-color: rgba(255,255,255,0.1);
+  width: 100%;
+}
+
+.premium-progress-fill {
+  height: 2px;
+  background-color: #f7d54b;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.premium-progress-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #f7d54b;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.premium-progress-dot.start {
+  left: 0;
+}
+
+.premium-progress-dot.end {
+  right: 0;
+}
+
+/* Donate Button */
+.premium-donate-btn {
+  background-color: #1a0821;
+  border: 1px solid #b732f9; /* Magenta glowing border */
+  box-shadow: 0 0 10px rgba(183, 50, 249, 0.2) inset, 0 0 8px rgba(183, 50, 249, 0.2);
+}
+
+.premium-donate-btn:hover {
+  background-color: #b732f9;
+  box-shadow: 0 0 20px rgba(183, 50, 249, 0.6);
+  color: white;
+}
+
+/* Share Button */
+.premium-share-btn:hover {
+  background-color: #e9ecef !important;
+  transform: scale(1.05);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.8em; /* Forces exact height so titles line up perfectly */
+  max-height: 2.8em;
+}

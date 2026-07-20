@@ -1,0 +1,6 @@
+/* Make sure the card component host stretches to fill the column */
+app-campaign-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

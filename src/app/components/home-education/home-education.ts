@@ -1,40 +1,55 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CampaignCard } from '../../components/campaign-card/campaign-card';
-import { Campaign } from '../../Models/camapaigns';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Campaign, CauseCategory } from '../../Models/camapaigns';
 import { CausesService } from '../../Providers/causes.service';
+
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CampaignCard } from '../campaign-card/campaign-card';
 
 @Component({
-  selector: 'app-education-campaigns',
+  selector: 'app-home-education',
   standalone: true,
-  imports: [CommonModule, CampaignCard, RouterModule],
-  templateUrl: './education-campaigns.html',
-  styleUrl: './education-campaigns.css',
+  imports: [CommonModule, RouterModule, CampaignCard],
+  templateUrl: './home-education.html',
+  styleUrl: './home-education.css',
 })
-export class EducationCampaigns implements OnInit {
+export class HomeEducation implements OnInit {
+  @ViewChild('tabsContainer') tabsContainer!: ElementRef;
+  @ViewChild('carouselContainer') carouselContainer!: ElementRef;
+
+  hasOverflow: boolean = false;
+  hasCarouselOverflow: boolean = false;
+  currentSlideIndex: number = 0;
+  isAtStart: boolean = true;
+  isAtEnd: boolean = false;
   isLoading: boolean = true;
+  categories: CauseCategory[] = [];
+  activeCategoryId: number = 0;
   cards: Campaign[] = [];
-  currentPage: number = 1;
-  totalPages: number = 1;
-  totalItems: number = 0;
-  limit: number = 9;
 
   constructor(private campaignService: CausesService) {}
 
   ngOnInit() {
-    this.fetchCampaigns(this.currentPage);
+    this.isLoading = true;
+    this.fetchCampaignsByCategory(2);
   }
 
-  fetchCampaigns(page: number) {
-    this.isLoading = true;
-    this.campaignService.getData({ category: 2, page: page, limit: this.limit }).subscribe({
-      next: (res: any) => {
-        if (res.count !== undefined) {
-          this.totalItems = res.count;
-          this.totalPages = Math.ceil(this.totalItems / this.limit);
-        }
+  onCarouselScroll() {
+    // Basic handler for the scroll event on the slider track
+    // Can be used to hide/show scroll arrows if needed
+  }
 
+  fetchCampaignsByCategory(categoryId: number) {
+    this.isLoading = true;
+    this.campaignService.getData({ category: categoryId }).subscribe({
+      next: (res: any) => {
         let data: any = null;
         if (res.results) {
           data = Array.isArray(res.results) ? res.results : res.results.data;
@@ -58,8 +73,11 @@ export class EducationCampaigns implements OnInit {
 
             return {
               id: item.id,
-              categoryId: item.categories && item.categories.length > 0
-                  ? (typeof item.categories[0] === 'string' ? 0 : item.categories[0].id)
+              categoryId:
+                item.categories && item.categories.length > 0
+                  ? typeof item.categories[0] === 'string'
+                    ? 0
+                    : item.categories[0].id
                   : 0,
               categoryIds: item.categories
                 ? item.categories.map((c: any) => (typeof c === 'string' ? 0 : c.id))
@@ -81,25 +99,18 @@ export class EducationCampaigns implements OnInit {
             };
           });
 
+          // Sort cards by order
           this.cards.sort((a, b) => a.order - b.order);
         } else {
           this.cards = [];
         }
 
         this.isLoading = false;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       error: (err) => {
         console.error('Error fetching campaigns:', err);
         this.isLoading = false;
       },
     });
-  }
-
-  changePage(newPage: number) {
-    if (newPage >= 1 && newPage <= this.totalPages) {
-      this.currentPage = newPage;
-      this.fetchCampaigns(this.currentPage);
-    }
   }
 }

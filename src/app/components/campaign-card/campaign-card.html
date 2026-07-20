@@ -1,0 +1,76 @@
+<div class="premium-card-wrapper h-100 d-flex flex-column" *ngIf="campaign">
+  
+  <!-- Image Container (Inset) -->
+  <div class="p-3 pb-0">
+    <a [routerLink]="['/causes', campaign.slug]" class="premium-image-container position-relative overflow-hidden d-block rounded-4">
+      <img [src]="campaign.image" [alt]="campaign.title" class="w-100 h-100 object-fit-cover premium-img transition-all">
+      
+      <!-- Tax Benefit Badge -->
+      <div class="position-absolute top-0 start-0 m-3 z-index-2" *ngIf="campaign.isTaxBenefited">
+        <span class="badge premium-badge-green text-white rounded-pill px-3 py-2 fw-bold d-flex align-items-center shadow-sm">
+          <i class="bi bi-check-circle-fill me-2"></i> TAX BENEFIT
+        </span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Content Container -->
+  <div class="premium-content p-4 d-flex flex-column flex-grow-1 text-white">
+    
+    <!-- Title -->
+    <a [routerLink]="['/causes', campaign.slug]" class="text-decoration-none text-white hover-glow transition-colors">
+      <h3 class="h5 fw-bold mb-3 campaign-title line-clamp-2">{{ campaign.title }}</h3>
+    </a>
+
+    <div class="mt-auto">
+      
+      <!-- Stats & Circular Progress -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <span class="fw-bold premium-text-gold d-block" style="font-size: 1.5rem;">₹{{ campaign.amountCollected | number:'1.0-0' }}</span>
+          <span class="text-white-50 small">Raised out of {{ campaign.goalAmount | number:'1.0-0' }}</span>
+        </div>
+        
+        <!-- Circular Progress Widget -->
+        <div class="circular-progress position-relative d-flex justify-content-center align-items-center rounded-circle shadow" 
+             [style.background]="'conic-gradient(#b732f9 ' + (campaign.percentageRaised > 100 ? 100 : campaign.percentageRaised) + '%, rgba(255,255,255,0.2) 0)'"
+             style="width: 60px; height: 60px; padding: 4px;">
+          <!-- Inner White Circle to create the "ring" effect -->
+          <div class="inner-circle d-flex justify-content-center align-items-center rounded-circle bg-white w-100 h-100">
+            <span class="fw-bold text-dark" style="font-size: 0.8rem;">{{ campaign.percentageRaised | number:'1.0-2' }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thin Progress Bar Line -->
+      <div class="position-relative mb-4">
+        <div class="premium-progress-line rounded-pill"></div>
+        <div class="premium-progress-fill rounded-pill" [style.width.%]="campaign.percentageRaised > 100 ? 100 : campaign.percentageRaised"></div>
+        <!-- Dots -->
+        <div class="premium-progress-dot start"></div>
+        <div class="premium-progress-dot end"></div>
+      </div>
+
+      <!-- Metrics Icons -->
+      <div class="d-flex justify-content-between text-white-50 small mb-4">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-clock me-2"></i> {{ campaign.remainingDays }} days left
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-heart-fill me-2"></i> {{ campaign.donationCount }} Donations
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="d-flex gap-3 mt-auto">
+        <a [routerLink]="['/causes', campaign.slug]" class="btn premium-donate-btn flex-grow-1 rounded-4 fw-bold fs-5 text-white d-flex justify-content-center align-items-center transition-all">
+          Donate
+        </a>
+        <button class="btn premium-share-btn rounded-circle bg-white text-dark d-flex justify-content-center align-items-center shadow-sm transition-all" style="width: 54px; height: 54px;">
+          <i class="bi bi-reply-fill fs-4" style="transform: scaleX(-1);"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

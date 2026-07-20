@@ -1,1 +1,61 @@
-<p>education-campaigns works!</p>
+<section class="education-campaigns-section bg-pep-bg py-5 min-vh-100" style="padding-top: 100px !important;">
+  <div class="container pt-5">
+    
+    <!-- Hero Header -->
+    <div class="text-center mb-5">
+      <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small d-block mb-2">Education Initiatives</span>
+      <h1 class="display-5 fw-bold text-pep-ink mb-3">Empowering Minds</h1>
+      <p class="lead text-muted mx-auto" style="max-width: 600px;">
+        Support students and empower minds. Your contribution helps build a brighter future for those in need.
+      </p>
+      <div class="accent-line bg-pep-primary mx-auto mt-4" style="width: 80px; height: 4px; border-radius: 2px;"></div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="d-flex justify-content-center py-5">
+      <div class="spinner-border text-pep-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && cards.length === 0" class="text-center py-5">
+      <i class="bi bi-box-seam fs-1 text-muted mb-3 d-block"></i>
+      <h3 class="h5 text-muted">No education campaigns available right now.</h3>
+    </div>
+
+    <!-- Grid Layout -->
+    <div *ngIf="!isLoading && cards.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5 justify-content-center">
+      <div class="col d-flex justify-content-center" *ngFor="let campaign of cards">
+        <div style="width: 100%; max-width: 350px; height: 100%;">
+          <app-campaign-card class="w-100 h-100 d-block" [campaign]="campaign"></app-campaign-card>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div *ngIf="!isLoading && totalPages > 1" class="d-flex justify-content-center align-items-center gap-3 pb-4">
+      
+      <!-- Previous Button -->
+      <button class="btn btn-outline-pep-ink rounded-pill px-4 fw-bold" 
+              [disabled]="currentPage === 1"
+              (click)="changePage(currentPage - 1)">
+        <i class="bi bi-chevron-left me-2"></i> Prev
+      </button>
+
+      <!-- Page Indicator -->
+      <span class="fw-bold text-pep-ink">
+        Page {{ currentPage }} of {{ totalPages }}
+      </span>
+
+      <!-- Next Button -->
+      <button class="btn btn-pep-primary rounded-pill px-4 fw-bold text-white shadow-sm" 
+              [disabled]="currentPage === totalPages"
+              (click)="changePage(currentPage + 1)">
+        Next <i class="bi bi-chevron-right ms-2"></i>
+      </button>
+      
+    </div>
+
+  </div>
+</section>

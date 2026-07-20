@@ -1,0 +1,48 @@
+<section class="education-section py-5 bg-pep-bg position-relative">
+  <div class="container pt-4 pb-2">
+    
+    <!-- Section Header -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
+      <div class="heading-box">
+        <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small d-block mb-2">Education Initiatives</span>
+        <h2 class="display-6 fw-bold text-pep-ink mb-2">Empowering Minds</h2>
+        <div class="accent-line bg-pep-primary" style="width: 60px; height: 3px;"></div>
+      </div>
+      
+      <!-- Sleek View All Link -->
+      <div>
+        <a routerLink="/donate/education" class="text-decoration-none text-pep-ink fw-bold hover-primary transition-all d-inline-flex align-items-center">
+          View All Campaigns <i class="bi bi-arrow-right ms-2 fs-5"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="d-flex justify-content-center py-5">
+      <div class="spinner-border text-pep-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && cards.length === 0" class="text-center py-5">
+      <p class="text-muted">No active education campaigns at the moment.</p>
+    </div>
+
+    <!-- Slider Container -->
+    <div *ngIf="!isLoading && cards.length > 0" class="slider-wrapper position-relative mx-n3 px-3 mx-lg-0 px-lg-0">
+      
+      <!-- Horizontal Scrollable Track -->
+      <div class="slider-track d-flex gap-4 pb-4 px-2" #carouselContainer (scroll)="onCarouselScroll()">
+        
+        <!-- Individual Card Slot -->
+        <div class="slider-slide" *ngFor="let campaign of cards; let i = index">
+          <app-campaign-card [campaign]="campaign"></app-campaign-card>
+        </div>
+        
+      </div>
+      
+    </div>
+
+  </div>
+</section>

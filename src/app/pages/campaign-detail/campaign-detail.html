@@ -1,0 +1,176 @@
+<div class="causes-detail-page">
+  <section class="pt-3 pt-lg-5 pb-5">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <!-- Left Column: Details & Tabs -->
+        <div class="col-lg-8 immersive-left-column">
+
+          <!-- Always Use Carousel for Story Images -->
+          <div class="immersive-carousel-container mb-4">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="storySlideConfig">
+              <div ngxSlickItem *ngFor="let img of storyImages" class="story-slide-item">
+                <div class="immersive-image-card">
+                  <img [src]="img" class="w-100 h-auto d-block story-carousel-img"
+                    [alt]="campaign?.title || 'Campaign Image'" />
+                  <div class="carousel-overlay-gradient"></div>
+                </div>
+              </div>
+            </ngx-slick-carousel>
+          </div>
+
+          <!-- Progress Component -->
+          <div class="">
+            <app-cause-progress [raisedAmount]="raisedAmount" [goalAmount]="goalAmount"
+              [progressPercentage]="progressPercentage" [campaignTitle]="campaign?.title"
+              [deadline]="campaign?.deadline">
+            </app-cause-progress>
+          </div>
+
+          <!-- Metrics Bar Component -->
+          <app-cause-metrics-bar [donorsCount]="donorsCount" [remainingDays]="remainingDays">
+          </app-cause-metrics-bar>
+
+          <!-- Sleek Navigation Tabs -->
+          <div class="sleek-tabs-wrapper mb-4">
+            <ul class="nav sleek-tabs">
+              <li class="nav-item">
+                <button class="nav-link" [class.active]="activeTab === 'story'" (click)="selectTab('story')">
+                  Story
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" [class.active]="activeTab === 'report'" (click)="selectTab('report')">
+                  Documents
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" [class.active]="activeTab === 'costs'" (click)="selectTab('costs')">
+                  Updates
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Immersive Content Area -->
+          <div class="immersive-content-area" [class.no-scroll]="activeTab === 'report'">
+
+            <!-- Story Tab -->
+            <div *ngIf="activeTab === 'story'" class="animate-fade">
+              <div *ngIf="campaign" [innerHTML]="campaign.story" class="dynamic-story premium-typography"></div>
+
+              <div *ngIf="!campaign && !isLoading" class="text-center py-5">
+                <p class="text-muted fs-5">Story details not available.</p>
+              </div>
+
+              <!-- Trust Banner Component -->
+              <app-cause-trust-banner *ngIf="campaign"></app-cause-trust-banner>
+            </div>
+
+            <!-- Documents Tab -->
+            <div *ngIf="activeTab === 'report'" class="animate-fade">
+              <div class="immersive-document-container">
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="documentSlideConfig"
+                  *ngIf="documentImages.length > 0">
+                  <div ngxSlickItem *ngFor="let img of documentImages" class="document-slide-item">
+                    <div class="document-immersive-card">
+                      <img [src]="img" class="w-100 h-100 object-fit-cover" alt="Document" />
+                      <div class="doc-hover-overlay">
+                        <button (click)="openDocument(img)" class="btn doc-view-btn border-0">
+                          <i class="ri-external-link-line me-2"></i> View Full Document
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </ngx-slick-carousel>
+                <div *ngIf="documentImages.length === 0" class="text-center py-5">
+                  <div class="empty-state-icon mb-3">
+                    <i class="ri-file-list-3-line" style="font-size: 3rem; color: rgba(156, 39, 176, 0.2);"></i>
+                  </div>
+                  <h5 class="fw-semibold text-dark">No documents available</h5>
+                  <p class="text-muted">No documents have been uploaded for this campaign yet.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Updates Tab Component -->
+            <app-cause-updates-tab *ngIf="activeTab === 'costs'"
+              [campaignUpdates]="campaignUpdates"></app-cause-updates-tab>
+
+          </div>
+
+          <!-- Mobile Recent Support Section -->
+          <div class="d-lg-none mt-4">
+            <app-cause-recent-support [recentSupports]="recentSupports"></app-cause-recent-support>
+          </div>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="sidebar-sticky position-sticky d-flex flex-column">
+
+            <!-- Donation Form Component -->
+            <app-cause-donation-form [campaignId]="campaign?.id"></app-cause-donation-form>
+
+            <!-- Share Section Component -->
+            <app-cause-share-section [campaignTitle]="campaign?.title"></app-cause-share-section>
+
+            <!-- Recent Support Card -->
+            <app-cause-recent-support [recentSupports]="recentSupports"></app-cause-recent-support>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Sticky Footer -->
+  <div class="mobile-sticky-footer d-lg-none fixed-bottom bg-white border-top p-3 d-flex gap-2 shadow-lg z-3">
+    <button
+      class="flex-grow-1 rounded-pill border-0 text-white fw-bold d-flex align-items-center justify-content-center"
+      style="background: #9c27b0; transition: background 0.2s ease;" (click)="toggleMobileDonationModal()">
+      DONATE NOW
+    </button>
+    <button class="btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center border flex-shrink-0"
+      style="width: 52px; height: 52px; margin-right: 72px;" (click)="toggleMobileShareModal()">
+      <i class="ri-share-forward-line fs-4 text-dark"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Donation Modal Overlay -->
+  <div class="mobile-modal-overlay d-lg-none" *ngIf="isMobileDonationModalOpen">
+    <div class="mobile-modal-backdrop" (click)="toggleMobileDonationModal()"></div>
+    <div class="mobile-modal-content animate-slide-up bg-white rounded-top-4 p-3 pb-4">
+      <div class="d-flex justify-content-end mb-2">
+        <button class="btn btn-sm btn-light rounded-circle d-flex align-items-center justify-content-center p-0" style="width: 32px; height: 32px;" (click)="toggleMobileDonationModal()">
+          <i class="ri-close-line fs-4"></i>
+        </button>
+      </div>
+      <app-cause-donation-form [campaignId]="campaign?.id"></app-cause-donation-form>
+    </div>
+  </div>
+
+  <!-- Mobile Share Modal Overlay -->
+  <div class="mobile-modal-overlay d-lg-none" *ngIf="isMobileShareModalOpen">
+    <div class="mobile-modal-backdrop" (click)="toggleMobileShareModal()"></div>
+    <div class="mobile-modal-content animate-slide-up bg-white rounded-top-4 p-3 pb-4">
+      <div class="d-flex justify-content-end mb-2">
+        <button class="btn btn-sm btn-light rounded-circle d-flex align-items-center justify-content-center p-0" style="width: 32px; height: 32px;" (click)="toggleMobileShareModal()">
+          <i class="ri-close-line fs-4"></i>
+        </button>
+      </div>
+      <app-cause-share-section [campaignTitle]="campaign?.title"></app-cause-share-section>
+    </div>
+  </div>
+
+  <!-- Document Viewer Lightbox -->
+  <div class="document-lightbox-overlay" *ngIf="selectedDocument">
+    <div class="lightbox-backdrop" (click)="closeDocument()"></div>
+    <div class="lightbox-content animate-zoom-in">
+      <button class="btn btn-light rounded-circle close-lightbox-btn shadow-sm" (click)="closeDocument()">
+        <i class="ri-close-line fs-4 text-dark"></i>
+      </button>
+      <img [src]="selectedDocument" class="lightbox-img img-fluid rounded" alt="Document" />
+    </div>
+  </div>
+
+</div>
