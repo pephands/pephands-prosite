@@ -100,9 +100,13 @@ export const routes: Routes = [
   { path: 'give-in-kind', component: GiveinKind, title: 'Give in Kind - Pephands Foundation' },
   { path: 'iam', component: IamEvent, title: 'IAM - Pephands Foundation' },
   { path: 'events', component: AllEvents, title: 'All Events - Pephands Foundation' },
-  { path: 'event/recent', component: RecentEvents, title: 'Recent Events - Pephands Foundation' },
   {
-    path: 'events/upcoming',
+    path: 'recent-events/:eventUrl',
+    component: RecentEvents,
+    title: 'Recent Events - Pephands Foundation',
+  },
+  {
+    path: 'upcoming-events/:eventUrl',
     component: UpcomingEvents,
     title: 'Upcoming Events - Pephands Foundation',
   },
