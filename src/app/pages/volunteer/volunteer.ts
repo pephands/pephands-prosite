@@ -51,14 +51,15 @@ export class Volunteer implements OnInit, OnDestroy {
   constructor(
     private zone: NgZone,
     private cdr: ChangeDetectorRef,
-    private seoService: SeoService
+    private seoService: SeoService,
   ) {}
 
   ngOnInit() {
     this.seoService.updateMetaTags({
       title: 'Volunteer - Pephands Foundation',
-      description: 'Join Pephands Foundation as a volunteer and make a meaningful impact in the lives of those in need.',
-      image: '/volunteer/volunteer-banner.jpg'
+      description:
+        'Join Pephands Foundation as a volunteer and make a meaningful impact in the lives of those in need.',
+      image: '/volunteer/volunteer-banner.jpg',
     });
     this.startRotation();
   }

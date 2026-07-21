@@ -1,3 +1,4 @@
+import { SeoService } from '../../Providers/seo.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -17,6 +18,7 @@ export class Marathongallery2026 implements OnInit {
   totalPages: number = 1;
 
   constructor(
+    private seoService: SeoService,
     private http: HttpClient,
     private endpoint: Endpoint,
     private metaTagService: MetaTagService,
@@ -166,4 +168,5 @@ export class Marathongallery2026 implements OnInit {
         this.downloadingStates[index] = false;
       });
   }
+
 }

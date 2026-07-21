@@ -1,6 +1,12 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+  FormsModule,
+} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
@@ -19,26 +25,48 @@ import { BasePageComponent } from '../base';
   styleUrl: './stray-food.scss',
 })
 export class StrayFood extends BasePageComponent implements OnInit {
-
   donationForm!: FormGroup;
   source: any = ''; // Different source for this page
   paymentUrl!: string;
   heroVideoUrl!: SafeResourceUrl;
   csrVideoUrl!: SafeResourceUrl;
 
-
-
   faqs = [
-    { q: 'What food is provided?', a: 'We provide balanced, freshly cooked meals specifically formulated for stray animals, ensuring high nutrition.' },
-    { q: 'Can I choose a specific location?', a: 'Currently, we distribute based on areas with the highest concentration of stray animals in our target cities.' },
-    { q: 'Will I get proof?', a: 'Yes! We share video/photo proof of the feeding session via your registered contact details.' }
+    {
+      q: 'What food is provided?',
+      a: 'We provide balanced, freshly cooked meals specifically formulated for stray animals, ensuring high nutrition.',
+    },
+    {
+      q: 'Can I choose a specific location?',
+      a: 'Currently, we distribute based on areas with the highest concentration of stray animals in our target cities.',
+    },
+    {
+      q: 'Will I get proof?',
+      a: 'Yes! We share video/photo proof of the feeding session via your registered contact details.',
+    },
   ];
 
   processSteps = [
-    { icon: 'payments', title: 'Receiving Donations', desc: 'We accept support from anyone who wants to help through our online platform.' },
-    { icon: 'inventory_2', title: 'Preparing and Packing', desc: 'Our team prepares nutritious meals and packs them carefully for distribution.' },
-    { icon: 'delivery_dining', title: 'Feeding and Distribution', desc: 'Volunteers ensure your support reaches stray dogs safely and on time.' },
-    { icon: 'verified', title: '100% Transparency', desc: 'We share photo/video updates so you can see the impact of your donation.' }
+    {
+      icon: 'payments',
+      title: 'Receiving Donations',
+      desc: 'We accept support from anyone who wants to help through our online platform.',
+    },
+    {
+      icon: 'inventory_2',
+      title: 'Preparing and Packing',
+      desc: 'Our team prepares nutritious meals and packs them carefully for distribution.',
+    },
+    {
+      icon: 'delivery_dining',
+      title: 'Feeding and Distribution',
+      desc: 'Volunteers ensure your support reaches stray dogs safely and on time.',
+    },
+    {
+      icon: 'verified',
+      title: '100% Transparency',
+      desc: 'We share photo/video updates so you can see the impact of your donation.',
+    },
   ];
 
   constructor(
@@ -50,7 +78,7 @@ export class StrayFood extends BasePageComponent implements OnInit {
     public donationService: GeneralDonationPaymentService,
     public seoService: SeoService,
     private metaTagService: MetaTagService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) {
     super(dial, snackbar, platformId);
     if (isPlatformBrowser(this.platformId)) {
@@ -66,8 +94,12 @@ export class StrayFood extends BasePageComponent implements OnInit {
     this.initForm();
     this.updateMetaTags();
     this.setCanonicalUrl();
-    this.heroVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/wx8bDt6Qz8g');
-    this.csrVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/KjxvC3M0mRM');
+    this.heroVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.youtube.com/embed/wx8bDt6Qz8g',
+    );
+    this.csrVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.youtube.com/embed/KjxvC3M0mRM',
+    );
   }
 
   initForm() {
@@ -79,12 +111,12 @@ export class StrayFood extends BasePageComponent implements OnInit {
       panNumber: [{ value: '', disabled: true }],
       aadharNumber: [{ value: '', disabled: true }],
       address: [{ value: '', disabled: true }],
-      taxBenefits: [false]
+      taxBenefits: [false],
     });
 
     this.donationForm.get('taxBenefits')?.valueChanges.subscribe((checked) => {
       const controls = ['panNumber', 'aadharNumber', 'address'];
-      controls.forEach(controlName => {
+      controls.forEach((controlName) => {
         const control = this.donationForm.get(controlName);
         if (checked) {
           control?.enable();
@@ -108,7 +140,7 @@ export class StrayFood extends BasePageComponent implements OnInit {
         billing_email: formValues.email,
         billing_tel: formValues.phone,
         amount: formValues.amount,
-        is_pawandplates: 'true'
+        is_pawandplates: 'true',
       };
 
       if (this.source) {
@@ -136,7 +168,7 @@ export class StrayFood extends BasePageComponent implements OnInit {
           console.error('Payment Error:', err);
           this.dismissLoader();
           this.somethingWentWrong();
-        }
+        },
       });
     } else {
       this.snackbar.open('Please fill all required fields correctly', 'Close', { duration: 3000 });
@@ -153,9 +185,11 @@ export class StrayFood extends BasePageComponent implements OnInit {
   updateMetaTags() {
     this.metaTagService.updateMetaTags({
       title: 'Paws & Plates - Feed the Voiceless | Pephands Foundation',
-      keywords: 'pet donation, feed street dogs, animal welfare india, paws and plates, pephands foundation',
+      keywords:
+        'pet donation, feed street dogs, animal welfare india, paws and plates, pephands foundation',
       ogTitle: 'Paws & Plates - Feed the Voiceless',
-      description: 'Join Paws & Plates to feed street dogs and cats. Your small contribution can provide a nutritious meal to a voiceless soul.',
+      description:
+        'Join Paws & Plates to feed street dogs and cats. Your small contribution can provide a nutritious meal to a voiceless soul.',
       ogImage: 'assets/paws-and-plates-hero.png',
     });
   }

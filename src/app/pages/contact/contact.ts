@@ -1,4 +1,5 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { SeoService } from '../../Providers/seo.service';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BasePageComponent } from '../base';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -7,19 +8,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ContactUsService } from '../../Providers/contact-us.service';
 import { isPlatformBrowser } from '@angular/common';
 
-
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.css'
+  styleUrl: './contact.css',
 })
-export class Contact extends BasePageComponent {
+export class Contact extends BasePageComponent implements OnInit {
   contactForm!: FormGroup;
   errorMessage!: string;
 
   constructor(
+    private seoService: SeoService,
     public contactUsService: ContactUsService,
     @Inject(PLATFORM_ID) platformId: Object,
     public dlg: MatDialog,
@@ -31,6 +32,13 @@ export class Contact extends BasePageComponent {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      this.seoService.updateMetaTags({
+        title: 'Contact',
+        description:
+          'Pephands Foundation is Initiative Driven top NGO in Chennai for food donation, community support and Social Welfare',
+        image: '/logos/pephands-foundation.png',
+        keywords: 'Pephands Foundation, ngo, charity, contact',
+      });
     }
 
     this.contactForm = new FormGroup({
@@ -67,9 +75,7 @@ export class Contact extends BasePageComponent {
       return;
     }
     if (!this.contactForm.controls['details'].valid) {
-      this.validationFailed(
-        'Please enter your comments or queries. Minimum of 50 Characters'
-      );
+      this.validationFailed('Please enter your comments or queries. Minimum of 50 Characters');
       return;
     }
     this.submitForm();
@@ -91,15 +97,12 @@ export class Contact extends BasePageComponent {
       (response: any) => {
         this.contactForm.reset();
         this.dismissLoader();
-        this.textAlert(
-          'Submitted',
-          'Thank you for reaching us, we will get back to you soon.'
-        );
+        this.textAlert('Submitted', 'Thank you for reaching us, we will get back to you soon.');
       },
       (err: any) => {
         this.dismissLoader();
         this.somethingWentWrong();
-      }
+      },
     );
   }
 }

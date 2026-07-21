@@ -1,3 +1,4 @@
+import { SeoService } from '../../Providers/seo.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -24,10 +25,16 @@ export class Blogs implements OnInit {
   isLoading: boolean = false;
   pageSize: number = 9;
 
-  constructor(private blogService: FetchBlogsService, private cdr: ChangeDetectorRef) { }
+  constructor(private seoService: SeoService, private blogService: FetchBlogsService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getBlogList();
+    this.seoService.updateMetaTags({
+      title: 'Blogs',
+      description: 'Pephands Foundation is Initiative Driven top NGO in Chennai for food donation, community support and Social Welfare',
+      image: '/logos/pephands-foundation.png',
+      keywords: 'Pephands Foundation, ngo, charity, blogs'
+    });
   }
 
   getBlogList(pageNumber: number = 1) {
@@ -77,4 +84,6 @@ export class Blogs implements OnInit {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
+
+
 }

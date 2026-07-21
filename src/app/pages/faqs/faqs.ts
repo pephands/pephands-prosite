@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { SeoService } from '../../Providers/seo.service';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -16,7 +17,8 @@ interface FaqCategory {
   templateUrl: './faqs.html',
   styleUrl: './faqs.css'
 })
-export class Faqs {
+export class Faqs implements OnInit {
+  constructor(private seoService: SeoService) {}
   activeCategory: string = 'about';
   openQuestionId: string | null = null;
 
@@ -170,4 +172,14 @@ export class Faqs {
       ]
     }
   ];
+
+  ngOnInit() {
+    this.seoService.updateMetaTags({
+      title: 'Faqs',
+      description: 'Pephands Foundation is Initiative Driven top NGO in Chennai for food donation, community support and Social Welfare',
+      image: '/logos/pephands-foundation.png',
+      keywords: 'Pephands Foundation, ngo, charity, faqs'
+    });
+  }
+
 }

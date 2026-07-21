@@ -1,4 +1,5 @@
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { SeoService } from '../../Providers/seo.service';
+import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CausesService } from '../../Providers/causes.service';
@@ -16,10 +17,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
   imports: [CommonModule, RouterModule, SlickCarouselModule],
   templateUrl: './campaign-detail.html',
   styleUrl: './campaign-detail.scss',
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
 })
-export class CampaignDetail {
-   activeTab: 'story' | 'report' | 'costs' = 'story';
+export class CampaignDetail implements OnInit {
+  activeTab: 'story' | 'report' | 'costs' = 'story';
   raisedAmount: number = 0;
   goalAmount: number = 0;
   donorsCount: number = 0;
@@ -41,7 +42,7 @@ export class CampaignDetail {
     autoplaySpeed: 3500,
     arrows: false,
     cssEase: 'ease-in-out',
-    speed: 800
+    speed: 800,
   };
 
   documentSlideConfig = {
@@ -52,7 +53,7 @@ export class CampaignDetail {
     autoplay: false,
     arrows: false,
     cssEase: 'ease-in-out',
-    speed: 500
+    speed: 500,
   };
 
   campaignUpdates: CampaignUpdate[] = [];
@@ -68,7 +69,11 @@ export class CampaignDetail {
   }
 
   get progressPercentage(): number {
-    if (this.campaign && this.campaign.percentage_raised !== undefined && this.campaign.percentage_raised !== null) {
+    if (
+      this.campaign &&
+      this.campaign.percentage_raised !== undefined &&
+      this.campaign.percentage_raised !== null
+    ) {
       const pr = parseFloat(this.campaign.percentage_raised);
       if (!isNaN(pr) && pr > 0) {
         return pr > 100 ? 100 : pr;
@@ -80,14 +85,22 @@ export class CampaignDetail {
   }
 
   constructor(
+    private seoService: SeoService,
     private route: ActivatedRoute,
     private campaignService: CausesService,
     private categoryService: CausesCategoryService,
-    private metaTagService: MetaTagService
-  ) { }
+    private metaTagService: MetaTagService,
+  ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.seoService.updateMetaTags({
+      title: 'Campaign Detail',
+      description:
+        'Pephands Foundation is Initiative Driven top NGO in Chennai for food donation, community support and Social Welfare',
+      image: '/logos/pephands-foundation.png',
+      keywords: 'Pephands Foundation, ngo, charity, campaign detail',
+    });
+    this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
       if (slug) {
         this.fetchCampaignDetails(slug);
@@ -110,10 +123,10 @@ export class CampaignDetail {
           return;
         }
 
-        const requests = categories.map(cat => 
-          this.campaignService.getData({ category: cat.id, slug }).pipe(
-            catchError(err => of(null))
-          )
+        const requests = categories.map((cat) =>
+          this.campaignService
+            .getData({ category: cat.id, slug })
+            .pipe(catchError((err) => of(null))),
         );
 
         forkJoin(requests).subscribe((responses: any[]) => {
@@ -167,7 +180,11 @@ export class CampaignDetail {
             }
 
             const canonicalUrl = `https://pephands.org/causes/${slug}`;
-            const finalDesc = foundCampaign.description || foundCampaign.short_description || foundCampaign.story?.replace(/<[^>]*>/g, '').substring(0, 160) || 'Support this cause and make a difference with Pephands Foundation.';
+            const finalDesc =
+              foundCampaign.description ||
+              foundCampaign.short_description ||
+              foundCampaign.story?.replace(/<[^>]*>/g, '').substring(0, 160) ||
+              'Support this cause and make a difference with Pephands Foundation.';
 
             this.metaTagService.updateMetaTags({
               title: `${foundCampaign.title} - Pephands Foundation`,
@@ -176,12 +193,18 @@ export class CampaignDetail {
               twitterTitle: `${foundCampaign.title} - Pephands Foundation`,
               ogDescription: finalDesc,
               twitterDescription: finalDesc,
-              ogImage: foundCampaign.thumbnail || foundCampaign.display_image || 'https://pephands.org/assets/logos/pephands-foundation.png',
-              twitterImage: foundCampaign.thumbnail || foundCampaign.display_image || 'https://pephands.org/assets/logos/pephands-foundation.png',
+              ogImage:
+                foundCampaign.thumbnail ||
+                foundCampaign.display_image ||
+                'https://pephands.org/assets/logos/pephands-foundation.png',
+              twitterImage:
+                foundCampaign.thumbnail ||
+                foundCampaign.display_image ||
+                'https://pephands.org/assets/logos/pephands-foundation.png',
               ogUrl: canonicalUrl,
               twitterUrl: canonicalUrl,
               ogImageWidth: '1920px',
-              ogImageHeight: '1080px'
+              ogImageHeight: '1080px',
             });
 
             this.fetchRecentDonations(this.campaign.id);
@@ -193,7 +216,7 @@ export class CampaignDetail {
       error: (err) => {
         console.error('Error fetching categories:', err);
         this.isLoading = false;
-      }
+      },
     });
   }
 
@@ -204,7 +227,7 @@ export class CampaignDetail {
           this.recentSupports = res.data.map((item: any) => new RecentSupport().deserialize(item));
         }
       },
-      error: (err) => console.error('Error fetching recent donations:', err)
+      error: (err) => console.error('Error fetching recent donations:', err),
     });
   }
 
@@ -212,10 +235,12 @@ export class CampaignDetail {
     this.campaignService.getCampaignUpdates(campaignId).subscribe({
       next: (res: any) => {
         if (res && res.status && res.data && Array.isArray(res.data)) {
-          this.campaignUpdates = res.data.map((item: any) => new CampaignUpdate().deserialize(item));
+          this.campaignUpdates = res.data.map((item: any) =>
+            new CampaignUpdate().deserialize(item),
+          );
         }
       },
-      error: (err) => console.error('Error fetching campaign updates:', err)
+      error: (err) => console.error('Error fetching campaign updates:', err),
     });
   }
 
@@ -250,5 +275,4 @@ export class CampaignDetail {
       document.body.style.overflow = '';
     }
   }
-  
 }

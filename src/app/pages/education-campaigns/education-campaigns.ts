@@ -1,3 +1,4 @@
+import { SeoService } from '../../Providers/seo.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CampaignCard } from '../../components/campaign-card/campaign-card';
@@ -20,9 +21,16 @@ export class EducationCampaigns implements OnInit {
   totalItems: number = 0;
   limit: number = 9;
 
-  constructor(private campaignService: CausesService) {}
+  constructor(private seoService: SeoService, private campaignService: CausesService) {}
 
   ngOnInit() {
+    this.seoService.updateMetaTags({
+      title: 'Education Campaigns',
+      description: 'Pephands Foundation is Initiative Driven top NGO in Chennai for food donation, community support and Social Welfare',
+      image: '/logos/pephands-foundation.png',
+      keywords: 'Pephands Foundation, ngo, charity, education campaigns'
+    });
+
     this.fetchCampaigns(this.currentPage);
   }
 
