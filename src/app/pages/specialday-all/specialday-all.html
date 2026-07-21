@@ -1,1 +1,39 @@
-<p>specialday-all works!</p>
+<section class="pephands-section py-5 bg-pep-bg position-relative">
+  <div class="container py-lg-5">
+    <!-- Pephands Theme Heading -->
+    <div class="d-flex flex-column justify-content-center align-items-center text-center mb-5 pb-2">
+      <div class="heading-box">
+        <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small"
+          >Celebrate Meaningfully</span
+        >
+        <h2 class="display-5 fw-bold text-pep-ink mb-3 tracking-tight">Special Day Giving Drive</h2>
+        <div class="accent-line bg-pep-primary rounded-pill mx-auto" style="width: 60px; height: 4px"></div>
+        <p class="lead text-muted mt-3 mb-0">
+          Make your special occasions memorable by bringing joy to those who need it most.
+        </p>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center py-5">
+      <div class="spinner-border text-pep-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Campaigns Grid -->
+    <div
+      *ngIf="!isLoading && specialCampaigns.length > 0"
+      class="row g-4 justify-content-center"
+    >
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch" *ngFor="let campaign of specialCampaigns">
+        <app-specialday-card [campaign]="campaign" style="width: 100%; display: block;"></app-specialday-card>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && specialCampaigns.length === 0" class="text-center py-5 text-muted">
+      No campaigns available right now.
+    </div>
+  </div>
+</section>

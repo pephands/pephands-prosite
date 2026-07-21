@@ -132,6 +132,11 @@ export const routes: Routes = [
     title: 'Medical Campaigns - Pephands Foundation',
   },
   {
+    path: 'donate/celebrate-special-day',
+    component: SpecialdayAll,
+    title: 'Celebrate Your Special Day - Pephands Foundation',
+  },
+  {
     path: 'donate/paws-and-plates',
     component: StrayFood,
     title: 'Feeding Strays - Pephands Foundation',
