@@ -1,0 +1,231 @@
+.bf-collection-section {
+  background: #ffffff; // Resetting to clean white as it's the foundation standard
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(var(--bs-primary-rgb), 0.06) 1.5px, transparent 1.5px);
+    background-size: 50px 50px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .milestone-path-container {
+    margin-top: 60px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .milestone-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .milestone-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+
+    .node-wrapper {
+      position: relative;
+      height: 90px;
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .milestone-node {
+      width: 90px;
+      height: 90px;
+      background: var(--pep-bg); // Soft Lavender Tint
+      border: 1px solid rgba(var(--bs-primary-rgb), 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 5;
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.03),
+        inset 0 0 15px rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      will-change: transform;
+      
+      // Secondary Inner Ring for Enhanced Design
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.05);
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .node-active-bg {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        z-index: 2;
+      }
+
+      i {
+        font-size: 2.2rem;
+        color: var(--pep-primary);
+        position: relative;
+        z-index: 3;
+        transition: color 0.8s ease;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+      }
+
+      // Decorative outer dashed ring
+      &::after {
+        content: '';
+        position: absolute;
+        inset: -8px;
+        border: 1px dashed rgba(var(--bs-primary-rgb), 0.08);
+        border-radius: 50%;
+        z-index: 4;
+        transition: all 0.5s ease;
+      }
+    }
+
+    .milestone-connector {
+      position: absolute;
+      left: calc(50% + 45px);
+      right: calc(-50% + 45px);
+      height: 2px;
+      background: rgba(var(--bs-primary-rgb), 0.1);
+      top: 45px;
+      z-index: 1;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--pep-primary);
+        box-shadow: 0 0 10px rgba(var(--bs-primary-rgb), 0.3);
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    .milestone-content {
+      margin-top: 0px; // Reduced gap from 50px
+      
+      .step-label {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: var(--pep-primary);
+        background: rgba(var(--bs-primary-rgb), 0.08);
+        padding: 5px 15px;
+        border-radius: 6px 15px 15px 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 15px;
+        border-left: 3px solid var(--pep-primary);
+        position: relative;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        transition: all 0.8s ease;
+      }
+
+      h3 {
+        font-size: 1.25rem; 
+        font-weight: 600;
+        color: var(--pep-primary); 
+        margin-bottom: 12px;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #6a6a6a;
+        line-height: 1.7;
+        margin: 0;
+      }
+    }
+
+    // Step-Specific Delays (Applying User Colors to Nodes, Tags, and Text)
+    &:nth-child(1) { .node-active-bg { background: var(--pep-primary); animation-name: smoothFade; } .milestone-node i { animation-name: step1Icon; } .milestone-connector::after { animation-name: path1Active; } .milestone-content h3 { animation-name: step1Text; } .milestone-content .step-label { animation-name: step1Tag; } }
+    &:nth-child(2) { .node-active-bg { background: #C9184A; animation-name: smoothFadeStep2; } .milestone-node i { animation-name: step2Icon; } .milestone-connector::after { animation-name: path2Active; } .milestone-content h3 { animation-name: step2Text; } .milestone-content .step-label { animation-name: step2Tag; } }
+    &:nth-child(3) { .node-active-bg { background: #5A189A; animation-name: smoothFadeStep3; } .milestone-node i { animation-name: step3Icon; } .milestone-connector::after { animation-name: path3Active; } .milestone-content h3 { animation-name: step3Text; } .milestone-content .step-label { animation-name: step3Tag; } }
+    &:nth-child(4) { .node-active-bg { background: #3A0CA3; animation-name: smoothFadeStep4; } .milestone-node i { animation-name: step4Icon; } .milestone-connector::after { animation-name: path4Active; } .milestone-content h3 { animation-name: step4Text; } .milestone-content .step-label { animation-name: step4Tag; } }
+    &:nth-child(5) { .node-active-bg { background: #0E7490; animation-name: smoothFadeStep5; } .milestone-node i { animation-name: step5Icon; } .milestone-content h3 { animation-name: step5Text; } .milestone-content .step-label { animation-name: step5Tag; } }
+
+    &.last .milestone-connector { display: none; }
+  }
+}
+
+// --- TAG ANIMATIONS ---
+@keyframes step1Tag { 0%, 90% { background: var(--pep-primary); color: #ffffff; border-color: var(--pep-primary); } 95%, 100% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } }
+@keyframes step2Tag { 0%, 20% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } 25%, 90% { background: #C9184A; color: #ffffff; border-color: #C9184A; } 95%, 100% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } }
+@keyframes step3Tag { 0%, 40% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } 45%, 90% { background: #5A189A; color: #ffffff; border-color: #5A189A; } 95%, 100% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } }
+@keyframes step4Tag { 0%, 60% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } 65%, 90% { background: #3A0CA3; color: #ffffff; border-color: #3A0CA3; } 95%, 100% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } }
+@keyframes step5Tag { 0%, 80% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } 85%, 90% { background: #0E7490; color: #ffffff; border-color: #0E7490; } 95%, 100% { background: rgba(var(--bs-primary-rgb), 0.08); color: var(--pep-primary); border-color: var(--pep-primary); } }
+
+// KEYFRAMES
+@keyframes smoothFade { 0%, 90% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@keyframes smoothFadeStep2 { 0%, 20% { opacity: 0; } 25%, 90% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@keyframes smoothFadeStep3 { 0%, 40% { opacity: 0; } 45%, 90% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@keyframes smoothFadeStep4 { 0%, 60% { opacity: 0; } 65%, 90% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@keyframes smoothFadeStep5 { 0%, 80% { opacity: 0; } 85%, 90% { opacity: 1; } 95%, 100% { opacity: 0; } }
+
+@keyframes step1Icon { 0%, 90% { color: #ffffff; } 95%, 100% { color: var(--pep-primary); } }
+@keyframes step2Icon { 0%, 20% { color: #C9184A; } 25%, 90% { color: #ffffff; } 95%, 100% { color: #C9184A; } }
+@keyframes step3Icon { 0%, 40% { color: #5A189A; } 45%, 90% { color: #ffffff; } 95%, 100% { color: #5A189A; } }
+@keyframes step4Icon { 0%, 60% { color: #3A0CA3; } 65%, 90% { color: #ffffff; } 95%, 100% { color: #3A0CA3; } }
+@keyframes step5Icon { 0%, 80% { color: #0E7490; } 85%, 90% { color: #ffffff; } 95%, 100% { color: #0E7490; } }
+
+@keyframes path1Active { 0%, 10% { width: 0; } 15%, 90% { width: 100%; } 95%, 100% { width: 0; } }
+@keyframes path2Active { 0%, 30% { width: 0; } 35%, 90% { width: 100%; } 95%, 100% { width: 0; } }
+@keyframes path3Active { 0%, 50% { width: 0; } 55%, 90% { width: 100%; } 95%, 100% { width: 0; } }
+@keyframes path4Active { 0%, 70% { width: 0; } 75%, 90% { width: 100%; } 95%, 100% { width: 0; } }
+
+@keyframes step1Text { 0%, 90% { color: var(--pep-primary); } 95%, 100% { color: var(--pep-primary); } }
+@keyframes step2Text { 0%, 20% { color: var(--pep-primary); } 25%, 90% { color: #C9184A; } 95%, 100% { color: var(--pep-primary); } }
+@keyframes step3Text { 0%, 40% { color: var(--pep-primary); } 45%, 90% { color: #5A189A; } 95%, 100% { color: var(--pep-primary); } }
+@keyframes step4Text { 0%, 60% { color: var(--pep-primary); } 65%, 90% { color: #3A0CA3; } 95%, 100% { color: var(--pep-primary); } }
+@keyframes step5Text { 0%, 80% { color: var(--pep-primary); } 85%, 90% { color: #0E7490; } 95%, 100% { color: var(--pep-primary); } }
+
+@media (max-width: 991px) {
+  .bf-collection-section {
+    padding: 60px 0 !important;
+    .milestone-grid { flex-direction: column; gap: 60px; }
+    .milestone-item {
+      flex-direction: row; text-align: left; width: 100%; padding: 0;
+      .node-wrapper { width: 90px; margin-right: 30px; height: 90px; margin-bottom: 0; }
+      .milestone-connector {
+        left: 45px; top: 90px; width: 3px; height: calc(100% + 60px); transform: translateX(-50%);
+        &::after { width: 100%; height: 0; }
+      }
+      &:nth-child(1) .milestone-connector::after { animation-name: path1Vertical; }
+      &:nth-child(2) .milestone-connector::after { animation-name: path2Vertical; }
+      &:nth-child(3) .milestone-connector::after { animation-name: path3Vertical; }
+      &:nth-child(4) .milestone-connector::after { animation-name: path4Vertical; }
+    }
+  }
+}

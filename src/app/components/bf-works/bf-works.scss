@@ -1,0 +1,234 @@
+.bf-works-section {
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+
+  .process-flow-container {
+    position: relative;
+    z-index: 2;
+    margin-top: 100px;
+  }
+
+  .process-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 140px; /* Increased gap to create more space for arrows */
+    flex-wrap: nowrap;
+    padding: 20px;
+  }
+
+  .process-step {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .diamond-wrapper {
+      position: relative;
+      width: 180px; /* Scaled down from 200px */
+      height: 180px;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      will-change: transform;
+
+      .diamond-aura {
+        position: absolute;
+        inset: -20px;
+        border-radius: 50%;
+        filter: blur(30px);
+        opacity: 0.1;
+        z-index: -1;
+        transition: opacity 0.5s ease;
+        
+        &.color-1 { background: var(--pep-magenta); }
+        &.color-2 { background: var(--pep-primary); }
+        &.color-3 { background: var(--pep-primary); }
+        &.color-4 { background: var(--pep-primary); }
+      }
+
+      .diamond-shape {
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.1);
+        transform: rotate(45deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 15px 35px rgba(var(--bs-primary-rgb), 0.05);
+        border-radius: 40px;
+        position: relative;
+        overflow: hidden;
+
+        .scanline {
+          position: absolute;
+          inset: -100% 0;
+          background: linear-gradient(to bottom, transparent, rgba(var(--bs-primary-rgb), 0.03), transparent);
+          animation: scan 6s linear infinite;
+          pointer-events: none;
+          will-change: transform;
+        }
+
+        .content {
+          transform: rotate(-45deg);
+          text-align: center;
+          position: relative;
+          z-index: 5;
+
+          .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--pep-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 1px solid rgba(var(--bs-primary-rgb), 0.05);
+            transition: all 0.4s ease;
+
+            i {
+              font-size: 2.2rem;
+              color: var(--pep-primary);
+              transition: all 0.4s ease;
+            }
+          }
+
+          h3 {
+            font-size: 1rem;
+            color: var(--pep-primary);
+            font-weight: 600;
+            margin: 0;
+          }
+
+          .sub-text {
+            display: block;
+            font-size: 0.55rem;
+            margin-top: 5px;
+            color: #8e8e8e;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .diamond-dash {
+        position: absolute;
+        inset: -8px; /* Reduced from -15px */
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.05);
+        transform: rotate(45deg);
+        border-radius: 42px;
+        z-index: -2;
+        transition: all 0.6s ease;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          inset: -3px;
+          border: 1px dashed rgba(var(--bs-primary-rgb), 0.1);
+          border-radius: 44px;
+        }
+      }
+
+      &:hover {
+        .diamond-aura { opacity: 0.3; }
+        .diamond-shape {
+          border-color: rgba(var(--bs-primary-rgb), 0.2);
+          box-shadow: 0 30px 60px rgba(var(--bs-primary-rgb), 0.1);
+          .content .icon-circle {
+            background: var(--pep-primary);
+            i { color: #ffffff; }
+          }
+        }
+      }
+    }
+
+    &.active {
+      .diamond-wrapper {
+        .diamond-aura { opacity: 0.3; }
+        .diamond-shape {
+          border-color: rgba(var(--bs-primary-rgb), 0.2);
+          box-shadow: 0 30px 60px rgba(var(--bs-primary-rgb), 0.1);
+          .content .icon-circle {
+            background: var(--pep-primary);
+            i { color: #ffffff; }
+          }
+        }
+      }
+    }
+
+    .connector {
+      position: absolute;
+      left: calc(100% + 37px); 
+      top: 50%;
+      transform: translateY(-50%);
+      width: 66px; /* Matches the space between corners in 140px gap */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+
+      .arrow-path {
+        width: 25px;
+        height: 8px; /* Slightly thinner */
+        background: var(--pep-primary);
+        border-radius: 6px;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+          animation: flow 2s infinite linear;
+          will-change: transform;
+        }
+      }
+
+      .arrow-head {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 15px solid var(--pep-primary);
+        margin-left: -2px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    &:hover, &.active {
+      .connector {
+        .arrow-path { background: var(--pep-primary); }
+        .arrow-head { border-left-color: var(--pep-primary); }
+      }
+    }
+
+    &.last { .connector { display: none; } }
+  }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@media (max-width: 991px) {
+  .bf-works-section {
+    padding: 60px 0;
+    .process-grid {
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .process-step .connector {
+      top: calc(100% + 40px);
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.bf-distribution-section {
+  position: relative;
+  background: #fdfbff; // Sophisticated Off-White/Lavender
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(var(--bs-primary-rgb), 0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  .distribution-img {
+    max-width: 100%;
+    height: auto;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(var(--bs-primary-rgb), 0.2); // Outer border
+    padding: 6px; // Gap for double border effect
+    background: #ffffff;
+    border-radius: 24px; // Requested radius
+    box-shadow: none !important; // Removed shadow
+    
+    &:hover {
+      transform: translateY(-8px);
+      border-color: var(--pep-primary);
+    }
+  }
+
+  // Ensure row alignment is clean
+  .row {
+    margin-top: 2rem;
+  }
+}
