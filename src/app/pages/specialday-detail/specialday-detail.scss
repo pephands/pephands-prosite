@@ -1,0 +1,1051 @@
+// ============================================================
+//  DESIGN TOKENS
+// ============================================================
+$primary: #9c27b0;
+$primary-dark: #4a154b;
+$primary-light: #f3e5f5;
+$accent: #e91e8c;
+$white: #ffffff;
+$text-muted: #8e8e93;
+$text-body: #555555;
+$border-color: #e8e0ed;
+$card-shadow: 0 8px 40px rgba(74, 21, 75, 0.10);
+$radius-lg: 20px;
+$radius-md: 14px;
+
+// ============================================================
+//  KEYFRAME ANIMATIONS
+// ============================================================
+@keyframes floatOrb {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-28px) scale(1.06);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeSlideUp 0.65s ease both;
+}
+
+@keyframes ambientGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(233, 30, 140, 0.4), 0 0 0 0 rgba(233, 30, 140, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 8px 25px rgba(233, 30, 140, 0.6), 0 0 0 8px rgba(233, 30, 140, 0);
+  }
+}
+
+// ============================================================
+//  COMMON PADDING
+// ============================================================
+.section-padding {
+  padding: 100px 0;
+
+  @media (max-width: 991px) {
+    padding: 60px 0;
+  }
+}
+
+.section-padding-hero {
+  padding: 60px 0 100px 0;
+
+  @media (max-width: 991px) {
+    padding: 60px 0;
+  }
+}
+
+// ============================================================
+//  SECTION HEADINGS
+// ============================================================
+.heading-box {
+  .topic-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $accent;
+    background: rgba(233, 30, 140, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .main-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: $primary-dark;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  .accent-line {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, $primary, $accent);
+    border-radius: 2px;
+    margin-top: 16px;
+  }
+}
+
+// ============================================================
+//  BREADCRUMBS
+// ============================================================
+.bc-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 0.84rem;
+
+  .bc-item {
+    color: #8e8e93; // using hex since tokens were replaced
+    font-weight: 500;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: color 0.2s;
+
+    &.pointer {
+      cursor: pointer;
+    }
+
+    &.pointer:hover {
+      color: #9c27b0;
+    }
+
+    &.active {
+      color: #4a154b;
+      font-weight: 700;
+    }
+
+    .bc-icon {
+      font-size: 15px;
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+  .bc-sep {
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+    color: #ccc;
+  }
+}
+
+// ============================================================
+//  CAMPAIGN HEADER SECTION
+// ============================================================
+.campaign-header-section {
+  position: relative;
+  background: linear-gradient(160deg, #fdf6ff 0%, #f3e5f5 50%, #fdf6ff 100%);
+  overflow: hidden;
+
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Campaign description under heading
+  .campaign-desc {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: #4a154bd0;
+    font-weight: 500;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  // ── Gallery Card (full-width) ──
+  .campaign-gallery-card {
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $card-shadow;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 16px 50px rgba(74, 21, 75, 0.14);
+    }
+  }
+
+  // Shared panel label (gallery & story)
+  .gallery-wrapper {
+    padding: 20px 20px 10px;
+    background: $white;
+
+    @media (max-width: 576px) {
+      padding: 15px 12px 10px;
+    }
+  }
+
+  .campaign-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 12px;
+    width: 100%;
+    border-radius: $radius-md;
+    padding-bottom: 8px; /* For scrollbar */
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(156, 39, 176, 0.05);
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(156, 39, 176, 0.3);
+      border-radius: 4px;
+    }
+    &:hover::-webkit-scrollbar-thumb {
+      background: rgba(156, 39, 176, 0.6);
+    }
+  }
+
+  .carousel-slide {
+    scroll-snap-align: start;
+    flex: 0 0 calc(25% - 9px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @media (max-width: 1200px) {
+      flex: 0 0 calc(33.333% - 8px);
+    }
+    @media (max-width: 992px) {
+      flex: 0 0 calc(50% - 6px);
+    }
+    @media (max-width: 576px) {
+      flex: 0 0 100%;
+    }
+  }
+
+  .image-overlay-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: $radius-md;
+    overflow: hidden;
+
+    @media (max-width: 991px) {
+      height: 380px;
+    }
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+
+    @media (max-width: 480px) {
+      height: 400px;
+    }
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(to top, rgba(74, 21, 75, 0.35), transparent);
+    pointer-events: none;
+  }
+
+  // ── Stats Row (inside gallery card, below carousel) ──
+  .campaign-stats-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 28px;
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e5f5 100%);
+    border-top: 1px solid $border-color;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 18px 20px;
+    }
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .stat-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(156, 39, 176, 0.1);
+    color: $primary;
+
+    mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &.unit-cost {
+      background: rgba(156, 39, 176, 0.1);
+      color: $primary;
+    }
+
+    &.min-booking {
+      background: rgba(233, 30, 140, 0.1);
+      color: $accent;
+    }
+
+    &.impact {
+      background: rgba(76, 175, 80, 0.1);
+      color: #2e7d32;
+    }
+  }
+
+  .stat-info {
+    display: flex;
+    flex-direction: column;
+
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: $text-muted;
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: $primary-dark;
+    }
+  }
+
+  .btn-donate-now-scroll {
+    background: linear-gradient(135deg, $accent 0%, $primary 100%);
+    color: $white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: ambientGlow 2s infinite ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .btn-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      transform: translateY(-3px) scale(1.04);
+      filter: brightness(1.1);
+      animation: none;
+      box-shadow: 0 10px 25px rgba(233, 30, 140, 0.5), 0 0 15px rgba(156, 39, 176, 0.3);
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 35px;
+    background: $border-color;
+
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
+
+  // ── Story Card (full-width) ──
+  .campaign-story-card {
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $card-shadow;
+
+    .story-body {
+      padding: 28px 32px;
+
+      @media (max-width: 576px) {
+        padding: 20px 18px;
+      }
+    }
+  }
+
+  .story-content {
+    max-height: 9.5em;
+    overflow: hidden;
+    line-height: 1.8;
+    color: $text-body;
+    font-size: 0.96rem;
+    transition: max-height 0.4s ease;
+
+    &.expanded {
+      max-height: none;
+    }
+
+    ::ng-deep {
+      p {
+        margin-bottom: 12px;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+        margin-bottom: 12px;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      strong {
+        color: $primary-dark;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .toggle-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: 2px solid $primary;
+    color: $primary;
+    border-radius: 30px;
+    padding: 6px 20px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    mat-icon {
+      font-size: 16px;
+      height: 16px;
+      width: 16px;
+    }
+
+    &:hover {
+      background: $primary;
+      color: $white;
+    }
+  }
+
+}
+
+// ============================================================
+//  DONATION FORM SECTION (REDESIGNED PREMIUM THEME)
+// ============================================================
+.donation-form-section {
+  background: linear-gradient(160deg, #fdf6ff 0%, #fff 40%, #f3e5f5 100%);
+
+  .heading-box {
+    margin-bottom: 44px;
+  }
+
+  // ── Layout container (matches the sleek, centered layout) ──
+  .donation-layout-container {
+    max-width: 680px; // Slightly narrower, editorial layout
+    margin: 0 auto;
+  }
+
+  // ── Unified Donation Form Card Container ──
+  .donation-form-card {
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 24px;
+    padding: 44px 38px;
+    box-shadow: $card-shadow;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 12px 45px rgba(74, 21, 75, 0.12);
+    }
+
+    @media (max-width: 576px) {
+      padding: 24px 20px;
+    }
+  }
+
+  // ── Form Subsection styling inside unified card ──
+  .form-subsection {
+    margin-bottom: 0;
+  }
+
+  // ── Field Wrapper ──
+  .field-wrapper {
+    position: relative;
+  }
+
+  .field-label-custom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: $primary-dark;
+    margin-bottom: 8px;
+
+    .label-dot {
+      width: 6px;
+      height: 6px;
+      background-color: rgba($accent, 0.4);
+      border-radius: 50%;
+    }
+  }
+
+  // ── Inputs inside light cards ──
+  .custom-form-input,
+  .custom-form-select,
+  .custom-form-textarea {
+    width: 100%;
+    background: #fdfaff;
+    border: 1.5px solid $border-color;
+    border-radius: 10px;
+    color: $primary-dark;
+    padding: 13px 16px;
+    font-size: 0.94rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+
+    &::placeholder {
+      color: rgba(74, 21, 75, 0.4);
+      font-weight: 400;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      background: $white;
+      box-shadow: 0 0 10px rgba(156, 39, 176, 0.15);
+    }
+  }
+
+  .custom-form-textarea {
+    resize: none;
+  }
+
+  // ── Custom Select Arrow ──
+  .select-wrapper {
+    position: relative;
+    width: 100%;
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding-right: 40px;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a154b'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 18px;
+    }
+  }
+
+  // ── Datepicker wrapper ──
+  .datepicker-input-wrapper {
+    position: relative;
+    width: 100%;
+
+    .custom-form-input {
+      padding-right: 45px;
+      cursor: pointer;
+    }
+
+    .custom-picker-toggle {
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      ::ng-deep .mat-mdc-icon-button {
+        --mdc-icon-button-icon-color: #4a154b !important;
+        width: 38px;
+        height: 38px;
+        padding: 7px;
+      }
+    }
+  }
+
+  // ── Info icon overlay on parcel input ──
+  .input-info-wrapper {
+    position: relative;
+    width: 100%;
+
+    .info-action-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: rgba(74, 21, 75, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $primary;
+      }
+
+      mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  // ── Quantity controller container ──
+  .quantity-selector-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .quantity-controller {
+    display: inline-flex;
+    align-items: center;
+    background: #fdfaff;
+    border: 1.5px solid $border-color;
+    border-radius: 8px;
+    padding: 3px;
+  }
+
+  .qty-control-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: $primary-dark;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: rgba(156, 39, 176, 0.08);
+    }
+
+    &:active {
+      background: rgba(156, 39, 176, 0.15);
+    }
+  }
+
+  .qty-display-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $primary-dark;
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .qty-multiplier-label {
+    font-size: 0.88rem;
+    color: rgba(74, 21, 75, 0.6);
+    font-weight: 500;
+  }
+
+  // ── Total Donation Banner (exactly matches mockup banner shape/spacing but styled in theme) ──
+  .total-donation-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #eef9f7 0%, #f6f0f7 100%);
+    border: 1px solid rgba(156, 39, 176, 0.08);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 24px;
+
+    .total-banner-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: $primary-dark;
+
+      .total-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        color: $primary;
+      }
+    }
+
+    .total-banner-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: $primary-dark;
+    }
+  }
+
+  // ── Switch Row Item ──
+  .switch-row-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #fdfaff;
+    border: 1.5px solid $border-color;
+    border-radius: 12px;
+
+    @media (max-width: 480px) {
+      padding: 14px 12px;
+    }
+  }
+
+  .switch-details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .switch-row-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+      color: $accent;
+    }
+  }
+
+  .switch-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .switch-row-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $primary-dark;
+  }
+
+  .switch-row-desc {
+    font-size: 0.76rem;
+    color: rgba(74, 21, 75, 0.6);
+  }
+
+  // ── Custom Toggle Switch slider (replacing default checkboxes) ──
+  .custom-theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+    margin-bottom: 0;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .theme-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(74, 21, 75, 0.1);
+    transition: .3s;
+    border-radius: 34px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+  }
+
+  input:checked+.theme-switch-slider {
+    background-color: $accent; // Pink switch (Pephands)
+  }
+
+  input:checked+.theme-switch-slider:before {
+    transform: translateX(20px);
+  }
+
+  // ── Conditional Groups ──
+  .conditional-group {
+    padding: 20px;
+    background: rgba(156, 39, 176, 0.02);
+    border: 1.5px dashed rgba(156, 39, 176, 0.2);
+    border-radius: 12px;
+    animation: fadeSlideUp 0.3s ease both;
+  }
+
+  // ── File upload area inside card ──
+  .custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fdfaff;
+    border: 1.5px solid $border-color;
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+      border-color: rgba(156, 39, 176, 0.3);
+      background: #fcf6ff;
+    }
+
+    .upload-info-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 70%;
+
+      .cloud-icon {
+        color: $primary;
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+
+      .upload-filename {
+        font-size: 0.88rem;
+        color: $primary-dark;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .upload-btn {
+      background: transparent;
+      border: 1px solid rgba(156, 39, 176, 0.3);
+      color: $primary;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(156, 39, 176, 0.06);
+      }
+    }
+
+    .remove-upload-btn {
+      background: rgba(244, 67, 54, 0.08);
+      border: 1px solid rgba(244, 67, 54, 0.25);
+      color: #f44336;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(244, 67, 54, 0.15);
+      }
+    }
+  }
+
+  // ── Validation Errors display ──
+  .field-error-msg {
+    color: #ff5252;
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-top: 5px;
+    padding-left: 2px;
+    animation: fadeSlideUp 0.2s ease both;
+  }
+
+  .validation-error-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(244, 67, 54, 0.08);
+    border: 1px solid rgba(244, 67, 54, 0.2);
+    border-radius: 12px;
+    padding: 12px 18px;
+    color: #ff5252;
+    font-size: 0.88rem;
+    font-weight: 500;
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+  }
+
+  // ── Submit Section ──
+  .submit-action-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+
+  // Sleek button structure exactly like mockup but themed
+  .custom-submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, $primary 0%, $accent 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .btn-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      box-shadow: 0 12px 30px rgba(156, 39, 176, 0.4);
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+}
+
+// ============================================================
+//  POPUP
+// ============================================================
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $white;
+  border-radius: 16px;
+  text-align: center;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+}
+
+.popup-image {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: $primary-dark;
+  color: $white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+// ============================================================
+//  COMMENTS SECTION
+// ============================================================
+.comments-section {
+  background: linear-gradient(180deg, #fdf6ff 0%, #fff 100%);
+
+  .heading-box {
+    margin-bottom: 44px;
+  }
+}
+
+// ============================================================
+//  SNACKBAR OVERRIDE
+// ============================================================
+::ng-deep .mat-mdc-snack-bar-container {
+  &.custom-snackbar {
+    --mdc-snackbar-container-color: #702071;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+    --mdc-snackbar-supporting-text-size: 10px;
+  }
+}

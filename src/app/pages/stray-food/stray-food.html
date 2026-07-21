@@ -1,1 +1,821 @@
-<p>stray-food works!</p>
+<div class="paws-page-wrapper">
+  <!-- Hero Section -->
+  <section class="hero-section pephands-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6 mb-lg-0 text-start text-lg-start order-2 order-lg-1">
+          <div class="heading-box mb-4 text-start">
+            <span class="topic-label">Feed the Voiceless</span>
+            <h1 class="main-title mb-3">
+              Welcome to <span class="highlight-text">Paws & Plates</span>
+            </h1>
+            <div class="accent-line ms-0"></div>
+            <p
+              class="mild-purple sub-heading mt-3 mb-4 lead text-muted"
+            >
+              Where you can make a real difference in the lives of stray dogs by treating them to a
+              healthy and nutritious meal.
+            </p>
+
+            <ul class="hero-feature-list list-unstyled mb-4">
+              <li class="d-flex align-items-center mb-2">
+                <mat-icon
+                  class="text-success me-2"
+                  style="font-size: 20px; width: 20px; height: 20px"
+                  >check_circle</mat-icon
+                >
+                <span class="fw-medium">100% Nutritious Meals</span>
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <mat-icon
+                  class="text-success me-2"
+                  style="font-size: 20px; width: 20px; height: 20px"
+                  >check_circle</mat-icon
+                >
+                <span class="fw-medium">Safe & Hygienic Preparation</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <mat-icon
+                  class="text-success me-2"
+                  style="font-size: 20px; width: 20px; height: 20px"
+                  >check_circle</mat-icon
+                >
+                <span class="fw-medium">Tax Benefits under 80G</span>
+              </li>
+            </ul>
+          </div>
+          <div class="hero-actions d-none d-lg-block">
+            <button class="btn btn-primary rounded-pill fw-bold hover-lift cta-primary px-4 py-2 btn-hero-donate d-inline-flex align-items-center" (click)="scrollToForm()">
+              Donate Now <mat-icon class="ms-2" style="font-size: 1.2rem; height: 1.2rem; width: 1.2rem;">favorite</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 order-1 order-lg-2 mb-5 mb-lg-0">
+          <div class="video-wrapper hero-video-wrapper">
+            <iframe [src]="heroVideoUrl" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Section -->
+  <section class="donation-form-wrapper pephands-section" id="paws-donation-form">
+    <div class="container">
+      <div class="heading-box text-center mb-5">
+        <span class="topic-label">Donation</span>
+        <h2 class="main-title mb-3">Make a Difference <span class="highlight-text">Today</span></h2>
+        <div class="accent-line mx-auto"></div>
+        <p class="mild-purple sub-heading mt-3 mx-auto">
+          Your contribution directly impacts the life of a voiceless soul.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Form Column -->
+        <div class="col-12 col-lg-7">
+          <div class="luxe-card donation-form-card p-4 p-md-5">
+            <div class="card-header-styled mb-md-5 mb-4 text-center text-md-start">
+              <div
+                class="d-flex align-items-center justify-content-center justify-content-md-start gap-2"
+              >
+                <i class="ri-hand-heart-line purple-icon fs-3"></i>
+                <h2 class="purple m-0 fw-bold fs-4">Secure Donation Form</h2>
+              </div>
+              <p class="text-muted text-center text-md-start small mt-1">
+                Please fill in your details to proceed with your donation
+              </p>
+            </div>
+
+            <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" placeholder="Enter your name" />
+                    <mat-icon matSuffix class="text-muted">person</mat-icon>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="Enter your email" />
+                    <mat-icon matSuffix class="text-muted">email</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Phone</mat-label>
+                    <input
+                      matInput
+                      formControlName="phone"
+                      maxlength="10"
+                      placeholder="Enter your phone"
+                    />
+                    <mat-icon matSuffix class="text-muted">phone</mat-icon>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Amount (₹)</mat-label>
+                    <input
+                      matInput
+                      type="number"
+                      formControlName="amount"
+                      placeholder="Enter Amount"
+                    />
+                    <mat-icon matSuffix class="text-muted">currency_rupee</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="tax-benefits-box p-3 rounded-4 mb-4">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="ri-shield-flash-line purple fs-4"></i>
+                    <div class="text-start">
+                      <h6 class="m-0 fw-bold purple">Tax Benefits (80G)</h6>
+                      <p class="text-muted small m-0">Claim 50% tax exemption on your donation</p>
+                    </div>
+                  </div>
+                  <mat-checkbox formControlName="taxBenefits" color="primary"></mat-checkbox>
+                </div>
+
+                <div
+                  class="tax-fields-container"
+                  [class.show]="donationForm.get('taxBenefits')?.value"
+                >
+                  <div class="tax-fields-inner pt-3">
+                    <div class="row">
+                      <div class="col-12 col-md-6 mb-3">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Aadhar No</mat-label>
+                          <input
+                            matInput
+                            formControlName="aadharNumber"
+                            placeholder="Enter Aadhar"
+                          />
+                          <mat-icon matSuffix class="text-muted">badge</mat-icon>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-12 col-md-6 mb-3">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>PAN Card</mat-label>
+                          <input
+                            matInput
+                            formControlName="panNumber"
+                            placeholder="Enter PAN"
+                            style="text-transform: uppercase"
+                          />
+                          <mat-icon matSuffix class="text-muted">credit_card</mat-icon>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-12">
+                        <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Address</mat-label>
+                          <textarea
+                            matInput
+                            formControlName="address"
+                            rows="3"
+                            placeholder="Billing Address"
+                          ></textarea>
+                          <mat-icon matSuffix class="text-muted">home</mat-icon>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button
+                  mat-flat-button
+                  class="w-100 py-3 btn-donate-submit text-uppercase fw-bold"
+                  type="submit"
+                  [disabled]="!donationForm.valid"
+                >
+                  <i class="ri-heart-pulse-line me-2"></i>Proceed to Donate
+                </button>
+                <div
+                  class="d-flex align-items-center justify-content-center gap-2 mt-3 text-muted small"
+                >
+                  <i class="ri-lock-line text-success"></i>
+                  <span>Secured 256-Bit SSL Payment Processing</span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- QR Column -->
+        <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+          <div
+            class="luxe-card qr-card p-4 p-md-5 text-center h-100 d-flex flex-column justify-content-center"
+          >
+            <div>
+              <div class="qr-header mb-4">
+                <span class="qr-badge mb-2">Instant UPI Transfer</span>
+                <h3 class="purple fw-bold fs-4 m-0">Donate via UPI QR</h3>
+                <p class="text-muted small mt-1">
+                  Scan the QR code with any UPI app to donate directly
+                </p>
+              </div>
+
+              <!-- Animated Scanner Frame -->
+              <div class="scanner-frame-wrapper mx-auto mb-4">
+                <div class="scanner-frame">
+                  <div class="scanner-corner top-left"></div>
+                  <div class="scanner-corner top-right"></div>
+                  <div class="scanner-corner bottom-left"></div>
+                  <div class="scanner-corner bottom-right"></div>
+                  <div class="scan-beam"></div>
+                  <img
+                    src="/Donation-QR/paws-plates.jpeg"
+                    alt="QR Code"
+                    class="img-fluid qr-image"
+                  />
+                </div>
+                <p class="purple mt-3 mb-0 fw-bold">Scan QR Code to Pay Directly</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Occasions Section -->
+  <!-- Occasions Section -->
+  <section class="occasions-section bg-white pephands-section">
+    <div class="container">
+      <div class="heading-box text-center mb-5">
+        <span class="topic-label">Every Moment Counts</span>
+        <h2 class="main-title mb-3">
+          Kindness for Every <span class="highlight-text">Occasion</span>
+        </h2>
+        <div class="accent-line mx-auto"></div>
+        <p class="mild-purple sub-heading mt-3 mx-auto">
+          On your special day, birthday, anniversary, memorial day, or any meaningful occasion
+          extend your kindness by supporting a dog food donation and helping stray dogs receive
+          proper nourishment and care.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Card 1 -->
+        <div class="col-6 col-md-3">
+          <div class="occasion-card">
+            <div class="icon-circle birthday-bg">
+              <mat-icon>cake</mat-icon>
+            </div>
+            <h4>Birthdays</h4>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-6 col-md-3">
+          <div class="occasion-card">
+            <div class="icon-circle anniversary-bg">
+              <mat-icon>celebration</mat-icon>
+            </div>
+            <h4>Anniversaries</h4>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-6 col-md-3">
+          <div class="occasion-card">
+            <div class="icon-circle memorial-bg">
+              <mat-icon>volunteer_activism</mat-icon>
+            </div>
+            <h4>Memorial Days</h4>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="col-6 col-md-3">
+          <div class="occasion-card">
+            <div class="icon-circle special-bg">
+              <mat-icon>star</mat-icon>
+            </div>
+            <h4>Special Events</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="occasions-cta-box mt-5 mx-auto">
+        <div
+          class="d-flex align-items-center justify-content-center justify-content-md-between flex-wrap gap-4"
+        >
+          <div class="cta-text text-center text-md-start">
+            <h3 class="m-0 fw-bold">
+              Your support ensures that stray dogs get the love they truly deserve.
+            </h3>
+            <p class="mb-0 mt-2">Join us in making tails wag and bellies full!</p>
+          </div>
+          <button class="btn btn-primary rounded-pill fw-bold hover-lift px-4 py-2" (click)="scrollToForm()">
+            Sponsor a Meal Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Provide -->
+  <section class="bg-light-purple pephands-section">
+    <div class="container">
+      <div class="heading-box text-center mb-5">
+        <span class="topic-label">Our Offering</span>
+        <h2 class="main-title mb-3">What We <span class="highlight-text">Provide</span></h2>
+        <div class="accent-line mx-auto"></div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="premium-card">
+            <div class="icon-box"><mat-icon>restaurant</mat-icon></div>
+            <h3>Nutritious Meat Meal</h3>
+            <p>
+              Through our stray dog food donation initiative, we provide healthy meals to help
+              street dogs stay strong, active, and safe.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="premium-card active">
+            <div class="icon-box"><mat-icon>biotech</mat-icon></div>
+            <h3>Balanced Diet</h3>
+            <p>
+              We ensure every meal is balanced with proteins and vitamins essential for their street
+              survival.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="premium-card">
+            <div class="icon-box"><mat-icon>health_and_safety</mat-icon></div>
+            <h3>Hygienic Prep</h3>
+            <p>
+              All meals are prepared in clean environments to prevent any health risks to the
+              strays.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact on Society Section -->
+  <section class="impact-section pephands-section bg-light-purple position-relative">
+    <div class="container position-relative z-index-1">
+      <!-- Centered Header Box -->
+      <div class="heading-box text-center mb-5">
+        <span class="topic-label">Social Impact</span>
+        <h1 class="main-title mb-3">
+          Building Harmony Through
+          <span class="highlight-text">Stray Dog Food Donation</span>
+        </h1>
+        <div class="accent-line mx-auto"></div>
+      </div>
+
+      <div class="row align-items-stretch g-4 g-lg-5">
+        <!-- Content Column (col-lg-6) -->
+        <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
+          <div class="impact-content-card">
+            <div class="modern-pull-quote mb-4">
+              <div class="quote-icon-box">
+                <mat-icon>format_quote</mat-icon>
+              </div>
+              <p class="quote-text m-0">
+                "Have you ever thought about how a small act of kindness can create a big impact?"
+              </p>
+            </div>
+
+            <div class="narrative-text mb-4">
+              <p>
+                Across India, thousands of stray and street dogs struggle every day to find even one
+                proper meal. While our cities and streets are always busy, these innocent dogs often
+                go hungry and helpless.
+              </p>
+              <p>
+                That’s why stray dog food donation is so important. It becomes a powerful way to
+                support animals in need and give them comfort, strength, and hope.
+              </p>
+              <p class="mb-0">
+                At Pephands Foundation, we believe every living being deserves basic needs like
+                food, safety, and love. Every meal you sponsor is a step towards a kinder society.
+              </p>
+            </div>
+
+            <div class="">
+              <h6 class="m-0 fw-bold title-text">Be Their Voice</h6>
+              <p class="m-0 text-muted mt-1">
+                Every donation food for stray dogs spreads compassion where it is needed most.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Column (col-lg-6) -->
+        <div class="col-12 col-lg-6">
+          <div class="impact-visual-card h-100 position-relative">
+            <div class="image-inner-wrapper">
+              <img
+                src="/special day images/strays2.jpeg"
+                alt="Stray Dogs in India"
+                class="impact-featured-img img-fluid"
+              />
+
+              <!-- Guaranteed Responsive Overlays inside the image wrapper -->
+              <div class="inner-badge bottom-left-badge">
+                <div class="badge-icon"><mat-icon>restaurant</mat-icon></div>
+                <div class="badge-text">
+                  <span class="value">10k+</span>
+                  <span class="desc">Kilos Distributed</span>
+                </div>
+              </div>
+
+              <div class="inner-badge top-right-badge">
+                <mat-icon class="star-icon">star</mat-icon>
+                <span class="badge-title">Creating Smiles</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Helping -->
+  <section class="bg-light-purple pephands-section">
+    <div class="container">
+      <div class="heading-box text-center mb-5">
+        <span class="topic-label">Why it Matters</span>
+        <h2 class="main-title mb-3">
+          How Donation Helps <span class="highlight-text">Communities</span>
+        </h2>
+        <div class="accent-line mx-auto"></div>
+        <p class="mild-purple sub-heading mt-3 mx-auto">
+          Feeding stray dogs is not only about helping hungry puppies it also supports peaceful
+          communities.
+        </p>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-md-6">
+          <div class="benefit-item">
+            <div class="check-ball"><mat-icon>check</mat-icon></div>
+            <span>Better health and strength for stray dogs</span>
+          </div>
+          <div class="benefit-item">
+            <div class="check-ball"><mat-icon>check</mat-icon></div>
+            <span>Reduced hunger-related aggression and stress</span>
+          </div>
+          <div class="benefit-item">
+            <div class="check-ball"><mat-icon>check</mat-icon></div>
+            <span>Improved safety in streets and public areas</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="benefit-item">
+            <div class="check-ball"><mat-icon>check</mat-icon></div>
+            <span>Less roaming in search of food</span>
+          </div>
+          <div class="benefit-item">
+            <div class="check-ball"><mat-icon>check</mat-icon></div>
+            <span>Lower risk of road accidents and injuries</span>
+          </div>
+          <div class="benefit-item">
+            <div class="check-ball"><mat-icon>check</mat-icon></div>
+            <span>Promotes a culture of compassion and empathy</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <p class="fs-5 fw-bold" style="color: #4a154b">
+          So when you choose to donate food for stray dogs, you help both animals and society.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR Activities Section -->
+  <section class="csr-section pephands-section">
+    <div class="container">
+      <div class="heading-box text-center mb-5">
+        <span class="topic-label">Corporate & Community Impact</span>
+        <h2 class="main-title mb-3">
+          Recent CSR Activities for <span class="highlight-text">Stray Dogs</span>
+        </h2>
+        <div class="accent-line mx-auto"></div>
+        <p class="mild-purple sub-heading mt-3 mx-auto">
+          Empowering communities and organizations to make a lasting difference in animal welfare
+          through structured corporate initiatives and mass feeding drives.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch justify-content-center">
+        <!-- Content Column (col-lg-7) -->
+        <div class="col-12 col-lg-7 col-md-7 d-flex">
+          <div
+            class="luxe-card csr-content-card p-4 p-md-5 w-100 d-flex flex-column justify-content-between"
+          >
+            <div>
+              <div class="d-flex align-items-center gap-2 mb-4">
+                <i class="ri-briefcase-line purple-icon fs-3"></i>
+                <h3 class="purple m-0 fw-bold fs-4">Corporate Social Responsibility in Action</h3>
+              </div>
+
+              <div class="narrative-text mb-4">
+                <p>
+                  At Pephands Foundation, we bridge the gap between corporate goodwill and
+                  grassroots animal welfare. Our recent **CSR activities for strays** focus on
+                  creating a sustainable impact on the lives of stray dogs across major urban areas
+                  in India.
+                </p>
+                <p>
+                  Through corporate alliances, we have successfully organized mass feeding drives,
+                  built eco-friendly street shelters, and sponsored life-saving medical camps. These
+                  initiatives not only ensure stray dogs receive nutritious food but also help
+                  manage rabies and promote harmony within local communities.
+                </p>
+                <p class="mb-0">
+                  By partnering with us, your organization can foster employee engagement, drive
+                  social impact, and contribute to a compassionate environment for all street
+                  animals.
+                </p>
+              </div>
+
+              <!-- Mini stats or highlights related to CSR -->
+              <div class="row g-3 mb-4">
+                <div class="col-6">
+                  <div class="csr-mini-stat d-flex align-items-center gap-2">
+                    <mat-icon
+                      class="text-success"
+                      style="font-size: 20px; width: 20px; height: 20px"
+                      >check_circle</mat-icon
+                    >
+                    <div>
+                      <span class="d-block fw-bold purple">100% Tax Benefit</span>
+                      <small class="text-muted">Eligible under 80G</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="csr-mini-stat d-flex align-items-center gap-2">
+                    <mat-icon
+                      class="text-success"
+                      style="font-size: 20px; width: 20px; height: 20px"
+                      >check_circle</mat-icon
+                    >
+                    <div>
+                      <span class="d-block fw-bold purple">Employee Engagement</span>
+                      <small class="text-muted">Active volunteering camps</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="csr-action text-start mt-2">
+              <button class="btn btn-primary rounded-pill fw-bold hover-lift btn-csr-contact px-4 py-2 d-inline-flex align-items-center" [routerLink]="['/contact-us']">
+                Partner With Us <mat-icon class="ms-2" style="font-size: 1.2rem; height: 1.2rem; width: 1.2rem;">handshake</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Column (col-lg-5) -->
+        <div class="col-12 col-lg-5 col-md-5 d-flex">
+          <div
+            class="luxe-card csr-video-card p-2 w-100 d-flex align-items-center justify-content-center"
+          >
+            <div class="shorts-video-wrapper w-100">
+              <iframe
+                [src]="csrVideoUrl"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Redesigned Process Steps -->
+  <section class="kindness-steps-section pephands-section position-relative overflow-hidden">
+    <div class="steps-bg-glow"></div>
+    <div class="container position-relative">
+      <div class="heading-box text-center mb-5">
+        <span class="topic-label">How It Works</span>
+        <h2 class="main-title mb-3">Kindness in <span class="highlight-text">Action</span></h2>
+        <div class="accent-line mx-auto"></div>
+        <p class="sub-heading text-muted mt-3 mx-auto" style="max-width: 600px">
+          Every donation goes through a transparent and structured journey to ensure it directly
+          feeds a hungry stray dog.
+        </p>
+      </div>
+
+      <div class="row g-4 steps-container position-relative">
+        <div class="col-12 col-sm-6 col-lg-3" *ngFor="let step of processSteps; let i = index">
+          <div class="premium-step-card">
+            <!-- Large translucent step number in background -->
+            <div class="step-bg-number">0{{ i + 1 }}</div>
+
+            <div class="step-icon-wrapper">
+              <div class="step-icon-circle">
+                <mat-icon>{{ step.icon }}</mat-icon>
+              </div>
+            </div>
+
+            <div class="step-content">
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.desc }}</p>
+            </div>
+
+            <div class="step-card-hover-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Foundation Section -->
+  <section class="about-foundation pephands-section position-relative overflow-hidden">
+    <!-- Multi-layered glowing spheres in background for depth -->
+    <div class="glow-sphere sphere-1"></div>
+    <div class="glow-sphere sphere-2"></div>
+    <div class="glow-sphere sphere-3"></div>
+
+    <div class="container position-relative z-index-1">
+      <div class="row align-items-center g-4 g-lg-5">
+        <!-- Text Column -->
+        <div class="col-12 col-lg-6 text-start">
+          <div class="heading-box text-start mb-4">
+            <span class="topic-label">OUR MISSION</span>
+            <h2 class="main-title mb-3">
+              About <span class="highlight-text">Pephands Foundation</span>
+            </h2>
+            <div class="accent-line ms-0"></div>
+          </div>
+
+          <p class="description-lead mb-4">
+            Pephands Foundation is committed to making a positive impact in the lives of both people
+            and animals. We work continuously to support communities through welfare initiatives,
+            including dog food donation drives for stray dogs.
+          </p>
+          <p class="description-sub mb-5">
+            With your support, we can continue to donate food for stray dogs and care for them with
+            love, safety, and the dignity they deserve.
+          </p>
+
+          <div class="about-features-container d-flex flex-wrap gap-3">
+            <div class="premium-feature-pill">
+              <div class="pill-icon">
+                <mat-icon>volunteer_activism</mat-icon>
+              </div>
+              <span>100% Compassion</span>
+            </div>
+            <div class="premium-feature-pill">
+              <div class="pill-icon"><mat-icon>verified</mat-icon></div>
+              <span>Transparent Audits</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Column with Asymmetric / Offset grid -->
+        <div class="col-12 col-lg-6">
+          <div class="row g-4 stats-grid-wrapper">
+            <!-- Column 1 (Left Stats) -->
+            <div class="col-6 stats-col-left">
+              <!-- Card 1 -->
+              <div class="glass-stat-card card-purple mb-4">
+                <div class="card-inner">
+                  <div class="stat-icon-wrapper">
+                    <mat-icon>restaurant</mat-icon>
+                  </div>
+                  <h3 class="stat-num-val">10k+</h3>
+                  <p class="stat-num-lbl">Meals Served</p>
+                </div>
+                <div class="card-glow-bg"></div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="glass-stat-card card-pink">
+                <div class="card-inner">
+                  <div class="stat-icon-wrapper">
+                    <mat-icon>groups</mat-icon>
+                  </div>
+                  <h3 class="stat-num-val">200+</h3>
+                  <p class="stat-num-lbl">Volunteers</p>
+                </div>
+                <div class="card-glow-bg"></div>
+              </div>
+            </div>
+
+            <!-- Column 2 (Right Stats - Offset down on desktop) -->
+            <div class="col-6 stats-col-right">
+              <!-- Card 3 -->
+              <div class="glass-stat-card card-blue mb-4">
+                <div class="card-inner">
+                  <div class="stat-icon-wrapper">
+                    <mat-icon>map</mat-icon>
+                  </div>
+                  <h3 class="stat-num-val">50+</h3>
+                  <p class="stat-num-lbl">Areas Fed</p>
+                </div>
+                <div class="card-glow-bg"></div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="glass-stat-card card-green">
+                <div class="card-inner">
+                  <div class="stat-icon-wrapper">
+                    <mat-icon>workspace_premium</mat-icon>
+                  </div>
+                  <h3 class="stat-num-val">80G</h3>
+                  <p class="stat-num-lbl">Tax Benefit</p>
+                </div>
+                <div class="card-glow-bg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section pephands-section bg-alt position-relative overflow-hidden">
+    <!-- Decorative background element -->
+    <div class="faq-bg-shape"></div>
+
+    <div class="container position-relative z-index-1">
+      <div class="row align-items-center g-5">
+        <!-- Image Column -->
+        <div class="col-12 col-lg-5 mb-5 mb-lg-0">
+          <div class="faq-visual-wrapper">
+            <div class="faq-image-container">
+              <img
+                src="/special day images/strays.jpeg"
+                alt="Stray Dog Care"
+                class="faq-img"
+              />
+              <div class="faq-img-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion Column -->
+        <div class="col-12 col-lg-7">
+          <div class="faq-content-box">
+            <div class="heading-box text-start mb-4">
+              <span class="topic-label">Have Doubts?</span>
+              <h2 class="main-title mb-3">
+                Frequently Asked <span class="highlight-text">Questions</span>
+              </h2>
+              <div class="accent-line ms-0"></div>
+              <p
+                class="mild-purple sub-heading mt-3 mb-4"
+                style="line-height: 1.6; font-size: 1.05rem"
+              >
+                Find quick answers to your questions about our stray dog food donation initiative.
+                We believe in complete transparency.
+              </p>
+            </div>
+
+            <mat-accordion class="premium-accordion" multi="false">
+              <mat-expansion-panel
+                *ngFor="let faq of faqs; let first = first"
+                class="faq-panel mb-3"
+                hideToggle="false"
+                [expanded]="first"
+              >
+                <mat-expansion-panel-header class="faq-panel-header">
+                  <mat-panel-title class="fw-bold">{{ faq.q }}</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="faq-panel-body">
+                  <p class="text-muted m-0" style="line-height: 1.7">{{ faq.a }}</p>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Fixed Bottom Button -->
+  <div class="fixed-bottom-donate d-lg-none">
+    <button class="btn btn-primary rounded-pill fw-bold hover-lift w-100 justify-content-center py-3 d-inline-flex align-items-center" style="border-radius: 0 !important;" (click)="scrollToForm()">
+      Donate a Plate Now <mat-icon class="ms-2" style="font-size: 1.2rem; height: 1.2rem; width: 1.2rem;">favorite</mat-icon>
+    </button>
+  </div>
+</div>

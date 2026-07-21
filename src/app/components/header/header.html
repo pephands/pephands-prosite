@@ -79,20 +79,20 @@
         </button>
         <mat-menu #celebrateMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(celebrateTrigger)" (mouseleave)="closeMenu(celebrateTrigger)">
-            <button mat-menu-item>Donating Food</button>
-            <button mat-menu-item>Feeding a Dog</button>
-            <button mat-menu-item>Sharing a Cake</button>
-            <button mat-menu-item>Feed a Children home</button>
-            <button mat-menu-item>Feed a Senior Home</button>
-            <button mat-menu-item>Giving Grocery for a Month</button>
-            <button mat-menu-item>Gifting a WheeelChair</button>
-            <button mat-menu-item>Giving a Biriyani</button>
-            <button mat-menu-item>Gifting a Toy</button>
-            <button mat-menu-item>Giving Weekly Grocery</button>
-            <button mat-menu-item>Adding Protein for Kids</button>
-            <button mat-menu-item>Providing a Study Kit</button>
-            <button mat-menu-item>Giving woman hygiene kit</button>
-            <button mat-menu-item>giving bedsheets</button>
+            <button mat-menu-item routerLink="/donate/nourish-the-needy">Donating Food</button>
+            <button mat-menu-item routerLink="/donate/paws-and-plates">Feeding a Dog</button>
+            <button mat-menu-item routerLink="/donate/birthday-blessings">Sharing a Cake</button>
+            <button mat-menu-item routerLink="/donate/Love-For-Abandoned">Feed a Children home</button>
+            <button mat-menu-item routerLink="/donate/care-for-senior-citizens">Feed a Senior Home</button>
+            <button mat-menu-item routerLink="/donate/meals-for-a-month">Giving Grocery for a Month</button>
+            <button mat-menu-item routerLink="/donate/gift-a-wheelchair">Gifting a WheeelChair</button>
+            <button mat-menu-item routerLink="/donate/biryani-festive-feast">Giving a Biriyani</button>
+            <button mat-menu-item routerLink="/donate/play-and-smile">Gifting a Toy</button>
+            <button mat-menu-item routerLink="/donate/meal-maker-basket">Giving Weekly Grocery</button>
+            <button mat-menu-item routerLink="/donate/healthy-start">Adding Protein for Kids</button>
+            <button mat-menu-item routerLink="/donate/study-kit">Providing a Study Kit</button>
+            <button mat-menu-item routerLink="/donate/her-hygiene-kit">Giving woman hygiene kit</button>
+            <button mat-menu-item routerLink="/donate/warmth-for-all">giving bedsheets</button>
           </div>
         </mat-menu>
 
@@ -265,20 +265,20 @@
               <mat-panel-title class="mega-menu-title">Celebrate by</mat-panel-title>
             </mat-expansion-panel-header>
             <div class="d-flex flex-column gap-2 py-3 mega-menu-links">
-              <a (click)="closeMobileMenu()">Donating Food</a>
-              <a (click)="closeMobileMenu()">Feeding a Dog</a>
-              <a (click)="closeMobileMenu()">Sharing a Cake</a>
-              <a (click)="closeMobileMenu()">Feed a Children home</a>
-              <a (click)="closeMobileMenu()">Feed a Senior Home</a>
-              <a (click)="closeMobileMenu()">Giving Grocery for a Month</a>
-              <a (click)="closeMobileMenu()">Gifting a WheeelChair</a>
-              <a (click)="closeMobileMenu()">Giving a Biriyani</a>
-              <a (click)="closeMobileMenu()">Gifting a Toy</a>
-              <a (click)="closeMobileMenu()">Giving Weekly Grocery</a>
-              <a (click)="closeMobileMenu()">Adding Protein for Kids</a>
-              <a (click)="closeMobileMenu()">Providing a Study Kit</a>
-              <a (click)="closeMobileMenu()">Giving woman hygiene kit</a>
-              <a (click)="closeMobileMenu()">giving bedsheets</a>
+              <a routerLink="/donate/nourish-the-needy" (click)="closeMobileMenu()">Donating Food</a>
+              <a routerLink="/donate/paws-and-plates" (click)="closeMobileMenu()">Feeding a Dog</a>
+              <a routerLink="/donate/birthday-blessings" (click)="closeMobileMenu()">Sharing a Cake</a>
+              <a routerLink="/donate/Love-For-Abandoned" (click)="closeMobileMenu()">Feed a Children home</a>
+              <a routerLink="/donate/care-for-senior-citizens" (click)="closeMobileMenu()">Feed a Senior Home</a>
+              <a routerLink="/donate/meals-for-a-month" (click)="closeMobileMenu()">Giving Grocery for a Month</a>
+              <a routerLink="/donate/gift-a-wheelchair" (click)="closeMobileMenu()">Gifting a WheeelChair</a>
+              <a routerLink="/donate/biryani-festive-feast" (click)="closeMobileMenu()">Giving a Biriyani</a>
+              <a routerLink="/donate/play-and-smile" (click)="closeMobileMenu()">Gifting a Toy</a>
+              <a routerLink="/donate/meal-maker-basket" (click)="closeMobileMenu()">Giving Weekly Grocery</a>
+              <a routerLink="/donate/healthy-start" (click)="closeMobileMenu()">Adding Protein for Kids</a>
+              <a routerLink="/donate/study-kit" (click)="closeMobileMenu()">Providing a Study Kit</a>
+              <a routerLink="/donate/her-hygiene-kit" (click)="closeMobileMenu()">Giving woman hygiene kit</a>
+              <a routerLink="/donate/warmth-for-all" (click)="closeMobileMenu()">giving bedsheets</a>
             </div>
           </mat-expansion-panel>
 

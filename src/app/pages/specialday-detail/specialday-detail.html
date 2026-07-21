@@ -1,0 +1,494 @@
+<!-- ===================================================== -->
+<!--         CAMPAIGN HEADER SECTION                       -->
+<!-- ===================================================== -->
+<section class="campaign-header-section section-padding-hero mt-5" *ngIf="campaign">
+  <div class="container position-relative">
+    <!-- ── Heading Box (top, centered) ── -->
+    <div class="heading-box text-center mb-4 mb-md-5">
+      <span class="topic-label">Your Special Day Campaign</span>
+      <h1 class="main-title mb-3">{{ campaign.title }}</h1>
+      <div class="accent-line mx-auto"></div>
+      <p class="campaign-desc mb-0 mt-4">{{ campaign.description }}</p>
+    </div>
+
+    <!-- ── Full-width Gallery + Stats Card ── -->
+    <div class="campaign-gallery-card animate-fade-up mb-4">
+      <!-- Carousel -->
+      <div class="gallery-wrapper p-lg-3">
+        <div class="campaign-carousel css-carousel">
+          <div *ngFor="let image of campaign.images" class="carousel-slide">
+            <div class="image-overlay-container">
+              <img [src]="image" [alt]="campaign.title" class="carousel-image img-fluid" />
+              <div class="gradient-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlights / Stats inside the same card -->
+      <div class="campaign-stats-card">
+        <div class="stat-item">
+          <div class="stat-icon-wrapper unit-cost">
+            <mat-icon>payments</mat-icon>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Helping Cost</span>
+            <span class="stat-value">₹{{ campaign.amount }}</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon-wrapper min-booking">
+            <mat-icon>shopping_basket</mat-icon>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Min Booking</span>
+            <span class="stat-value">{{ campaign.minCount || 1 }} Pack</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <button type="button" class="btn-donate-now-scroll" (click)="scrollToForm()">
+            <mat-icon class="btn-icon">volunteer_activism</mat-icon>
+            Donate Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Full-width Story Card ── -->
+    <div class="campaign-story-card animate-fade-up mb-4">
+      <div class="story-body">
+        <div
+          class="story-content"
+          [ngClass]="{ expanded: isExpanded }"
+          [appSafeHtml]="campaign.content"
+        ></div>
+        <div class="toggle-row mt-3">
+          <button (click)="toggleContent()" class="toggle-btn">
+            <mat-icon>{{ isExpanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+            {{ isExpanded ? 'Show Less' : 'Read Full Story' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!--         DONATION FORM SECTION                         -->
+<!-- ===================================================== -->
+<section class="donation-form-section section-padding" id="donationForm">
+  <div class="container">
+    <!-- Section Heading -->
+    <div class="text-center heading-box mb-5">
+      <span class="topic-label">Donate Now</span>
+      <h2 class="main-title mb-3">Fill The Form. We'll Do The Rest!</h2>
+      <div class="accent-line mx-auto"></div>
+    </div>
+
+    <!-- Main Container styled exactly like the screenshot -->
+    <div class="donation-layout-container mx-auto">
+      <form [formGroup]="specialDonationForm" *ngIf="campaign" class="donation-form-card">
+        <!-- ── SUB-SECTION: ABOUT YOU ── -->
+        <div class="form-subsection">
+          <div class="field-wrapper mb-4">
+            <span class="field-label-custom"> <span class="label-dot"></span> Your name </span>
+            <input
+              type="text"
+              class="custom-form-input"
+              placeholder="Full name"
+              formControlName="donorName"
+            />
+            <div
+              class="field-error-msg"
+              *ngIf="
+                specialDonationForm.get('donorName')?.invalid &&
+                (specialDonationForm.get('donorName')?.touched ||
+                  specialDonationForm.get('donorName')?.dirty)
+              "
+            >
+              Donor name is required (letters and spaces only, min 3 characters).
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="field-wrapper">
+                <span class="field-label-custom"> <span class="label-dot"></span> Phone </span>
+                <input
+                  type="text"
+                  class="custom-form-input"
+                  placeholder="+91 00000 00000"
+                  formControlName="donorPhone"
+                  maxlength="10"
+                />
+                <div
+                  class="field-error-msg"
+                  *ngIf="
+                    specialDonationForm.get('donorPhone')?.invalid &&
+                    (specialDonationForm.get('donorPhone')?.touched ||
+                      specialDonationForm.get('donorPhone')?.dirty)
+                  "
+                >
+                  Enter a valid 10-digit mobile number.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="field-wrapper">
+                <span class="field-label-custom"> <span class="label-dot"></span> Email </span>
+                <input
+                  type="email"
+                  class="custom-form-input"
+                  placeholder="you@email.com"
+                  formControlName="donorEmail"
+                />
+                <div
+                  class="field-error-msg"
+                  *ngIf="
+                    specialDonationForm.get('donorEmail')?.invalid &&
+                    (specialDonationForm.get('donorEmail')?.touched ||
+                      specialDonationForm.get('donorEmail')?.dirty)
+                  "
+                >
+                  Contact email is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SUB-SECTION: YOUR GIFT ── -->
+        <div class="form-subsection">
+          <div class="row g-3 mt-3 mb-4">
+            <div class="col-md-6">
+              <div class="field-wrapper">
+                <span class="field-label-custom">
+                  <span class="label-dot"></span> Special occasion
+                </span>
+                <div class="select-wrapper">
+                  <select formControlName="specialDay" class="custom-form-select">
+                    <option value="" disabled selected>Select occasion</option>
+                    <option *ngFor="let day of specialDays" [value]="day.id">
+                      {{ day.specialday_name }}
+                    </option>
+                  </select>
+                </div>
+                <div
+                  class="field-error-msg"
+                  *ngIf="
+                    specialDonationForm.get('specialDay')?.invalid &&
+                    (specialDonationForm.get('specialDay')?.touched ||
+                      specialDonationForm.get('specialDay')?.dirty)
+                  "
+                >
+                  Special occasion is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="field-wrapper">
+                <span class="field-label-custom">
+                  <span class="label-dot"></span> Special date
+                </span>
+                <div class="datepicker-input-wrapper">
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    formControlName="specialDate"
+                    (click)="picker.open()"
+                    readonly
+                    required
+                    [min]="minDate"
+                    [matDatepickerFilter]="dateFilter"
+                    class="custom-form-input"
+                    placeholder="mm/dd/yyyy"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                    class="custom-picker-toggle"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </div>
+                <div
+                  class="field-error-msg"
+                  *ngIf="
+                    specialDonationForm.get('specialDate')?.invalid &&
+                    (specialDonationForm.get('specialDate')?.touched ||
+                      specialDonationForm.get('specialDate')?.dirty)
+                  "
+                >
+                  Special date is required.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-wrapper mb-4">
+            <span class="field-label-custom">
+              <span class="label-dot"></span> Name on the parcel
+            </span>
+            <div class="input-info-wrapper">
+              <input
+                type="text"
+                class="custom-form-input pe-5"
+                placeholder="Who is this dedicated to?"
+                formControlName="specialPersonName1"
+              />
+              <button type="button" class="info-action-btn" (click)="toggleImagePopup()">
+                <mat-icon>info_outline</mat-icon>
+              </button>
+            </div>
+            <div *ngIf="isImagePopupVisible" class="popup-container">
+              <button type="button" mat-icon-button class="close-btn" (click)="toggleImagePopup()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <img
+                src="../../../assets/special day images/parcel image.png"
+                alt="Demo Image"
+                class="popup-image"
+              />
+            </div>
+            <div
+              class="field-error-msg"
+              *ngIf="
+                specialDonationForm.get('specialPersonName1')?.invalid &&
+                (specialDonationForm.get('specialPersonName1')?.touched ||
+                  specialDonationForm.get('specialPersonName1')?.dirty)
+              "
+            >
+              Parcel dedication name is required (min 3 characters).
+            </div>
+          </div>
+
+          <div class="field-wrapper mb-4">
+            <span class="field-label-custom">
+              <span class="label-dot"></span> Number of parcels
+            </span>
+            <div class="quantity-selector-container">
+              <div class="quantity-controller">
+                <button type="button" class="qty-control-btn" (click)="decrementCount()">-</button>
+                <span class="qty-display-value">{{ specialDonationForm.get('count')?.value }}</span>
+                <button type="button" class="qty-control-btn" (click)="incrementCount()">+</button>
+              </div>
+              <span class="qty-multiplier-label">× ₹{{ campaign.amount }} per parcel</span>
+            </div>
+            <div class="field-error-msg" *ngIf="specialDonationForm.get('count')?.hasError('min')">
+              Minimum count to book: {{ campaign.minCount || 1 }}
+            </div>
+          </div>
+
+          <!-- Total Donation Banner exactly styled like the green banner in mockup but themed -->
+          <div class="total-donation-banner">
+            <span class="total-banner-label">
+              <mat-icon class="total-icon">payments</mat-icon> Total donation
+            </span>
+            <span class="total-banner-value">₹ {{ specialDonationForm.get('amount')?.value }}</span>
+          </div>
+        </div>
+
+        <!-- ── SUB-SECTION: MAKE IT PERSONAL ── -->
+        <div class="form-subsection">
+          <!-- Switch Row 1: Add a photo -->
+          <div class="switch-row-item mb-4 mt-3">
+            <div class="switch-details">
+              <mat-icon class="switch-row-icon">photo_library</mat-icon>
+              <div class="switch-text-content">
+                <span class="switch-row-title">Add a photo</span>
+                <span class="switch-row-desc">Personalize the parcel with a special memory</span>
+              </div>
+            </div>
+            <label class="custom-theme-switch">
+              <input type="checkbox" formControlName="customizedMessage" />
+              <span class="theme-switch-slider"></span>
+            </label>
+          </div>
+
+          <!-- Conditional fields: Add a photo details -->
+          <div
+            class="conditional-group mb-4"
+            *ngIf="specialDonationForm.get('customizedMessage')?.value"
+          >
+            <div class="field-wrapper mb-4">
+              <span class="field-label-custom">Upload photo</span>
+              <input
+                #govtId
+                type="file"
+                accept=".pdf,.doc,.docx,.jpeg,.jpg,.png"
+                id="govtIdProof"
+                formControlName="specialPersonImage"
+                class="form-control"
+                [hidden]="true"
+                (change)="onSpecialPersonImageSelected($event, true)"
+              />
+
+              <div (click)="govtId.click()" class="custom-file-upload">
+                <div class="upload-info-left">
+                  <mat-icon class="cloud-icon">cloud_upload</mat-icon>
+                  <span class="upload-filename">
+                    <ng-container *ngIf="!specialPersonImage?.name">Upload a Photo</ng-container>
+                    <ng-container *ngIf="specialPersonImage?.name">{{
+                      specialPersonImage?.name
+                    }}</ng-container>
+                  </span>
+                </div>
+                <div class="upload-actions-right">
+                  <button type="button" *ngIf="!specialPersonImage?.name" class="upload-btn">
+                    Browse
+                  </button>
+                  <button
+                    type="button"
+                    *ngIf="specialPersonImage?.name"
+                    class="remove-upload-btn"
+                    (click)="specialPersonImage = undefined; $event.stopPropagation()"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="field-wrapper">
+              <span class="field-label-custom">Caption (optional)</span>
+              <input
+                type="text"
+                class="custom-form-input"
+                placeholder="A few words about this memory..."
+                formControlName="specialPersonName2"
+              />
+              <div
+                class="field-error-msg"
+                *ngIf="
+                  specialDonationForm.get('specialPersonName2')?.invalid &&
+                  (specialDonationForm.get('specialPersonName2')?.touched ||
+                    specialDonationForm.get('specialPersonName2')?.dirty)
+                "
+              >
+                Caption contains invalid characters or is too long/short.
+              </div>
+            </div>
+          </div>
+
+          <!-- Switch Row 2: Claim tax benefits -->
+          <div class="switch-row-item mb-4">
+            <div class="switch-details">
+              <mat-icon class="switch-row-icon">receipt_long</mat-icon>
+              <div class="switch-text-content">
+                <span class="switch-row-title">Claim tax benefits</span>
+                <span class="switch-row-desc">Get your 80G exemption certificate</span>
+              </div>
+            </div>
+            <label class="custom-theme-switch">
+              <input type="checkbox" formControlName="taxBenefits" />
+              <span class="theme-switch-slider"></span>
+            </label>
+          </div>
+
+          <!-- Conditional fields: Tax benefits details -->
+          <div class="conditional-group mb-2" *ngIf="specialDonationForm.get('taxBenefits')?.value">
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <div class="field-wrapper">
+                  <span class="field-label-custom">PAN number</span>
+                  <input
+                    type="text"
+                    class="custom-form-input"
+                    placeholder="ABCDE1234F"
+                    formControlName="panNumber"
+                  />
+                  <div
+                    class="field-error-msg"
+                    *ngIf="
+                      specialDonationForm.get('panNumber')?.invalid &&
+                      (specialDonationForm.get('panNumber')?.touched ||
+                        specialDonationForm.get('panNumber')?.dirty)
+                    "
+                  >
+                    Please enter a valid PAN number.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field-wrapper">
+                  <span class="field-label-custom">Aadhar number</span>
+                  <input
+                    type="text"
+                    class="custom-form-input"
+                    placeholder="12-digit Aadhar number"
+                    formControlName="aadharNumber"
+                    maxlength="12"
+                  />
+                  <div
+                    class="field-error-msg"
+                    *ngIf="
+                      specialDonationForm.get('aadharNumber')?.invalid &&
+                      (specialDonationForm.get('aadharNumber')?.touched ||
+                        specialDonationForm.get('aadharNumber')?.dirty)
+                    "
+                  >
+                    Please enter a valid 12-digit Aadhar number.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field-wrapper">
+              <span class="field-label-custom">Address</span>
+              <textarea
+                class="custom-form-textarea"
+                placeholder="Your full address"
+                formControlName="address"
+                rows="3"
+              ></textarea>
+              <div
+                class="field-error-msg"
+                *ngIf="
+                  specialDonationForm.get('address')?.invalid &&
+                  (specialDonationForm.get('address')?.touched ||
+                    specialDonationForm.get('address')?.dirty)
+                "
+              >
+                Please enter a valid address (min 5 characters).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SUBMIT & ERROR DISPLAY ── -->
+        <div *ngIf="errormessage" class="validation-error-summary mb-4">
+          <mat-icon>error_outline</mat-icon>
+          <span>{{ errormessage }}</span>
+        </div>
+
+        <div class="submit-action-container">
+          <button type="button" class="custom-submit-btn" (click)="validateForm()">
+            <mat-icon class="btn-icon">volunteer_activism</mat-icon>
+            Donate now
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!--COMMENTS-->
+<section class="comments-section pt-5">
+  <div class="container">
+    <div class="text-center heading-box">
+      <span class="topic-label">Community</span>
+      <h2 class="main-title mb-3">What People Are Saying</h2>
+      <div class="accent-line mx-auto"></div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="commonninja_component pid-5e00a913-df01-4461-bcba-ce7502aba72b"></div>
+    </div>
+  </div>
+</section>
+
+<!--YOUTUBE SHORTS-->
+<!-- <app-youtube-shorts-carousel></app-youtube-shorts-carousel> -->

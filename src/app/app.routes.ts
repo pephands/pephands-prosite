@@ -37,6 +37,7 @@ import { StrayFood } from './pages/stray-food/stray-food';
 import { CareFund } from './pages/care-fund/care-fund';
 import { SpecialdayAll } from './pages/specialday-all/specialday-all';
 import { CampaignDetail } from './pages/campaign-detail/campaign-detail';
+import { SpecialdayDetail } from './pages/specialday-detail/specialday-detail';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -125,9 +126,14 @@ export const routes: Routes = [
     component: StrayFood,
     title: 'Feeding Strays - Pephands Foundation',
   },
+  {
+    path: 'donate/:specialUrl',
+    component: SpecialdayDetail,
+    title: 'Celebrate Your Special Day by Giving - Pephands Foundation',
+  },
   { path: 'care-fund', component: CareFund, title: 'Care Fund - Pephands Foundation' },
   {
-    path: 'donate/celebrate-special-day',
+    path: 'donate-on-special-day',
     component: SpecialdayAll,
     title: 'Celebrate Your Special Day - Pephands Foundation',
   },
