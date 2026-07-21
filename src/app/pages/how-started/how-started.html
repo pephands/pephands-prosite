@@ -1,1 +1,131 @@
-<p>how-started works!</p>
+<section class="pephands-section bg-pep-bg position-relative pt-5">
+  
+  <!-- Hero / Header Section -->
+  <div class="container py-5 mt-5">
+    <div class="row align-items-center mb-5 pb-5 g-5">
+      <div class="col-12 col-lg-6 pe-lg-5 text-center text-lg-start">
+        <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small">Who We Are</span>
+        <h1 class="display-3 fw-bold text-pep-ink mb-4 tracking-tight mt-3">Collective Action for a Positive Change</h1>
+        <div class="accent-line bg-pep-primary rounded-pill mb-4 mx-auto mx-lg-0" style="width: 80px; height: 5px"></div>
+        <p class="lead text-muted lh-lg mb-0">
+          Pephands Foundation believes in the power of community and the strength of a helping hand. Founded with the vision of making a meaningful difference in the lives of individuals and communities in need, we are committed to fostering positive change and creating opportunities for growth and development.
+        </p>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="glass-card p-2 p-md-3 rounded-5 shadow-lg position-relative border-0" style="background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));">
+          <img src="/volunteer/volunteer awards.jpg" alt="About Pephands Foundation" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; aspect-ratio: 4/3;">
+          <div class="position-absolute bg-pep-gold text-pep-ink fw-bold px-4 py-2 rounded-pill shadow-sm" style="bottom: -20px; right: 40px; border: 4px solid white;">
+            Since 2022
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mission, Vision, Values Section -->
+  <div class="container py-5 mb-5">
+    <div class="row g-4">
+      <!-- Mission -->
+      <div class="col-12 col-md-4">
+        <div class="glass-card h-100 p-4 rounded-4 shadow-sm border-top border-4 text-center" style="border-top-color: var(--pep-primary) !important;">
+          <div class="icon-circle bg-pep-primary bg-opacity-10 text-pep-primary mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; font-size: 2rem;">
+            <i class="bi bi-bullseye"></i>
+          </div>
+          <h3 class="fw-bold text-pep-ink mb-3">Our Mission</h3>
+          <p class="text-muted small lh-lg mb-0">
+            Making Food, Shelter, Medical and Education affordable to everyone for an equal world with personalized campaign solutions for personal & social causes. We are continuously impacting the lives of needy people through fundraising activities, and campaigns.
+          </p>
+        </div>
+      </div>
+      <!-- Vision -->
+      <div class="col-12 col-md-4">
+        <div class="glass-card h-100 p-4 rounded-4 shadow-sm border-top border-4 text-center" style="border-top-color: var(--pep-gold) !important;">
+          <div class="icon-circle bg-pep-gold bg-opacity-10 text-pep-gold mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; font-size: 2rem;">
+            <i class="bi bi-eye"></i>
+          </div>
+          <h3 class="fw-bold text-pep-ink mb-3">Our Vision</h3>
+          <p class="text-muted small lh-lg mb-0">
+            By fostering collaboration, resilience, and access to opportunities, we envision a world where every individual has the tools and resources needed to thrive, regardless of their economic circumstances.
+          </p>
+        </div>
+      </div>
+      <!-- Values -->
+      <div class="col-12 col-md-4">
+        <div class="glass-card h-100 p-4 rounded-4 shadow-sm border-top border-4 text-center" style="border-top-color: var(--pep-magenta) !important;">
+          <div class="icon-circle bg-pep-magenta bg-opacity-10 text-pep-magenta mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; font-size: 2rem;">
+            <i class="bi bi-heart"></i>
+          </div>
+          <h3 class="fw-bold text-pep-ink mb-3">Our Values</h3>
+          <p class="text-muted small lh-lg mb-0">
+            At Pephands Foundation, we value compassion, integrity, and community. We're dedicated to making vital services like food, shelter, healthcare, and education accessible to all, building a more equitable world for everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SDG Section -->
+  <div class="bg-white py-5">
+    <div class="container py-5">
+      <div class="text-center mb-5 pb-4">
+        <span class="topic-label text-pep-primary fw-bold text-uppercase tracking-wider small">Global Initiatives</span>
+        <h2 class="display-5 fw-bold text-pep-ink mb-3 tracking-tight mt-2">Aligned With UN SDGs</h2>
+        <div class="accent-line bg-pep-gold rounded-pill mx-auto mb-4" style="width: 80px; height: 4px"></div>
+        <p class="lead text-muted max-w-800 mx-auto">
+          Pephands Foundation is deeply committed to the United Nations Sustainable Development Goals, a universal call to action to end poverty, protect the planet, and ensure prosperity for all by 2030.
+        </p>
+      </div>
+
+      <!-- Dynamic CSS Grid for SDGs -->
+      <div class="sdg-grid">
+        <div class="sdg-card shadow-sm border border-light" *ngFor="let sdg of sdgs">
+          <img [src]="sdg.img" [alt]="sdg.title">
+          <div class="sdg-overlay">{{ sdg.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Journey / Impact Section -->
+  <div class="container py-5 my-5">
+    <div class="row align-items-center g-5">
+      <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+        <div class="image-stack w-100">
+          <div class="img-accent"></div>
+          <img src="/home-page/mission.png" alt="Our Impact" class="img-main shadow-lg">
+          <img src="/flood/flood3.png" alt="Relief Work" class="img-secondary shadow-lg">
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 ps-lg-5">
+        <span class="topic-label text-pep-magenta fw-bold text-uppercase tracking-wider small">What Drives Us</span>
+        <h2 class="fw-bold text-pep-ink mb-4 display-5 tracking-tight mt-2" style="line-height: 1.2;">Our Heart & Our Journey</h2>
+        <div class="accent-line bg-pep-primary rounded-pill mb-4" style="width: 60px; height: 4px"></div>
+        <p class="text-muted lh-lg mb-4 fs-5 fw-medium">
+          Our foundation is driven by a deep sense of compassion and a steadfast commitment to social justice. Through our programs and initiatives, we seek to break down barriers and create pathways to success for those who need it most.
+        </p>
+        <p class="text-muted lh-lg mb-0 opacity-75">
+          Since our inception, Pephands has made a significant impact on the lives of countless individuals. From providing access to clean water to promoting education, our programs have touched hearts and minds from all walks of life. Together, we are building a world where everyone has the opportunity to thrive.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Banner Section -->
+  <div class="cta-banner py-5 mt-5 text-white">
+    <div class="container py-5 text-center position-relative z-2">
+      <h2 class="display-4 fw-bold mb-4 text-white">Join Us In Our Mission</h2>
+      <p class="lead mb-5 opacity-75 max-w-800 mx-auto">
+        Countless people can survive with your small help. Food, healthcare for children, cancer patients, elderly care, and palliative support are our primary goals.
+      </p>
+      <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+        <a routerLink="/donate" class="btn btn-light text-pep-primary btn-lg rounded-pill px-5 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2" style="padding-block: 1rem;">
+          <i class="bi bi-heart-fill text-pep-magenta"></i> Give Monthly
+        </a>
+        <a routerLink="/volunteer" class="btn btn-outline-light btn-lg rounded-pill px-5 fw-bold d-flex align-items-center justify-content-center gap-2" style="padding-block: 1rem; border-width: 2px;">
+          <i class="bi bi-person-hearts"></i> Become A Volunteer
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>

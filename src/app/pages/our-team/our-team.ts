@@ -18,11 +18,15 @@ interface TeamMember {
   styleUrl: './our-team.scss',
 })
 export class OurTeam implements OnInit {
-  constructor(private meta: Meta, private title: Title) {}
+  constructor(
+    private meta: Meta,
+    private title: Title,
+  ) {}
 
   ngOnInit(): void {
     const pageTitle = 'Our Team - Pephands Foundation';
-    const pageDesc = 'Meet the dedicated team behind Pephands Foundation. From our advisory board to our field executives, discover the passionate individuals driving lasting social impact.';
+    const pageDesc =
+      'Meet the dedicated team behind Pephands Foundation. From our advisory board to our field executives, discover the passionate individuals driving lasting social impact.';
 
     this.title.setTitle(pageTitle);
     this.meta.updateTag({ name: 'description', content: pageDesc });
@@ -30,8 +34,14 @@ export class OurTeam implements OnInit {
     this.meta.updateTag({ property: 'og:description', content: pageDesc });
     this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
     this.meta.updateTag({ name: 'twitter:description', content: pageDesc });
-    this.meta.updateTag({ property: 'og:image', content: 'https://pephands-prosite.web.app/logos/pephands-foundation.png' });
-    this.meta.updateTag({ name: 'twitter:image', content: 'https://pephands-prosite.web.app/logos/pephands-foundation.png' });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://pephands-prosite.web.app/logos/pephands-foundation.png',
+    });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content: 'https://pephands-prosite.web.app/logos/pephands-foundation.png',
+    });
   }
   team: TeamMember[] = [
     {
@@ -53,7 +63,7 @@ export class OurTeam implements OnInit {
       role: 'CEO',
       desc: 'Driving growth and sustainable strategy in all aspects.',
       image: '/team/kishar.jpeg',
-      tier: 2,
+      tier: 1,
     },
     {
       name: 'DR. S. GANGADHARAN',
@@ -67,7 +77,7 @@ export class OurTeam implements OnInit {
       role: 'CAO',
       desc: 'Chief Administrative Officer',
       image: '/team/shameema.png',
-      tier: 3,
+      tier: 2,
     },
     // { name: 'SIVASANKAR', role: 'RDM', desc: 'Resource Development Manager', image: '/team/placeholder.png', tier: 3 },
     {
@@ -75,49 +85,49 @@ export class OurTeam implements OnInit {
       role: 'PROJECT MANAGER',
       desc: 'Health and Wellness',
       image: '/team/farzana.jpg',
-      tier: 3,
+      tier: 2,
     },
     {
       name: 'ABIRAMI',
       role: 'HEAD - SW',
       desc: 'Head - Social Workers',
       image: '/team/abirami.png',
-      tier: 4,
+      tier: 3,
     },
     {
       name: 'THIRUPPATHI',
       role: 'PROJECT MANAGER',
       desc: 'Animal Welfare',
       image: '/team/thiruppathi.png',
-      tier: 4,
+      tier: 3,
     },
     {
       name: 'JANANI',
       role: 'PRM',
       desc: 'Public Relations Manager',
       image: '/team/placeholder.png',
-      tier: 4,
+      tier: 3,
     },
     {
       name: 'SATHISH',
       role: 'FIELD CO-ORDINATOR',
       desc: 'Health, Food',
       image: '/team/placeholder.png',
-      tier: 5,
+      tier: 4,
     },
     {
       name: 'MOHAMMED IDRIS',
       role: 'FIELD EXECUTIVE',
       desc: 'Health, Food, Animal Welfare',
       image: '/team/idris.png',
-      tier: 5,
+      tier: 4,
     },
     {
       name: 'MAITHREYA',
       role: 'SUPPORTER & VOLUNTEER',
       desc: 'Health, Food, Animal Welfare',
       image: '/team/maithreya.jpg',
-      tier: 5,
+      tier: 4,
     },
   ];
 

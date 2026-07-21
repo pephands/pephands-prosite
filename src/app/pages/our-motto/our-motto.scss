@@ -1,0 +1,50 @@
+.pephands-section {
+  overflow-x: hidden;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+.motto-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+    
+    .motto-icon-wrapper {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+}
+
+.motto-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.4s ease;
+}
+
+
+
+/* Specific styling for the border in the values section on large screens */
+@media (min-width: 992px) {
+  .border-start-lg {
+    border-left: 2px solid rgba(91, 26, 107, 0.1) !important;
+  }
+}
+
+.text-pep-gold {
+  color: var(--pep-gold) !important;
+}
+
+.bg-pep-gold {
+  background-color: var(--pep-gold) !important;
+}
+
+.blur-2xl {
+  filter: blur(40px);
+}
