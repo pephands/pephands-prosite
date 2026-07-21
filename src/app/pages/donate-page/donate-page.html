@@ -1,0 +1,296 @@
+<section class="pephands-section donate-page-section text-center pt-5 mt-5" id="donate-hero">
+  <div class="heading-box mb-5 mt-5">
+    <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small"
+      >Support Our Mission</span
+    >
+    <h1 class="display-5 fw-bold text-pep-ink mb-3 tracking-tight">Make a Donation</h1>
+    <div
+      class="accent-line bg-pep-primary rounded-pill mx-auto"
+      style="width: 60px; height: 4px"
+    ></div>
+    <p class="lead text-muted mt-3 mb-0">
+      Your generosity fuels real, lasting change in communities.
+    </p>
+  </div>
+
+  <!-- Main Donation Container -->
+  <div class="container my-4">
+    <div class="row g-4 justify-content-center">
+      <!-- Form Column -->
+      <div class="col-12 col-lg-7">
+        <div class="luxe-card donation-form-card p-4 p-md-5">
+          <div class="card-header-styled mb-md-5 mb-4 text-center text-md-start">
+            <div class="d-flex align-items-center justify-content-center gap-2">
+              <i class="ri-hand-heart-line purple-icon fs-3"></i>
+              <h2 class="purple m-0 fw-bold fs-4">Secure Donation Form</h2>
+            </div>
+            <p class="text-muted text-center small mt-1">
+              Please fill in your details to proceed with your donation
+            </p>
+          </div>
+
+          <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-12 col-md-6 mb-3">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name" placeholder="Enter your name" />
+                  <mat-icon matSuffix class="text-muted">person</mat-icon>
+                  <mat-error *ngIf="donationForm.controls['name'].hasError('required')"
+                    >Name is required</mat-error
+                  >
+                  <mat-error *ngIf="donationForm.controls['name'].hasError('minlength')"
+                    >Name must be at least 3 characters</mat-error
+                  >
+                  <mat-error *ngIf="donationForm.controls['name'].hasError('maxlength')"
+                    >Name must be at most 50 characters</mat-error
+                  >
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-6 mb-3">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Email Address</mat-label>
+                  <input matInput formControlName="email" placeholder="Enter your email" />
+                  <mat-icon matSuffix class="text-muted">email</mat-icon>
+                  <mat-error *ngIf="donationForm.controls['email'].hasError('required')"
+                    >Email is required</mat-error
+                  >
+                  <mat-error *ngIf="donationForm.controls['email'].hasError('email')"
+                    >Invalid email address</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-6 mb-3">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Phone Number</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    formControlName="phone"
+                    maxlength="10"
+                    placeholder="Enter your phone number"
+                  />
+                  <mat-icon matSuffix class="text-muted">phone</mat-icon>
+                  <mat-error *ngIf="donationForm.controls['phone'].hasError('required')"
+                    >Phone number is required</mat-error
+                  >
+                  <mat-error *ngIf="donationForm.controls['phone'].hasError('minlength')"
+                    >Phone number must be 10 digits</mat-error
+                  >
+                  <mat-error *ngIf="donationForm.controls['phone'].hasError('maxlength')"
+                    >Phone number must be 10 digits</mat-error
+                  >
+                </mat-form-field>
+              </div>
+
+              <div class="col-12 col-md-6 mb-3">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Donation Amount (INR)</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    formControlName="amount"
+                    placeholder="Enter Amount"
+                  />
+                  <mat-icon matSuffix class="text-muted">currency_rupee</mat-icon>
+                  <mat-error *ngIf="donationForm.controls['amount'].hasError('required')"
+                    >Amount is required</mat-error
+                  >
+                  <mat-error *ngIf="donationForm.controls['amount'].hasError('min')"
+                    >Amount must be greater than or equal to 0</mat-error
+                  >
+                  <mat-error *ngIf="donationForm.controls['amount'].hasError('pattern')"
+                    >Invalid amount</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- Section 3: Tax Benefits -->
+            <div class="tax-benefits-box p-3 rounded-4 mb-4">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="ri-shield-flash-line purple fs-4"></i>
+                  <div class="text-start">
+                    <h6 class="m-0 fw-bold purple">Tax Benefits (80G)</h6>
+                    <p class="text-muted small m-0">Claim 50% tax exemption on your donation</p>
+                  </div>
+                </div>
+                <mat-checkbox formControlName="taxBenefits" color="primary"></mat-checkbox>
+              </div>
+
+              <!-- Tax fields wrapper with animation -->
+              <div
+                class="tax-fields-container"
+                [class.show]="donationForm.get('taxBenefits')?.value"
+              >
+                <div class="tax-fields-inner pt-3">
+                  <div class="row">
+                    <div class="col-12 col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Aadhar No</mat-label>
+                        <input
+                          matInput
+                          placeholder="Enter Aadhar Number"
+                          formControlName="aadharNumber"
+                          maxlength="12"
+                        />
+                        <mat-icon matSuffix class="text-muted">badge</mat-icon>
+                        <mat-error
+                          *ngIf="donationForm.controls['aadharNumber'].hasError('required')"
+                          >Aadhar is required</mat-error
+                        >
+                        <mat-error *ngIf="donationForm.controls['aadharNumber'].hasError('pattern')"
+                          >Aadhar must be exactly 12 digits</mat-error
+                        >
+                      </mat-form-field>
+                    </div>
+                    <div class="col-12 col-md-6 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>PAN Card</mat-label>
+                        <input
+                          matInput
+                          placeholder="Enter PAN Card"
+                          formControlName="panNumber"
+                          style="text-transform: uppercase"
+                        />
+                        <mat-icon matSuffix class="text-muted">credit_card</mat-icon>
+                        <mat-error *ngIf="donationForm.controls['panNumber'].hasError('required')"
+                          >PAN is required</mat-error
+                        >
+                        <mat-error *ngIf="donationForm.controls['panNumber'].hasError('pattern')"
+                          >Invalid PAN format (e.g. ABCDE1234F)</mat-error
+                        >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Address</mat-label>
+                        <textarea
+                          matInput
+                          placeholder="Billing Address"
+                          formControlName="address"
+                          rows="3"
+                        ></textarea>
+                        <mat-icon matSuffix class="text-muted">home</mat-icon>
+                        <mat-error *ngIf="donationForm.controls['address'].hasError('required')"
+                          >Address is required</mat-error
+                        >
+                        <mat-error *ngIf="donationForm.controls['address'].hasError('minlength')"
+                          >Address must be at least 5 characters</mat-error
+                        >
+                        <mat-error *ngIf="donationForm.controls['address'].hasError('maxlength')"
+                          >Address must be at most 200 characters</mat-error
+                        >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+              <button
+                mat-flat-button
+                class="w-100 py-3 btn-donate-submit text-uppercase fw-bold"
+                type="submit"
+                [disabled]="!donationForm.valid"
+              >
+                <i class="ri-heart-pulse-line me-2"></i>Proceed to Donate
+              </button>
+              <div
+                class="d-flex align-items-center justify-content-center gap-2 mt-3 text-muted small"
+              >
+                <i class="ri-lock-line text-success"></i>
+                <span>Secured 256-Bit SSL Payment Processing</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- QR Code Column -->
+      <div class="col-12 col-lg-5">
+        <div
+          class="luxe-card qr-card p-4 p-md-5 text-center h-100 d-flex flex-column justify-content-center"
+        >
+          <div>
+            <div class="qr-header mb-4">
+              <span class="qr-badge mb-2">Instant UPI Transfer</span>
+              <h3 class="purple fw-bold fs-4 m-0">Donate via UPI QR</h3>
+              <p class="text-muted small mt-1">
+                Scan the QR code with any UPI app to donate directly
+              </p>
+            </div>
+
+            <!-- Animated Scanner Frame -->
+            <div class="scanner-frame-wrapper mx-auto mb-4">
+              <div class="scanner-frame">
+                <div class="scanner-corner top-left"></div>
+                <div class="scanner-corner top-right"></div>
+                <div class="scanner-corner bottom-left"></div>
+                <div class="scanner-corner bottom-right"></div>
+                <div class="scan-beam"></div>
+                <img src="/Donation-QR/G-donation.JPG" alt="QR Code" class="img-fluid qr-image" />
+              </div>
+              <p class="purple mt-3 mb-0 fw-bold">Scan QR Code to Pay Directly</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Advertisement Component -->
+<div class="">
+  <app-home-education></app-home-education>
+</div>
+<div class="">
+  <app-home-carefund></app-home-carefund>
+</div>
+<div class="">
+  <app-home-medical></app-home-medical>
+</div>
+
+<!-- Impact Section -->
+<section class="pephands-section bg-light-gradient py-5" id="donate-impact">
+  <div class="container">
+    <div class="heading-box mb-5 text-center">
+      <span class="topic-label text-pep-gold fw-bold text-uppercase tracking-wider small"
+        >Our Impact</span
+      >
+      <h2 class="display-5 fw-bold text-pep-ink mb-3 tracking-tight">How Your Donations Impact?</h2>
+      <div
+        class="accent-line bg-pep-primary rounded-pill mx-auto"
+        style="width: 60px; height: 4px"
+      ></div>
+      <p class="lead text-muted mt-3 mb-0">
+        We ensure your contributions translate directly into sustainable welfare.
+      </p>
+    </div>
+
+    <!-- Simple Image Grid -->
+    <div class="row g-4 justify-content-center align-items-center">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let image of impacts">
+        <div class="simple-impact-item">
+          <img [src]="image" alt="impact of pephands" class="img-fluid simple-impact-img" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Special Day Section -->
+<app-home-specialday></app-home-specialday>
+
+<!-- Common Ninja Widgets / Reviews -->
+<div class="my-4 my-md-5 d-flex justify-content-center align-items-center">
+  <div class="commonninja_component pid-5e00a913-df01-4461-bcba-ce7502aba72b"></div>
+</div>

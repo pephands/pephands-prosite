@@ -1,0 +1,320 @@
+/* ================================================================================================= */
+/* BREADCRUMBS */
+/* ================================================================================================= */
+.breadcrumbs-text {
+  font-size: 0.9rem;
+  color: #707070;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.donate-page-section{
+  background-color: rgb(241, 231, 251);
+}
+
+.breadcrumbs-link {
+  color: #6e3a6f;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    color: #4a154b;
+  }
+}
+
+.breadcrumbs-sep {
+  color: #ccc;
+  margin: 0 4px;
+}
+
+.breadcrumbs-current {
+  color: #333;
+  font-weight: 400;
+}
+
+/* ================================================================================================= */
+/* LUXE CARDS & LAYOUT */
+/* ================================================================================================= */
+.luxe-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(156, 39, 176, 0.08);
+  box-shadow: rgba(17, 12, 46, 0.04) 0px 24px 60px 0px, rgba(156, 39, 176, 0.02) 0px 4px 20px 0px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: rgba(74, 21, 75, 0.08) 0px 30px 80px 0px;
+    border-color: rgba(156, 39, 176, 0.15);
+  }
+}
+
+/* ================================================================================================= */
+/* SECURE FORM CUSTOM STYLING */
+/* ================================================================================================= */
+.card-header-styled {
+  .purple-icon {
+    color: #4a154b;
+  }
+}
+
+.form-section-title {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  
+  .section-number {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #4a154b 0%, #9c27b0 100%);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Material form overrides for custom appearance */
+::v-deep {
+  .mat-mdc-form-field {
+    --mdc-outlined-text-field-container-shape: 12px;
+    --mdc-outlined-text-field-focus-outline-color: #9c27b0 !important;
+    --mdc-outlined-text-field-hover-outline-color: #4a154b;
+  }
+
+  /* Prevent rupee symbol from hitting left side of outline */
+  .currency-symbol {
+    margin-left: 8px !important;
+    margin-right: 4px !important;
+    color: #4a154b;
+    font-weight: 600;
+  }
+}
+
+/* Tax benefits container */
+.tax-benefits-box {
+  background: rgba(156, 39, 176, 0.03);
+  border: 1px solid rgba(156, 39, 176, 0.08);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(156, 39, 176, 0.05);
+    border-color: rgba(156, 39, 176, 0.15);
+  }
+}
+
+.tax-fields-container {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+
+  &.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+/* Dynamic Submit Button */
+.btn-donate-submit {
+  background: linear-gradient(135deg, #4a154b 0%, #98299B 100%) !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  padding: 1.5rem !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(152, 41, 155, 0.2) !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  border: none;
+  cursor: pointer;
+  max-width: 320px !important;
+  width: 100% !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto !important;
+
+  &:hover:not([disabled]) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(74, 21, 75, 0.3) !important;
+    background: linear-gradient(135deg, #3a0f3b 0%, #802082 100%) !important;
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #cccccc !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ================================================================================================= */
+/* QR CODE & SCANNER UI */
+/* ================================================================================================= */
+.qr-card {
+  background: linear-gradient(180deg, #ffffff 0%, #faf8fc 100%);
+}
+
+.qr-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #9c27b0;
+  background: rgba(156, 39, 176, 0.08);
+  padding: 6px 14px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+/* Scanner Mockup Styling */
+.scanner-frame-wrapper {
+  max-width: 250px;
+  position: relative;
+}
+
+.scanner-frame {
+  position: relative;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(156, 39, 176, 0.1);
+  overflow: hidden;
+  transform: translateZ(0); /* Fixes pixel shaking / sub-pixel rendering issues during child animation */
+}
+
+.scanner-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: #9c27b0;
+  border-width: 3px;
+  border-style: solid;
+  pointer-events: none;
+
+  &.top-left {
+    top: 10px;
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 8px;
+  }
+  &.top-right {
+    top: 10px;
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 8px;
+  }
+  &.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 8px;
+  }
+  &.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 8px;
+  }
+}
+
+/* Moving Laser Scanning Beam */
+.scan-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(156, 39, 176, 0.1) 0%, #9c27b0 50%, rgba(156, 39, 176, 0.1) 100%);
+  box-shadow: 0 0 10px #9c27b0, 0 0 4px #9c27b0;
+  z-index: 10;
+  animation: laserScan 4s ease-in-out infinite;
+  pointer-events: none;
+  will-change: top;
+}
+
+@keyframes laserScan {
+  0%, 100% {
+    top: 12px;
+  }
+  50% {
+    top: calc(100% - 15px);
+  }
+}
+
+.qr-image {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 190px;
+  height: auto;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* UPI Brands */
+.badge-upi-app {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #555;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  display: inline-flex;
+  align-items: center;
+}
+
+.qr-footer-callout {
+  background: rgba(74, 21, 75, 0.02);
+  border-left: 3px solid #4a154b;
+}
+
+/* ================================================================================================= */
+/* SIMPLE IMPACT SECTION */
+/* ================================================================================================= */
+
+.simple-impact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  .simple-impact-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional subtle curve to look a bit neater */
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* Backwards compatibility fallback for original code classes */
+.donate-card {
+  border-radius: 24px;
+  box-shadow: rgba(17, 12, 46, 0.04) 0px 24px 60px 0px;
+}
+
+mat-icon{
+  color: #9c27b0 !important;
+
+}

@@ -39,6 +39,7 @@ import { SpecialdayAll } from './pages/specialday-all/specialday-all';
 import { CampaignDetail } from './pages/campaign-detail/campaign-detail';
 import { SpecialdayDetail } from './pages/specialday-detail/specialday-detail';
 import { Marathongallery2026 } from './pages/marathongallery-2026/marathongallery-2026';
+import { DonatePage } from './pages/donate-page/donate-page';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -130,6 +131,11 @@ export const routes: Routes = [
     path: 'causes/medical',
     component: MedicalCampaigns,
     title: 'Medical Campaigns - Pephands Foundation',
+  },
+  {
+    path: 'donate',
+    component: DonatePage,
+    title: 'Donate - Pephands Foundation',
   },
   {
     path: 'donate/celebrate-special-day',
