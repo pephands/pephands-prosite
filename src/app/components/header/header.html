@@ -197,7 +197,7 @@
         <mat-menu #eventsMenu="matMenu" [hasBackdrop]="false" class="modern-menu-panel">
           <div (mouseenter)="openMenu(eventsTrigger)" (mouseleave)="closeMenu(eventsTrigger)">
             <button mat-menu-item routerLink="/events">All Events</button>
-            <button mat-menu-item routerLink="/events">Recent Events</button>
+            <button mat-menu-item routerLink="/events" [queryParams]="{tab: 'recent'}">Recent Events</button>
             <button mat-menu-item routerLink="/events" [queryParams]="{tab: 'upcoming'}">Upcoming Events</button>
             <button mat-menu-item routerLink="/run-for-life-marathon">Marathon 2026</button>
           </div>
@@ -342,7 +342,7 @@
             </mat-expansion-panel-header>
             <div class="d-flex flex-column gap-2 py-3 mega-menu-links">
               <a routerLink="/events" (click)="closeMobileMenu()">All Events</a>
-              <a routerLink="/events" (click)="closeMobileMenu()">Recent Events</a>
+              <a routerLink="/events" [queryParams]="{tab: 'recent'}" (click)="closeMobileMenu()">Recent Events</a>
               <a routerLink="/events" [queryParams]="{tab: 'upcoming'}" (click)="closeMobileMenu()">Upcoming Events</a>
               <a routerLink="/run-for-life-marathon" (click)="closeMobileMenu()">Marathon 2026</a>
             </div>

@@ -1,0 +1,148 @@
+<section class="pephands-section bg-white py-5">
+  <div class="container-xl">
+    <div class="heading-box text-center mt-5">
+      <span class="topic-label">Event Gallery</span>
+      <h2 class="main-title">Run For Life — All Pictures</h2>
+      <div class="accent-line mx-auto"></div>
+      <p class="sub-heading mild-purple mt-3">
+        Moments that define the movement. Download your memories.
+      </p>
+    </div>
+
+    <div class="row mt-5 g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let img of galleryImages; let i = index">
+        <div
+          class="m26-gallery-card shadow-sm rounded overflow-hidden"
+          style="border: 1px solid #f0ebf0"
+        >
+          <div class="overflow-hidden">
+            <img
+              [src]="img.src"
+              [alt]="img.alt"
+              class="img-fluid w-100"
+              style="object-fit: cover; height: 250px; transition: transform 0.3s ease"
+              onmouseover="this.style.transform = 'scale(1.05)'"
+              onmouseout="this.style.transform = 'scale(1)'"
+            />
+          </div>
+          <div
+            class="p-3 bg-light d-flex justify-content-end align-items-center gap-2 position-relative"
+            style="z-index: 2; border-top: 1px solid #f0ebf0"
+          >
+            <a
+              [href]="img.src"
+              target="_blank"
+              class="btn btn-sm"
+              style="
+                background-color: #f8f9fa;
+                border: 1px solid #e9ecef;
+                color: #4a154b;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+              "
+              onmouseover="this.style.backgroundColor = '#e9ecef'"
+              onmouseout="this.style.backgroundColor = '#f8f9fa'"
+              title="View Image in New Tab"
+            >
+              <i class="bi bi-eye"></i>
+            </a>
+            <button
+              class="btn btn-sm"
+              style="
+                background-color: #5b1a6b;
+                color: white;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 10px rgba(91, 26, 107, 0.2);
+                border: none;
+                transition: all 0.3s ease;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'translateY(0)'"
+              (click)="downloadImage(img.src, 'RunForLife2026-' + i + '.jpg', i)"
+              title="Download Image"
+              [disabled]="downloadingStates[i]"
+            >
+              <i class="bi bi-download" *ngIf="!downloadingStates[i]"></i>
+              <span
+                class="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+                *ngIf="downloadingStates[i]"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Redesigned Pagination -->
+    <div class="d-flex justify-content-center align-items-center mt-5" *ngIf="totalPages > 1">
+      <nav aria-label="Page navigation" class="premium-pagination-nav">
+        <ul class="pagination pagination-premium align-items-center mb-0">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a
+              class="page-link prev-next-btn"
+              (click)="changePage(currentPage - 1)"
+              aria-label="Previous"
+              >&lt;</a
+            >
+          </li>
+
+          <ng-container *ngFor="let page of getPageArray()">
+            <li class="page-item" *ngIf="page !== '...'" [class.active]="currentPage === page">
+              <a class="page-link page-num-btn" (click)="changePage(page)">
+                {{ page }}
+              </a>
+            </li>
+            <li class="page-item ellipsis-item" *ngIf="page === '...'">
+              <span class="page-link ellipsis-btn">{{ page }}</span>
+            </li>
+          </ng-container>
+
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a
+              class="page-link prev-next-btn"
+              (click)="changePage(currentPage + 1)"
+              aria-label="Next"
+              >&gt;</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="text-center mt-5">
+      <button
+        routerLink="/run-for-life-marathon"
+        class="btn px-4 py-2 rounded-pill"
+        style="
+          border: 2px solid #5b1a6b;
+          color: #5b1a6b;
+          font-weight: 600;
+          background: transparent;
+          transition: all 0.3s ease;
+        "
+        onmouseover="
+          this.style.background = '#5b1a6b';
+          this.style.color = 'white';
+        "
+        onmouseout="
+          this.style.background = 'transparent';
+          this.style.color = '#5b1a6b';
+        "
+      >
+        <i class="bi bi-arrow-left"></i> Back to Marathon
+      </button>
+    </div>
+  </div>
+</section>

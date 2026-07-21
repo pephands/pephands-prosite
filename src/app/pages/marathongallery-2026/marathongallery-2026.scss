@@ -1,0 +1,160 @@
+$primary: #260f2e; // Ink
+$secondary: #5b1a6b; // Purple
+$accent: #e8a33d; // Gold
+$magenta: #a6266f;
+$white: #ffffff;
+$text-muted: #525252;
+
+// ── SECTION HEADINGS ─────────────────────────────────
+.heading-box {
+  margin-bottom: 2rem;
+  
+  .topic-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $accent;
+    background: rgba(232, 163, 61, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .main-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: $secondary;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  .accent-line {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, $secondary, $accent);
+    border-radius: 2px;
+    margin-top: 16px;
+  }
+
+  .sub-heading {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 400;
+    &.mild-purple {
+      color: rgba(91, 26, 107, 0.8);
+    }
+  }
+}
+
+.premium-pagination-nav {
+    display: inline-block;
+    
+    .pagination-premium {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        align-items: center;
+        gap: 12px;
+        
+        .page-item {
+            border: none !important;
+            background: transparent !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            &.active {
+                .page-num-btn {
+                    background: linear-gradient(135deg, $secondary, $accent) !important;
+                    color: $white !important;
+                    border-radius: 8px !important;
+                    font-weight: 600;
+                    box-shadow: 0 4px 10px rgba($secondary, 0.25);
+                }
+            }
+            
+            &.disabled {
+                opacity: 0.35;
+                cursor: not-allowed;
+                pointer-events: none;
+                
+                .page-link {
+                    color: $text-muted !important;
+                }
+            }
+        }
+        
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            text-decoration: none;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            font-family: inherit;
+            
+            &.page-num-btn {
+                width: 38px;
+                height: 38px;
+                color: $primary;
+                font-weight: 500;
+                font-size: 1.15rem;
+                border-radius: 8px;
+                transition: all 0.2s ease-in-out;
+                
+                &:hover:not(.active) {
+                    background-color: rgba($secondary, 0.08) !important;
+                    color: $secondary !important;
+                }
+            }
+            
+            &.prev-next-btn {
+                width: 38px;
+                height: 38px;
+                color: $primary;
+                font-weight: 400;
+                font-size: 1.35rem;
+                border-radius: 8px;
+                transition: all 0.2s ease-in-out;
+                
+                &:hover {
+                    color: $secondary !important;
+                    background-color: rgba($secondary, 0.08) !important;
+                }
+            }
+        }
+        
+        .ellipsis-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            .ellipsis-btn {
+                width: 38px;
+                height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #8e8e93 !important;
+                background: transparent !important;
+                border: none !important;
+                font-weight: 500;
+                font-size: 1.15rem;
+                cursor: default;
+                user-select: none;
+                padding: 0 !important;
+            }
+        }
+    }
+}

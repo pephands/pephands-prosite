@@ -38,6 +38,7 @@ import { CareFund } from './pages/care-fund/care-fund';
 import { SpecialdayAll } from './pages/specialday-all/specialday-all';
 import { CampaignDetail } from './pages/campaign-detail/campaign-detail';
 import { SpecialdayDetail } from './pages/specialday-detail/specialday-detail';
+import { Marathongallery2026 } from './pages/marathongallery-2026/marathongallery-2026';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -114,6 +115,11 @@ export const routes: Routes = [
     path: 'run-for-life-marathon',
     component: Marathon2026,
     title: 'Marathon 2026 - Pephands Foundation',
+  },
+  {
+    path: 'run-for-life-marathon-gallery',
+    component: Marathongallery2026,
+    title: 'Marathon 2026 Gallery - Pephands Foundation',
   },
   {
     path: 'causes/education',

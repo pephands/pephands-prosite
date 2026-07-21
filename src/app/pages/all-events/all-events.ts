@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
@@ -38,6 +38,7 @@ export class AllEvents extends BasePageComponent {
     public dial: MatDialog,
     public snack: MatSnackBar,
     private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef,
   ) {
     super(dial, snack, platformId);
   }
@@ -61,7 +62,7 @@ export class AllEvents extends BasePageComponent {
     });
   }
   fetchUpcomingEvents() {
-    this.presentLoader;
+    this.presentLoader();
     this.upcomingEventsService.getData().subscribe((response) => {
       let upcoming = response as any[];
       this.upcomingEvents = [];
@@ -71,6 +72,7 @@ export class AllEvents extends BasePageComponent {
         });
         this.dismissLoader();
       }
+      this.cdr.detectChanges();
     });
   }
 
@@ -85,6 +87,7 @@ export class AllEvents extends BasePageComponent {
         });
         this.dismissLoader();
       }
+      this.cdr.detectChanges();
     });
   }
   updateMetaTags() {
