@@ -12,7 +12,9 @@
       <div class="ambient-glow glow-2"></div>
 
       <div class="container position-relative z-index-2">
-        <div class="row align-items-center justify-content-center g-4 g-lg-5 flex-column-reverse flex-lg-row">
+        <div
+          class="row align-items-center justify-content-center g-4 g-lg-5 flex-column-reverse flex-lg-row"
+        >
           <!-- Left: Content (Catch phrase, Description, CTAs) -->
           <div class="col-12 col-lg-6 hero-content-col">
             <div class="content-reveal-wrapper">
@@ -26,11 +28,28 @@
 
               <div class="d-flex flex-wrap hero-ctas">
                 <button
+                  *ngIf="banner.primaryCtaLink"
+                  [routerLink]="banner.primaryCtaLink"
                   class="btn btn-primary rounded-pill fw-bold shadow-lg hover-lift d-flex align-items-center justify-content-center cta-primary"
                 >
                   {{ banner.primaryCtaText }} <i class="bi bi-arrow-right ms-2"></i>
                 </button>
                 <button
+                  *ngIf="!banner.primaryCtaLink"
+                  class="btn btn-primary rounded-pill fw-bold shadow-lg hover-lift d-flex align-items-center justify-content-center cta-primary"
+                >
+                  {{ banner.primaryCtaText }} <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+
+                <button
+                  *ngIf="banner.secondaryCtaLink"
+                  [routerLink]="banner.secondaryCtaLink"
+                  class="btn btn-outline-secondary rounded-pill fw-bold hover-lift bg-white cta-secondary"
+                >
+                  {{ banner.secondaryCtaText }}
+                </button>
+                <button
+                  *ngIf="!banner.secondaryCtaLink"
                   class="btn btn-outline-secondary rounded-pill fw-bold hover-lift bg-white cta-secondary"
                 >
                   {{ banner.secondaryCtaText }}
@@ -39,17 +58,14 @@
             </div>
           </div>
 
-          <!-- Right: Dynamic Masked Image -->
+          <!-- Right: Hero Pre-masked Normal Image -->
           <div class="col-12 col-lg-6 hero-image-col text-center position-relative">
-            <div class="image-reveal-wrapper d-flex justify-content-center">
-              <div class="masked-image-container" [ngClass]="'mask-' + banner.maskType">
-                <!-- Fallback background in case image fails to load -->
-                <div class="image-overlay-bg"></div>
-                <!-- The actual rectangular image that gets masked by CSS -->
+            <div class="image-reveal-wrapper d-flex justify-content-center align-items-center">
+              <div class="hero-image-container">
                 <img
                   [src]="banner.imageUrl"
                   alt="Campaign Graphic"
-                  class="img-fluid object-fit-cover w-100 h-100"
+                  class="img-fluid hero-img"
                 />
               </div>
             </div>

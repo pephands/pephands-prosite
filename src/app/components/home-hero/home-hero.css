@@ -67,57 +67,37 @@
 .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; }
 
 
-/* --- Dynamic Masked Images --- */
-.masked-image-container {
+/* --- Hero Pre-masked Normal Images --- */
+.hero-image-container {
   width: 100%;
-  max-width: 500px;
-  aspect-ratio: 1 / 1; /* Keep it square for shapes */
+  max-width: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  
-  /* Modern CSS Masking */
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
 }
 
-.hero-slide.active .masked-image-container {
-  /* Just visible */
+.hero-img {
+  max-width: 100%;
+  max-height: 480px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+  transition: transform 0.5s ease-out;
 }
 
-.image-overlay-bg {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--pep-primary);
-  z-index: -1;
+.hero-slide.active .hero-img {
+  animation: heroImgFloat 6s ease-in-out infinite alternate;
 }
 
-/* SVG Masks (Embedded Data URIs for clean code) */
-
-/* PAW MASK (Dog Paw Print) */
-.mask-paw {
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M49.9,64.8c-12.8,0-23.7,7.2-27.1,17.2c-1.3,3.8-0.2,7.9,2.8,10.6c3.2,2.8,7.9,4,12.5,3.3C42.2,95.3,46,92,49.9,92c3.9,0,7.7,3.3,11.8,3.9c4.6,0.7,9.3-0.5,12.5-3.3c3-2.6,4.1-6.7,2.8-10.6C73.6,72.1,62.7,64.8,49.9,64.8z M23.9,56.7c7.1,1.1,14-3.7,15.5-10.9c1.4-7.2-3.3-13.9-10.4-15c-7.1-1.1-14,3.7-15.5,10.9C12,48.9,16.8,55.6,23.9,56.7z M76.1,56.7c7.1-1.1,11.9-7.8,10.4-15c-1.4-7.2-8.4-12-15.5-10.9c-7.1,1.1-11.9,7.8-10.4,15C62.1,53,69,57.8,76.1,56.7z M50,47.4c7.6,0,13.8-7.5,13.8-16.8S57.6,13.8,50,13.8S36.2,21.3,36.2,30.6S42.4,47.4,50,47.4z"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M49.9,64.8c-12.8,0-23.7,7.2-27.1,17.2c-1.3,3.8-0.2,7.9,2.8,10.6c3.2,2.8,7.9,4,12.5,3.3C42.2,95.3,46,92,49.9,92c3.9,0,7.7,3.3,11.8,3.9c4.6,0.7,9.3-0.5,12.5-3.3c3-2.6,4.1-6.7,2.8-10.6C73.6,72.1,62.7,64.8,49.9,64.8z M23.9,56.7c7.1,1.1,14-3.7,15.5-10.9c1.4-7.2-3.3-13.9-10.4-15c-7.1-1.1-14,3.7-15.5,10.9C12,48.9,16.8,55.6,23.9,56.7z M76.1,56.7c7.1-1.1,11.9-7.8,10.4-15c-1.4-7.2-8.4-12-15.5-10.9c-7.1,1.1-11.9,7.8-10.4,15C62.1,53,69,57.8,76.1,56.7z M50,47.4c7.6,0,13.8-7.5,13.8-16.8S57.6,13.8,50,13.8S36.2,21.3,36.2,30.6S42.4,47.4,50,47.4z"/></svg>');
-}
-
-/* ARCH MASK */
-.mask-arch {
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10,50 L10,90 L90,90 L90,50 A40,40 0 0,0 10,50 Z"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10,50 L10,90 L90,90 L90,50 A40,40 0 0,0 10,50 Z"/></svg>');
-}
-
-/* PETAL MASK (Modern opposing rounded corners) */
-.mask-petal {
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20,10 L50,10 A40,40 0 0,1 90,50 L90,80 A10,10 0 0,1 80,90 L50,90 A40,40 0 0,1 10,50 L10,20 A10,10 0 0,1 20,10 Z"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20,10 L50,10 A40,40 0 0,1 90,50 L90,80 A10,10 0 0,1 80,90 L50,90 A40,40 0 0,1 10,50 L10,20 A10,10 0 0,1 20,10 Z"/></svg>');
-}
-
-/* BLOB MASK (Organic shape) */
-.mask-blob {
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M72.5,24.5C80.8,32.8,91.3,41.4,92.5,51.8C93.7,62.1,85.6,74.1,75.1,81.3C64.6,88.4,51.7,90.6,39.5,88C27.3,85.3,15.8,77.7,8.7,66.8C1.6,55.9-1.2,41.7,1.1,29.1C3.3,16.5,10.6,5.5,21.6,1.4C32.7-2.7,47.5,0.1,59.3,6.2C71.2,12.3,80.1,21.6,72.5,24.5Z"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M72.5,24.5C80.8,32.8,91.3,41.4,92.5,51.8C93.7,62.1,85.6,74.1,75.1,81.3C64.6,88.4,51.7,90.6,39.5,88C27.3,85.3,15.8,77.7,8.7,66.8C1.6,55.9-1.2,41.7,1.1,29.1C3.3,16.5,10.6,5.5,21.6,1.4C32.7-2.7,47.5,0.1,59.3,6.2C71.2,12.3,80.1,21.6,72.5,24.5Z"/></svg>');
+@keyframes heroImgFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
 }
 
 
@@ -198,9 +178,13 @@
     font-size: 1.05rem;
   }
 
-  .masked-image-container {
+  .hero-image-container {
     max-width: 320px;
-    margin: 0 auto 0; /* Removing bottom margin since g-4 gap handles it */
+    margin: 0 auto 0;
+  }
+  
+  .hero-img {
+    max-height: 300px;
   }
   
   .hero-controls {
