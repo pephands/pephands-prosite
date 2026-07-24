@@ -14,7 +14,7 @@
   margin: 0 auto;
   width: 100%;
   max-width: 1250px;
-  padding: 4px 20px !important;
+  /* padding: 8px 4px !important; */
   box-shadow: 0 15px 35px rgba(91, 26, 107, 0.12);
   position: relative;
 }

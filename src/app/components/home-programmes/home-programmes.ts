@@ -19,7 +19,7 @@ export class HomeProgrammes {
         'At Pephands, we believe in spreading kindness and support to those who need the most. Our Pain & Palliative Care Service in Tamil Nadu is dedicated to providing dedicated free compassionate care and comfort to individuals and families facing the challenges of serious illness, aging, and end-of-life situations.',
       image: '/home-page/ppl-logo.png',
       flipped: false,
-      url: 'pepcares',
+      url: '/palliative',
     },
 
     {
@@ -29,7 +29,7 @@ export class HomeProgrammes {
         'A woman who cares for other children while also feeding her own child is referred to as a SUPER MOM. Donated breast milk is an incredibly important part of post-natal care in the modern world. Access to donor milk allows babies who cannot breastfeed to get all the nutrients and unique benefits of human milk, helping to support their immune systems, their growth and development, and their overall health and wellbeing.',
       image: '/home-page/supermom-logo.png',
       flipped: false,
-      url: 'super-mom',
+      url: '/super-mom',
     },
     {
       title: 'ICH Pepcares Center',
@@ -38,7 +38,7 @@ export class HomeProgrammes {
         'A woman who cares for other children while also feeding her own child is referred to as a SUPER MOM. Donated breast milk is an incredibly important part of post-natal care in the modern world. Access to donor milk allows babies who cannot breastfeed to get all the nutrients and unique benefits of human milk, helping to support their immune systems, their growth and development, and their overall health and wellbeing.',
       image: '/home-page/supermom-logo.png',
       flipped: false,
-      url: 'super-mom',
+      url: '/pepcares/ich-center',
     },
     {
       title: 'Neonatal Kitchen',
@@ -47,7 +47,7 @@ export class HomeProgrammes {
         'A woman who cares for other children while also feeding her own child is referred to as a SUPER MOM. Donated breast milk is an incredibly important part of post-natal care in the modern world. Access to donor milk allows babies who cannot breastfeed to get all the nutrients and unique benefits of human milk, helping to support their immune systems, their growth and development, and their overall health and wellbeing.',
       image: '/home-page/supermom-logo.png',
       flipped: false,
-      url: 'super-mom',
+      url: '/neonatal',
     },
     {
       title: 'Give In Kind',
@@ -56,7 +56,7 @@ export class HomeProgrammes {
         'A woman who cares for other children while also feeding her own child is referred to as a SUPER MOM. Donated breast milk is an incredibly important part of post-natal care in the modern world. Access to donor milk allows babies who cannot breastfeed to get all the nutrients and unique benefits of human milk, helping to support their immune systems, their growth and development, and their overall health and wellbeing.',
       image: '/home-page/supermom-logo.png',
       flipped: false,
-      url: 'super-mom',
+      url: '/give-in-kind',
     },
     {
       title: 'Care Fund',
@@ -65,7 +65,7 @@ export class HomeProgrammes {
         'A woman who cares for other children while also feeding her own child is referred to as a SUPER MOM. Donated breast milk is an incredibly important part of post-natal care in the modern world. Access to donor milk allows babies who cannot breastfeed to get all the nutrients and unique benefits of human milk, helping to support their immune systems, their growth and development, and their overall health and wellbeing.',
       image: '/home-page/supermom-logo.png',
       flipped: false,
-      url: 'super-mom',
+      url: '/care-fund',
     },
     {
       title: 'IAM',
@@ -74,7 +74,7 @@ export class HomeProgrammes {
         'IAM, presented by Pephands Foundation was an open forum for students from all backgrounds to present their project ideas. IAM was conducted in 3 stages. With over 1400+ projects from more than 900 institutions, the top 100 projects were selected as a first phase. The top 100 projects were reviewed via live online presentation. From there the top 50 project ideas were filtered. On November 18, 2023.',
       image: '/home-page/iam-logo.png',
       flipped: false,
-      url: 'iam',
+      url: '/iam',
     },
   ];
 }
