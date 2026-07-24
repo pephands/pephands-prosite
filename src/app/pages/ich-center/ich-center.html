@@ -1,1 +1,412 @@
-<p>ich-center works!</p>
+<!-- ICH Center Real Images -->
+<section class="premium-section" id="ich-hero">
+  <div class="container">
+    <!-- Hero Header -->
+    <header
+      class="d-flex flex-column text-md-center text-start justify-content-md-center justify-content-start align-items-md-center align-items-start heading-box ">
+      <span class="topic-label">Egmore, Chennai</span>
+      <h1 class="text-pep-primary heading display-4 fw-bold mb-3">
+        Pepcares Center for Cancer Affected Children - Chennai
+      </h1>
+      <div class="accent-line mx-md-auto ms-0 mb-4"></div>
+      <p class="mild-text-pep-primary sub-heading">
+        Institute of Child Health and Hospital for Children, Egmore
+      </p>
+    </header>
+
+    <!-- Intro Text -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-md-center text-start">
+        <p class="intro-text text-muted">
+          As a premier pediatric oncology center in Tamil Nadu, Pepcares Center for
+          Cancer Affected Children provides cutting-edge cancer treatment combined
+          with holistic care. Affiliated with the renowned Institute of Child Health
+          and Hospital for Children, Egmore, we specialize in childhood leukemia
+          treatment, pediatric chemotherapy, and comprehensive cancer management for
+          young patients.
+        </p>
+      </div>
+    </div>
+
+    <!-- Gallery Carousel -->
+    <!-- Custom CSS Slider -->
+    <div class="css-slider-container mx-auto">
+      <img *ngFor="let image of images; let i = index" 
+           [src]="image" 
+           alt="Pediatric cancer treatment facilities at Pepcares Chennai"
+           class="css-slider-image" 
+           [class.active]="i === currentIndex" />
+    </div>
+  </div>
+</section>
+
+<!-- Supportive Care Section -->
+<article class="cancer-care-section premium-section bg-pep-bg">
+  <div class="container">
+    <header
+      class="d-flex flex-column text-md-center text-start justify-content-md-center justify-content-start align-items-md-center align-items-start heading-box mb-5">
+      <span class="topic-label">Comprehensive Supportive Care for Pediatric Oncology Patients</span>
+      <h2 class="text-pep-primary heading display-5 fw-bold mb-3">
+        Comprehensive Supportive Care for Pediatric Oncology Patients
+      </h2>
+      <div class="accent-line mx-md-auto ms-0 mb-4"></div>
+    </header>
+    <div class="row g-5 align-items-stretch">
+      <div class="col-md-5 col-lg-4 order-md-2 d-flex">
+        <img src="/ich/ICH3.jpg" alt="Child cancer support group session at Pepcares"
+          class="img-fluid premium-img bordered-image sync-height-img" />
+      </div>
+      <div class="col-md-7 col-lg-8 order-md-1 d-flex flex-column justify-content-center">
+        <p class="intro-text mb-4">
+          Our pediatric oncology support services address all aspects of
+          childhood cancer care, ensuring complete physical, emotional, and
+          social support for patients and families:
+        </p>
+        <div class="services-premium-list">
+          <!-- Psychology -->
+          <div class="feature-list-item d-flex align-items-start mb-3">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-psychotherapy-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Child Psychology & Family Counseling:</h5>
+              <p class="text-muted small mb-0">
+                Licensed child psychologists conduct regular therapy sessions, while family support groups help parents
+                cope with treatment challenges. Our trauma-informed care approach helps reduce treatment-related
+                anxiety.
+              </p>
+            </div>
+          </div>
+
+          <!-- Nutrition -->
+          <div class="feature-list-item d-flex align-items-start mb-3">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-restaurant-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Oncology Nutrition Plans:</h5>
+              <p class="text-muted small mb-0">
+                Certified nutritionists create customized meal plans addressing chemotherapy side effects, including
+                specialized diets for immunosuppressed patients and nutritional rehabilitation programs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pain Management -->
+          <div class="feature-list-item d-flex align-items-start mb-3">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-heart-pulse-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Advanced Pain Management:</h5>
+              <p class="text-muted small mb-0">
+                Utilizing WHO-guided pain assessment tools with multimodal analgesia techniques including PCA pumps,
+                nerve blocks, and complementary therapies like medical massage.
+              </p>
+            </div>
+          </div>
+
+          <!-- Rehab -->
+          <div class="feature-list-item d-flex align-items-start">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-walk-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Rehabilitation Medicine:</h5>
+              <p class="text-muted small mb-0">
+                Physical therapy programs for post-surgical recovery, occupational therapy for maintaining developmental
+                milestones, and speech therapy for treatment-affected patients.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Education & Training Section -->
+<article class="training-section premium-section">
+  <div class="container">
+    <header
+      class="d-flex flex-column text-md-center text-start justify-content-md-center justify-content-start align-items-md-center align-items-start heading-box mb-5">
+      <span class="topic-label">Pediatric Oncology Education & Professional Development</span>
+      <h2 class="text-pep-primary heading display-5 fw-bold mb-3">
+        Pediatric Oncology Education & Professional Development
+      </h2>
+      <div class="accent-line mx-md-auto ms-0 mb-4"></div>
+    </header>
+
+    <div class="row g-5 align-items-stretch">
+      <div class="col-md-5 col-lg-4 d-flex">
+        <img src="/ich/ICH2.jpg" alt="Pediatric oncology training program at Institute of Child Health"
+          class="img-fluid premium-img bordered-image sync-height-img" />
+      </div>
+      <div class="col-md-7 col-lg-8 d-flex flex-column justify-content-center">
+        <p class="intro-text mb-4">
+          As a regional leader in pediatric hematology-oncology education, we offer:
+        </p>
+
+        <div class="training-premium-list">
+          <!-- Fellowships -->
+          <div class="feature-list-item d-flex align-items-start mb-3">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-graduation-cap-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Fellowship Programs:</h5>
+              <p class="text-muted small mb-0">
+                3-year DM Pediatric Oncology fellowship recognized by the Medical
+                Council of India, with rotations in pediatric bone marrow
+                transplantation and palliative care.
+              </p>
+            </div>
+          </div>
+
+          <!-- CME -->
+          <div class="feature-list-item d-flex align-items-start mb-3">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-presentation-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Continuing Medical Education:</h5>
+              <p class="text-muted small mb-0">
+                Annual international pediatric oncology conferences, monthly tumor
+                board discussions, and certification courses in pediatric
+                palliative care.
+              </p>
+            </div>
+          </div>
+
+          <!-- Family Resources -->
+          <div class="feature-list-item d-flex align-items-start">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-book-open-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Family Education Resources:</h5>
+              <p class="text-muted small mb-0">
+                Multilingual treatment guides, chemotherapy education videos, and
+                caregiver skill-building workshops available through our patient
+                education portal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Community Outreach Section -->
+<article class="outreach-section premium-section">
+  <div class="container">
+    <header
+      class="d-flex flex-column text-md-center text-start justify-content-md-center justify-content-start align-items-md-center align-items-start heading-box mb-5">
+      <span class="topic-label">Community Outreach & Childhood Cancer Awareness</span>
+      <h2 class="text-pep-primary heading display-5 fw-bold mb-3">
+        Community Outreach & Childhood Cancer Awareness
+      </h2>
+      <div class="accent-line mx-md-auto ms-0 mb-4"></div>
+    </header>
+
+    <div class="row g-5 align-items-stretch">
+      <div class="col-md-5 col-lg-4 order-md-2 d-flex">
+        <img src="/ich/ICH10.jpg" alt="Childhood cancer awareness rally in Chennai"
+          class="img-fluid premium-img bordered-image sync-height-img" />
+      </div>
+      <div class="col-md-7 col-lg-8 order-md-1 d-flex flex-column justify-content-center">
+        <p class="intro-text mb-4">
+          Our community initiatives focus on early detection and support for childhood cancer:
+        </p>
+
+        <div class="outreach-premium-list">
+          <!-- Detection -->
+          <div class="feature-list-item d-flex align-items-start mb-3">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-megaphone-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Early Detection Campaigns:</h5>
+              <p class="text-muted small mb-0">
+                State-wide school screening programs for common childhood cancers,
+                community health worker training in cancer recognition, and public
+                service announcements in regional languages.
+              </p>
+            </div>
+          </div>
+
+          <!-- Support -->
+          <div class="feature-list-item d-flex align-items-start mb-3">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-group-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Parent Support Networks:</h5>
+              <p class="text-muted small mb-0">
+                Regional parent mentor program connecting new families with cancer
+                survivors, monthly virtual support meetings, and emergency
+                accommodation assistance.
+              </p>
+            </div>
+          </div>
+
+          <!-- Fundraising -->
+          <div class="feature-list-item d-flex align-items-start">
+            <div class="icon-box me-3 mt-1">
+              <i class="ri-hand-heart-line"></i>
+            </div>
+            <div>
+              <h5 class="text-pep-primary fw-bold mb-2">Fundraising Initiatives:</h5>
+              <p class="text-muted small mb-0">
+                Annual charity marathons, corporate matching gift programs, and
+                childhood cancer awareness merchandise sales supporting our
+                treatment subsidy fund.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Support Section -->
+<article class="support-section premium-section">
+  <div class="container">
+    <div class="support-split-panel">
+
+      <!-- LEFT: Purple Accent Panel -->
+      <div class="support-left-panel">
+        <div style="position: relative; z-index: 2;">
+          <p class="support-panel-eyebrow">Support Childhood Cancer Care in Tamil Nadu</p>
+          <h2 class="support-panel-heading">
+            Support Childhood Cancer Care in Tamil Nadu
+          </h2>
+          <div class="support-panel-divider"></div>
+          <p class="support-panel-desc">
+            Join our mission to provide life-saving cancer treatment to children
+            regardless of financial background. Every contribution helps us maintain
+            our treatment completion rate for pediatric oncology patients.
+          </p>
+        </div>
+        <!-- Background image at bottom -->
+        <div class="support-panel-img-wrapper">
+          <img src="../../../assets/carefund/Donate-img.png" alt="Ways to support childhood cancer treatment in India"
+            class="img-fluid support-panel-img" />
+        </div>
+      </div>
+
+      <!-- RIGHT: Cards + CTA -->
+      <div class="support-right-panel">
+
+        <!-- Row Card 1 -->
+        <div class="support-row-card">
+          <div class="support-row-icon">
+            <i class="ri-hand-coin-line"></i>
+          </div>
+          <div>
+            <h5 class="text-pep-primary fw-bold mb-1">Sustainer Giving Program:</h5>
+            <p class="text-muted small mb-0">
+              Monthly donations provide consistent support for chemotherapy
+              medications, nutritional supplements, and palliative care services.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row Card 2 -->
+        <div class="support-row-card">
+          <div class="support-row-icon">
+            <i class="ri-building-line"></i>
+          </div>
+          <div>
+            <h5 class="text-pep-primary fw-bold mb-1">Corporate Partnerships:</h5>
+            <p class="text-muted small mb-0">
+              CSR initiatives supporting specific treatment areas, employee
+              volunteer opportunities, and cause-related marketing collaborations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row Card 3 -->
+        <div class="support-row-card">
+          <div class="support-row-icon">
+            <i class="ri-gift-line"></i>
+          </div>
+          <div>
+            <h5 class="text-pep-primary fw-bold mb-1">In-Kind Donations:</h5>
+            <p class="text-muted small mb-0">
+              Contribute medical equipment, educational toys, or hospital
+              essentials through our verified donation wishlist.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Strip -->
+        <div class="support-cta-row">
+          <p><i class="ri-heart-pulse-line me-2"></i>Ready to make a difference?</p>
+          <div class="d-flex flex-wrap gap-3">
+            <button class="support-cta-btn btn-primary-support"
+              aria-label="Set up monthly donation for childhood cancer treatment"
+              [routerLink]="['/care-fund/cancer-kids-welfare']">
+              <i class="ri-heart-line"></i> Become Monthly Supporter
+            </button>
+            <button class="support-cta-btn btn-outline-support"
+              aria-label="Make one-time donation for pediatric oncology care" [routerLink]="['/donate']">
+              <i class="ri-hand-heart-line"></i> Make Immediate Impact
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>
+
+<!-- Joyful Healing Section - Full-Bleed Hero Banner -->
+<article class="healing-banner-section premium-section">
+
+  <!-- Full-bleed Background Image + Overlay -->
+  <div class="healing-banner-bg">
+    <img src="/ich/ICH4.jpg" alt="Ways to support childhood cancer treatment in India" />
+    <div class="healing-banner-overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container healing-banner-content">
+    <div class="row">
+
+      <!-- Left: All content + Stats below -->
+      <div class="col-lg-7">
+        <span class="healing-banner-eyebrow">Supporting Children's Emotional Well-Being Every Single Day</span>
+        <h2 class="healing-banner-heading">
+          Supporting Children's Emotional Well-Being Every Single Day
+        </h2>
+        <div class="healing-banner-divider"></div>
+        <p class="healing-banner-desc mb-5">
+          At Pepcares, children engage in joyful, mindful, and creative
+          activities that help reduce stress, increase confidence, and build
+          healthier emotional balance.
+        </p>
+
+        <!-- Stats below content -->
+        <div class="d-flex gap-0 flex-wrap">
+
+          <div class="healing-stat-block ps-0">
+            <div class="healing-stat-number">20<span>+</span></div>
+            <div class="healing-stat-icon"><i class="ri-sun-fill"></i></div>
+            <p class="healing-stat-label">Children Benefited<br />Daily</p>
+          </div>
+
+          <div class="healing-stat-block">
+            <div class="healing-stat-number">500<span>+</span></div>
+            <div class="healing-stat-icon"><i class="ri-heart-pulse-fill"></i></div>
+            <p class="healing-stat-label">Children Benefited<br />Monthly</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>
